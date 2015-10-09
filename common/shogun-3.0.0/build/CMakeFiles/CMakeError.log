@@ -1,0 +1,457 @@
+Performing C++ SOURCE FILE Test _HAS_CXX11_FLAG failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec2006355125.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 11:40:22 AM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2006355125.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec2006355125.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec2006355125.dir\Debug\cmTryCom.239911CF.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec2006355125.dir\Debug\cmTryCom.239911CF.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _HAS_CXX11_FLAG /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec2006355125.dir\Debug\\" /Fd"cmTryCompileExec2006355125.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue  -g -std=c++11 src.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _HAS_CXX11_FLAG /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec2006355125.dir\Debug\\" /Fd"cmTryCompileExec2006355125.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue  -g -std=c++11 src.cxx
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2006355125.vcxproj]
+  src.cxx
+cl : Command line warning D9002: ignoring unknown option '-std=c++11' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2006355125.vcxproj]
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec2006355125.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec2006355125.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec2006355125.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec2006355125.dir\Debug\src.obj
+  cmTryCompileExec2006355125.vcxproj -> D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec2006355125.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec2006355125.dir\Debug\cmTryCom.239911CF.tlog\unsuccessfulbuild".
+  Touching "cmTryCompileExec2006355125.dir\Debug\cmTryCom.239911CF.tlog\cmTryCompileExec2006355125.lastbuildstate".
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2006355125.vcxproj" (default targets).
+
+Build succeeded.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2006355125.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2006355125.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-std=c++11' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2006355125.vcxproj]
+
+    2 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.61
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test _HAS_CXX0X_FLAG failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec2712149335.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 11:40:23 AM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2712149335.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec2712149335.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec2712149335.dir\Debug\cmTryCom.B91B185C.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec2712149335.dir\Debug\cmTryCom.B91B185C.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _HAS_CXX0X_FLAG /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec2712149335.dir\Debug\\" /Fd"cmTryCompileExec2712149335.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue  -g -std=c++0x src.cxx
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _HAS_CXX0X_FLAG /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTryCompileExec2712149335.dir\Debug\\" /Fd"cmTryCompileExec2712149335.dir\Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:queue  -g -std=c++0x src.cxx
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2712149335.vcxproj]
+cl : Command line warning D9002: ignoring unknown option '-std=c++0x' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2712149335.vcxproj]
+  src.cxx
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec2712149335.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec2712149335.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec2712149335.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec2712149335.dir\Debug\src.obj
+  cmTryCompileExec2712149335.vcxproj -> D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec2712149335.exe
+FinalizeBuildStatus:
+  Deleting file "cmTryCompileExec2712149335.dir\Debug\cmTryCom.B91B185C.tlog\unsuccessfulbuild".
+  Touching "cmTryCompileExec2712149335.dir\Debug\cmTryCom.B91B185C.tlog\cmTryCompileExec2712149335.lastbuildstate".
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2712149335.vcxproj" (default targets).
+
+Build succeeded.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2712149335.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2712149335.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-std=c++0x' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec2712149335.vcxproj]
+
+    2 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.52
+
+Source file was:
+int main() { return 0;}
+Determining if the function powl exists failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec3957905473.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 11:40:38 AM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec3957905473.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec3957905473.dir\Debug\cmTryCom.0555070D.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec3957905473.dir\Debug\cmTryCom.0555070D.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=powl /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3957905473.dir\Debug\\" /Fd"cmTryCompileExec3957905473.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=powl /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3957905473.dir\Debug\\" /Fd"cmTryCompileExec3957905473.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+  CheckFunctionExists.c
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3957905473.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3957905473.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3957905473.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec3957905473.dir\Debug\CheckFunctionExists.obj
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol _powl referenced in function _main [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3957905473.exe : fatal error LNK1120: 1 unresolved externals [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj" (default target) (1) ->
+(Link target) -> 
+  CheckFunctionExists.obj : error LNK2019: unresolved external symbol _powl referenced in function _main [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+  D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3957905473.exe : fatal error LNK1120: 1 unresolved externals [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3957905473.vcxproj]
+
+    2 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:00.38
+
+
+Determining if the function sqrtl exists failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec1931981698.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 11:40:39 AM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec1931981698.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec1931981698.dir\Debug\cmTryCom.E12EF85E.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec1931981698.dir\Debug\cmTryCom.E12EF85E.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=sqrtl /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec1931981698.dir\Debug\\" /Fd"cmTryCompileExec1931981698.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=sqrtl /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec1931981698.dir\Debug\\" /Fd"cmTryCompileExec1931981698.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+  CheckFunctionExists.c
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1931981698.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1931981698.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec1931981698.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec1931981698.dir\Debug\CheckFunctionExists.obj
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol _sqrtl referenced in function _main [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1931981698.exe : fatal error LNK1120: 1 unresolved externals [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj" (default target) (1) ->
+(Link target) -> 
+  CheckFunctionExists.obj : error LNK2019: unresolved external symbol _sqrtl referenced in function _main [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+  D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec1931981698.exe : fatal error LNK1120: 1 unresolved externals [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec1931981698.vcxproj]
+
+    2 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:00.39
+
+
+Determining if files pthread.h exist failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec4114773929.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 11:40:41 AM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec4114773929.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec4114773929.dir\Debug\cmTryCom.8E487DE9.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec4114773929.dir\Debug\cmTryCom.8E487DE9.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec4114773929.dir\Debug\\" /Fd"cmTryCompileExec4114773929.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native CheckIncludeFiles.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec4114773929.dir\Debug\\" /Fd"cmTryCompileExec4114773929.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native CheckIncludeFiles.c
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj]
+  CheckIncludeFiles.c
+cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj]
+CheckIncludeFiles.c(2): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj]
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj]
+
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  CheckIncludeFiles.c(2): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4114773929.vcxproj]
+
+    2 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.28
+
+Source:
+/* */
+#include <pthread.h>
+
+
+int main(){return 0;}
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec4033340377.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 3:22:02 PM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec4033340377.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec4033340377.dir\Debug\cmTryCom.9F6E972F.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec4033340377.dir\Debug\cmTryCom.9F6E972F.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec4033340377.dir\Debug\\" /Fd"cmTryCompileExec4033340377.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native CheckSymbolExists.c
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec4033340377.dir\Debug\\" /Fd"cmTryCompileExec4033340377.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native CheckSymbolExists.c
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj]
+  CheckSymbolExists.c
+cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj]
+CheckSymbolExists.c(2): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj]
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj]
+
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  CheckSymbolExists.c(2): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec4033340377.vcxproj]
+
+    2 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.31
+
+File D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec3173392220.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 3:22:02 PM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec3173392220.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec3173392220.dir\Debug\cmTryCom.3B65652D.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec3173392220.dir\Debug\cmTryCom.3B65652D.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3173392220.dir\Debug\\" /Fd"cmTryCompileExec3173392220.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3173392220.dir\Debug\\" /Fd"cmTryCompileExec3173392220.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj]
+  CheckFunctionExists.c
+cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj]
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3173392220.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib pthreads.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3173392220.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3173392220.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec3173392220.dir\Debug\CheckFunctionExists.obj
+LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj]
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj]
+
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj" (default target) (1) ->
+(Link target) -> 
+  LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3173392220.vcxproj]
+
+    2 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.34
+
+
+Determining if the function pthread_create exists in the pthread failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec3018897614.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 3:22:03 PM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec3018897614.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec3018897614.dir\Debug\cmTryCom.42C76094.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec3018897614.dir\Debug\cmTryCom.42C76094.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3018897614.dir\Debug\\" /Fd"cmTryCompileExec3018897614.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3018897614.dir\Debug\\" /Fd"cmTryCompileExec3018897614.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.c"
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj]
+  CheckFunctionExists.c
+cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj]
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\cmTryCompileExec3018897614.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib pthread.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3018897614.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp/Debug/cmTryCompileExec3018897614.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /debug cmTryCompileExec3018897614.dir\Debug\CheckFunctionExists.obj
+LINK : fatal error LNK1104: cannot open file 'pthread.lib' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj]
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj]
+
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj" (default target) (1) ->
+(Link target) -> 
+  LINK : fatal error LNK1104: cannot open file 'pthread.lib' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3018897614.vcxproj]
+
+    2 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.31
+
+
+Determining if compiler accepts -pthread failed with the following output:
+Change Dir: D:/Code/Common/shogun-3.0.0/build/CMakeFiles/CMakeTmp
+
+Run Build Command:C:\PROGRA~2\MSBuild\12.0\Bin\MSBuild.exe cmTryCompileExec3129034815.vcxproj /p:Configuration=Debug /p:VisualStudioVersion=12.0
+Microsoft (R) Build Engine version 12.0.21005.1
+[Microsoft .NET Framework, version 4.0.30319.18408]
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Build started 11/18/2013 3:22:03 PM.
+Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj" on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "cmTryCompileExec3129034815.dir\Debug\".
+  Creating directory "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\Debug\".
+  Creating directory "cmTryCompileExec3129034815.dir\Debug\cmTryCom.EA7DE08F.tlog\".
+InitializeBuildStatus:
+  Creating "cmTryCompileExec3129034815.dir\Debug\cmTryCom.EA7DE08F.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3129034815.dir\Debug\\" /Fd"cmTryCompileExec3129034815.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckForPthreads.c"
+  Microsoft (R) C/C++ Optimizing Compiler Version 18.00.21005.1 for x86
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTryCompileExec3129034815.dir\Debug\\" /Fd"cmTryCompileExec3129034815.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue  -g -march=native "C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckForPthreads.c"
+  
+cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj]
+cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj]
+  CheckForPthreads.c
+C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckForPthreads.c(2): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj]
+Done Building Project "D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  cl : Command line warning D9002: ignoring unknown option '-g' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj]
+  cl : Command line warning D9002: ignoring unknown option '-march=native' [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj]
+
+
+"D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj" (default target) (1) ->
+(ClCompile target) -> 
+  C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckForPthreads.c(2): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Code\Common\shogun-3.0.0\build\CMakeFiles\CMakeTmp\cmTryCompileExec3129034815.vcxproj]
+
+    2 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.29
+
+

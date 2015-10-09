@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{CA71F700-9A62-44E4-B1FC-30220F833011}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>ZERO_CHECK</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="CMakeFiles\964cc2572ec3d6ae628fd4d3c9cfd1cd\generate.stamp.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HD:/Code/Common/shogun-3.0.0 -BD:/Code/Common/shogun-3.0.0/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "$(SolutionPath)"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/generate.stamp.rule;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPack.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPackComponent.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFortranFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\ExternalProject.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FeatureSummary.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBLAS.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBZip2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindCURL.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindHDF5.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLAPACK.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLibXml2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPkgConfig.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPythonInterp.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSWIG.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSubversion.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindZLIB.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\RepositoryInfo.txt.in;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\SelectLibraryConfigurations.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\UseJava.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Templates\CPackConfig.cmake.in;D:\Code\Common\shogun-3.0.0\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCXXCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeRCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeSystem.cmake;D:\Code\Common\shogun-3.0.0\build\MSDirent\tmp\MSDirent-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\build\MSIntTypes\tmp\MSIntTypes-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\cmake\CheckCXX11Features.cmake;D:\Code\Common\shogun-3.0.0\cmake\CommonModularInterface.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPACK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPREC.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCCache.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCPLEX.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindColPack.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindDoxygen.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindEigen3.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGDB.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGLPK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindJava.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLZO.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLibLZMA.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLpSolve.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindMosek.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindNLopt.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSNAPPY.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSpinlock.cmake;D:\Code\Common\shogun-3.0.0\cmake\ShogunUtils.cmake;D:\Code\Common\shogun-3.0.0\cmake\UseSWIG.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSDirent.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSIntTypes.cmake;D:\Code\Common\shogun-3.0.0\cmake\spinlock-test.cpp;D:\Code\Common\shogun-3.0.0\examples\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\libshogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\interfaces\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\lib\config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\interfaces\java_modular\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\shogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\libshogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\java_modular\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HD:/Code/Common/shogun-3.0.0 -BD:/Code/Common/shogun-3.0.0/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "$(SolutionPath)"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/generate.stamp.rule;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPack.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPackComponent.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFortranFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\ExternalProject.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FeatureSummary.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBLAS.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBZip2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindCURL.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindHDF5.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLAPACK.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLibXml2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPkgConfig.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPythonInterp.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSWIG.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSubversion.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindZLIB.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\RepositoryInfo.txt.in;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\SelectLibraryConfigurations.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\UseJava.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Templates\CPackConfig.cmake.in;D:\Code\Common\shogun-3.0.0\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCXXCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeRCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeSystem.cmake;D:\Code\Common\shogun-3.0.0\build\MSDirent\tmp\MSDirent-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\build\MSIntTypes\tmp\MSIntTypes-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\cmake\CheckCXX11Features.cmake;D:\Code\Common\shogun-3.0.0\cmake\CommonModularInterface.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPACK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPREC.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCCache.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCPLEX.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindColPack.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindDoxygen.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindEigen3.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGDB.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGLPK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindJava.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLZO.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLibLZMA.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLpSolve.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindMosek.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindNLopt.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSNAPPY.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSpinlock.cmake;D:\Code\Common\shogun-3.0.0\cmake\ShogunUtils.cmake;D:\Code\Common\shogun-3.0.0\cmake\UseSWIG.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSDirent.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSIntTypes.cmake;D:\Code\Common\shogun-3.0.0\cmake\spinlock-test.cpp;D:\Code\Common\shogun-3.0.0\examples\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\libshogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\interfaces\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\lib\config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\interfaces\java_modular\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\shogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\libshogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\java_modular\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HD:/Code/Common/shogun-3.0.0 -BD:/Code/Common/shogun-3.0.0/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "$(SolutionPath)"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/generate.stamp.rule;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPack.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPackComponent.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFortranFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\ExternalProject.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FeatureSummary.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBLAS.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBZip2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindCURL.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindHDF5.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLAPACK.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLibXml2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPkgConfig.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPythonInterp.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSWIG.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSubversion.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindZLIB.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\RepositoryInfo.txt.in;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\SelectLibraryConfigurations.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\UseJava.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Templates\CPackConfig.cmake.in;D:\Code\Common\shogun-3.0.0\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCXXCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeRCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeSystem.cmake;D:\Code\Common\shogun-3.0.0\build\MSDirent\tmp\MSDirent-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\build\MSIntTypes\tmp\MSIntTypes-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\cmake\CheckCXX11Features.cmake;D:\Code\Common\shogun-3.0.0\cmake\CommonModularInterface.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPACK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPREC.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCCache.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCPLEX.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindColPack.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindDoxygen.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindEigen3.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGDB.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGLPK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindJava.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLZO.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLibLZMA.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLpSolve.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindMosek.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindNLopt.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSNAPPY.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSpinlock.cmake;D:\Code\Common\shogun-3.0.0\cmake\ShogunUtils.cmake;D:\Code\Common\shogun-3.0.0\cmake\UseSWIG.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSDirent.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSIntTypes.cmake;D:\Code\Common\shogun-3.0.0\cmake\spinlock-test.cpp;D:\Code\Common\shogun-3.0.0\examples\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\libshogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\interfaces\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\lib\config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\interfaces\java_modular\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\shogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\libshogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\java_modular\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files (x86)\CMake 2.8\bin\cmake.exe" -HD:/Code/Common/shogun-3.0.0 -BD:/Code/Common/shogun-3.0.0/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "$(SolutionPath)"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/generate.stamp.rule;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPack.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CPackComponent.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFortranFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckFunctionExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\ExternalProject.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FeatureSummary.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBLAS.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindBZip2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindCURL.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindHDF5.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLAPACK.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindLibXml2.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindOpenMP.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPkgConfig.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindPythonInterp.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSWIG.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindSubversion.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\FindZLIB.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\RepositoryInfo.txt.in;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\SelectLibraryConfigurations.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\UseJava.cmake;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Templates\CPackConfig.cmake.in;D:\Code\Common\shogun-3.0.0\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeCXXCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeRCCompiler.cmake;D:\Code\Common\shogun-3.0.0\build\CMakeFiles\2.8.12.1\CMakeSystem.cmake;D:\Code\Common\shogun-3.0.0\build\MSDirent\tmp\MSDirent-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\build\MSIntTypes\tmp\MSIntTypes-cfgcmd.txt.in;D:\Code\Common\shogun-3.0.0\cmake\CheckCXX11Features.cmake;D:\Code\Common\shogun-3.0.0\cmake\CommonModularInterface.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPACK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindARPREC.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCCache.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindCPLEX.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindColPack.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindDoxygen.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindEigen3.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGDB.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindGLPK.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindJava.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLZO.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLibLZMA.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindLpSolve.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindMosek.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindNLopt.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSNAPPY.cmake;D:\Code\Common\shogun-3.0.0\cmake\FindSpinlock.cmake;D:\Code\Common\shogun-3.0.0\cmake\ShogunUtils.cmake;D:\Code\Common\shogun-3.0.0\cmake\UseSWIG.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSDirent.cmake;D:\Code\Common\shogun-3.0.0\cmake\external\MSIntTypes.cmake;D:\Code\Common\shogun-3.0.0\cmake\spinlock-test.cpp;D:\Code\Common\shogun-3.0.0\examples\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\examples\undocumented\libshogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\interfaces\java_modular\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\CMakeLists.txt;D:\Code\Common\shogun-3.0.0\src\shogun\lib\config.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\interfaces\java_modular\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\src\shogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\libshogun\CMakeFiles\generate.stamp;D:\Code\Common\shogun-3.0.0\build\examples\undocumented\java_modular\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="CMakeFiles\964cc2572ec3d6ae628fd4d3c9cfd1cd\ZERO_CHECK.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/ZERO_CHECK.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\ZERO_CHECK</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/ZERO_CHECK.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\ZERO_CHECK</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/ZERO_CHECK.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\ZERO_CHECK</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/Code/Common/shogun-3.0.0/build/CMakeFiles/964cc2572ec3d6ae628fd4d3c9cfd1cd/ZERO_CHECK.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Code\Common\shogun-3.0.0\build\CMakeFiles\ZERO_CHECK</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CMakeFiles\ZERO_CHECK" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

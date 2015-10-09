@@ -1,0 +1,3 @@
+repository='external project URL'
+module='http://www.softagalleria.net/download/dirent/dirent-1.13.zip'
+tag='MD5=4a4fdd27848dde028bd5e9712e2636bc'
