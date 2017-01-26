@@ -139,7 +139,7 @@ bool QExtendedTcpSocket::RecvBytes(  char * space, int len, bool block ){
 
 
     // Wait if blocking
-    while (block && bytesAvailable() < (qint64)len ) SleepMsec(10);
+    while (block && bytesAvailable() < (qint64)len ) sleep(10); // msec
 
     // Not enough data
     if (bytesAvailable() < (qint64)(len)) return false;

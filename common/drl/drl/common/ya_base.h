@@ -81,7 +81,7 @@ class YA_Base {
     { return stv().setup(rows,columns); }
   /// Reshape the matrix
   inline void reshape(const ya_sizet nrows, const ya_sizet ncols) 
-    { stv.reshape(nrows,ncols); }
+    { stv().reshape(nrows,ncols); }
 
   /// Get the number of columns in the matrix
   inline ya_sizet cols() const { return stv().cols(); }

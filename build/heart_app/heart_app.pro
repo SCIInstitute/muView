@@ -5,21 +5,23 @@
 #-------------------------------------------------
 
 QT       += core gui opengl network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += widgets
 
 TEMPLATE = app
 
 TARGET = heart
 
 
-
+LIBS += -lteem -L/usr/local/Cellar/teem/1.11.0/lib
 LIBS += -L../../bin/libs
 LIBS += -lcommon
 LIBS += -ldata
 
 # glew for windows
 win32:LIBS += -lglew32
-
+unix {
+    LIBS += -lshogun -L/usr/local/lib/
+}
 
 
 DESTDIR     = ../../bin
@@ -31,7 +33,7 @@ UI_DIR      = ../../bin/build/heart_app/.ui
 win32:QMAKE_CXXFLAGS += -openmp
 unix:QMAKE_CXXFLAGS  += -fopenmp
 
-unix:LIBS += -lgomp
+#unix:LIBS += -lgomp
 
 win32:DEFINES += _CRT_SECURE_NO_WARNINGS
 
@@ -39,6 +41,9 @@ INCLUDEPATH += ../../include
 INCLUDEPATH += ../../../Common/include
 INCLUDEPATH += .
 INCLUDEPATH += ../
+INCLUDEPATH += ../../src
+INCLUDEPATH += /usr/local/include
+INCLUDEPATH += /usr/local/Cellar/teem/1.11.0/include
 
 #CUDA_SOURCES = heart/distance_field.cu heart/voxel_associativity.cu heart/cuda_common.cu
 
@@ -56,7 +61,28 @@ SOURCES += \
     ../../src/muView/HeartDock.cpp \
     ../../src/muView/RenderEngine3D.cpp \
     ../../src/muView/RenderEngine2D.cpp \
-    ../../src/muView/HeartMainWidget.cpp
+    ../../src/MainWidget.cpp \
+    ../../src/DimensionalityReduction.cpp \
+    ../../src/Shogun_Wrapper.cpp \
+    ../../src/Drawable/DimRedDisplay.cpp \
+    ../../src/Drawable/VolumeDisplay.cpp \
+    ../../src/Drawable/DrawableObject.cpp \
+    ../../src/Drawable/Provenance.cpp \
+    ../../src/Drawable/MeshDisplay.cpp \
+    ../../src/Drawable/PointDisplay.cpp \
+    ../../src/Drawable/ProvenanceNode.cpp \
+    ../../src/Drawable/Barchart.cpp \
+    ../../src/Drawable/ColorLine.cpp \
+    ../../src/Dialog/Metadata.cpp \
+    ../../src/Histogram2D.cpp \
+    ../../src/BoundingRegion.cpp \
+    ../../src/RemoteDimensionalityReduction.cpp \
+    ../../../Common/src/SCI/Network/QExtendedTcpSocket.cpp\
+    ../../../Common/src/MyLib/PolylineSimplification.cpp\
+    ../../../Common/src/Data/BasicData.cpp\
+    ../../../Common/src/Data/MappedData.cpp\
+    ../../../Common/src/Data/ProxyData.cpp\
+    ../../src/muView/PCAView.cpp
 
 HEADERS  += \
     ../../include/muView/HeartMainWindow.h \
@@ -68,7 +94,28 @@ HEADERS  += \
     ../../include/muView/HeartDock.h \
     ../../include/muView/RenderEngine3D.h \
     ../../include/muView/RenderEngine2D.h \
-    ../../include/muView/HeartMainWidget.h
+    ../../include/MainWidget.h \
+    ../../include/DimensionalityReduction.h \
+    ../../include/Shogun_Wrapper.h \
+    ../../include/Drawable/DimRedDisplay.h \
+    ../../include/Drawable/VolumeDisplay.h \
+    ../../include/Drawable/DrawableObject.h \
+    ../../include/Drawable/Provenance.h \
+    ../../include/Drawable/MeshDisplay.h \
+    ../../include/Drawable/PointDisplay.h \
+    ../../include/Drawable/ProvenanceNode.h \
+    ../../include/Drawable/Barchart.h \
+    ../../include/Drawable/ColorLine.h \
+    ../../include/Dialog/Metadata.h \
+    ../../include/Histogram2D.h \
+    ../../include/BoundingRegion.h \
+    ../../include/RemoteDimensionalityReduction.h \
+    ../../../Common/include/SCI/Network/QExtendedTcpSocket.h\
+    ../../../Common/include/MyLib/PolylineSimplification.h\
+    ../../../Common/include/Data/BasicData.h\
+    ../../../Common/include/Data/MappedData.h\
+    ../../../Common/include/Data/ProxyData.h\
+    ../../include/muView/PCAView.h
 
 
 RESOURCES += \

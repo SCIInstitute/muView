@@ -34,8 +34,8 @@ void BarChart::Draw( ){
             int bin = i*20/dimN;
             newcnt[bin] += 1;
             newsum[bin] += avg[i];
-            newmin[bin]  = STD_MIN(newmin[bin],minval[i]);
-            newmax[bin]  = STD_MAX(newmax[bin],maxval[i]);
+            newmin[bin]  = fmin(newmin[bin],minval[i]);
+            newmax[bin]  = fmax(newmax[bin],maxval[i]);
         }
 
         for(int i = 0; i < 20; i++){
@@ -67,7 +67,7 @@ void BarChart::Draw( ){
     glColor3f(0.6f,0.6f,0.6f);
     glBegin(GL_QUADS);
     for(int i = 0; i < dimN; i++){
-        float v = STD_MAX( avg[i], 0.02f );
+        float v = fmax( avg[i], 0.02f );
         glVertex3f( (float)i+0.15f, 0, 0 );
         glVertex3f( (float)i+0.85f, 0, 0 );
         glVertex3f( (float)i+0.85f, v, 0 );
@@ -78,7 +78,7 @@ void BarChart::Draw( ){
     glLineWidth(1.0f);
     glColor3f(0.2f,0.2f,0.2f);
     for(int i = 0; i < dimN; i++){
-        float v = STD_MAX( avg[i], 0.02f );
+        float v = fmax( avg[i], 0.02f );
         glBegin(GL_LINE_LOOP);
             glVertex3f( (float)i+0.15f, 0, 0 );
             glVertex3f( (float)i+0.85f, 0, 0 );
@@ -90,8 +90,8 @@ void BarChart::Draw( ){
     glLineWidth(2.0f);
     glColor3f(0.5f,0.0f,0.0f);
     for(int i = 0; i < dimN; i++){
-        float v0 = STD_MAX( minval[i], 0.02f );
-        float v1 = STD_MAX( maxval[i], 0.02f );
+        float v0 = fmax( minval[i], 0.02f );
+        float v1 = fmax( maxval[i], 0.02f );
         glBegin(GL_LINES);
             glVertex3f( (float)i+0.15f, v0, 0 );
             glVertex3f( (float)i+0.85f, v0, 0 );
@@ -122,4 +122,3 @@ void BarChart::SetMinimum( std::vector<float> vals ){
 void BarChart::SetMaximum( std::vector<float> vals ){
     minval = vals;
 }
-

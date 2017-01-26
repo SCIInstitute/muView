@@ -17,7 +17,7 @@ RCC_DIR     = ../../bin/build/dr_lib/.rcc
 UI_DIR      = ../../bin/build/dr_lib/.ui
 
 INCLUDEPATH += ../../include
-INCLUDEPATH += ../../drl/drl
+#INCLUDEPATH += ../../drl/drl
 
 INCLUDEPATH += ../shogun_lib/src
 
@@ -32,13 +32,13 @@ unix {
     QMAKE_CXXFLAGS += -DYA_LAPACK
 }
 
-SOURCES += \
+#SOURCES += \
     ../../src/DRL_Wrapper.cpp \
 
 unix:SOURCES += \
     ../../src/Shogun_Wrapper.cpp
 
-HEADERS  += \
+#HEADERS  += \
     ../../include/DRL_Wrapper.h \
 
 unix:HEADERS  += \

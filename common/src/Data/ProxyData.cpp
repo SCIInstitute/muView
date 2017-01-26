@@ -9,11 +9,11 @@ ProxyData::ProxyData(  const char *_ip, unsigned short _port, int _sx, int _sy, 
 // Destructor
 ProxyData::~ProxyData(){ }
 
-float ProxyData::GetMaximumValue( ){
+float ProxyData::GetMaximumValue( ) const{
     return 0;
 }
 
-float ProxyData::GetMinimumValue( ){
+float ProxyData::GetMinimumValue( )const{
     return 0;
 }
 
@@ -41,18 +41,18 @@ void ProxyData::SetElement( int vox_id, float  * val ){ }
 void ProxyData::SetElement( int vox_id, double * val ){ }
 
 // Wrapper functions to Read Values
-float              ProxyData::GetElement( int x, int y, int z, int dim ){        return GetElement( GetVoxelID(x,y,z), dim );    }
-std::vector<float> ProxyData::GetElement( int x, int y, int z ){                 return GetElement( GetVoxelID(x,y,z) );         }
-void               ProxyData::GetElement( int x, int y, int z, float * space ){  return GetElement( GetVoxelID(x,y,z), space );  }
-void               ProxyData::GetElement( int x, int y, int z, double * space ){ return GetElement( GetVoxelID(x,y,z), space );  }
+float              ProxyData::GetElement( int x, int y, int z, int dim )const{        return GetElement( GetVoxelID(x,y,z), dim );    }
+std::vector<float> ProxyData::GetElement( int x, int y, int z )const{                 return GetElement( GetVoxelID(x,y,z) );         }
+void               ProxyData::GetElement( int x, int y, int z, float * space )const{  return GetElement( GetVoxelID(x,y,z), space );  }
+void               ProxyData::GetElement( int x, int y, int z, double * space )const{ return GetElement( GetVoxelID(x,y,z), space );  }
 
 // Get a single dimension from an element
-float ProxyData::GetElement( int vox_id, int dim ){
+float ProxyData::GetElement( int vox_id, int dim )const{
     return 0;
 }
 
 // Get an element as a vector
-std::vector<float> ProxyData::GetElement( int vox_id ){
+std::vector<float> ProxyData::GetElement( int vox_id )const{
     std::vector<float> ret;
     for(int c_dim = 0; c_dim < GetDim(); c_dim++){
         ret.push_back( 0 );
@@ -61,14 +61,14 @@ std::vector<float> ProxyData::GetElement( int vox_id ){
 }
 
 // Copy an element into a float array
-void ProxyData::GetElement( int vox_id, float * space ){
+void ProxyData::GetElement( int vox_id, float * space )const{
     for(int c_dim = 0; c_dim < GetDim(); c_dim++){
         space[c_dim] = 0;
     }
 }
 
 // Copy an element into a double array
-void ProxyData::GetElement( int vox_id, double * space ){
+void ProxyData::GetElement( int vox_id, double * space )const{
     for(int c_dim = 0; c_dim < GetDim(); c_dim++){
         space[c_dim] = 0;
     }

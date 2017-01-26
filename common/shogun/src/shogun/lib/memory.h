@@ -11,7 +11,7 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 	
-#include <shogun/lib/config.h>
+#include <../../../../../muViewBranch/build/shogun_lib/src/shogun/lib/config.h>
 #include <shogun/lib/common.h>
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS

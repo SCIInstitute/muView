@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui opengl network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += widgets
 
 TEMPLATE = app
 
@@ -23,7 +23,6 @@ UI_DIR      = ../../bin/build/$$TARGET/.ui
 
 
 LIBS += -L../../bin/libs
-LIBS += -L../../../Common/shogun/src/shogun
 LIBS += -lcommon
 LIBS += -ldata
 
@@ -36,15 +35,15 @@ win32 {
 }
 unix {
     QMAKE_CXXFLAGS  += -fopenmp
-    LIBS += -lgomp
-    LIBS += -lshogun
+    #LIBS += -lgomp
+    LIBS += -lshogun -L/usr/local/lib/
 }
 
 
 INCLUDEPATH += ../../include
+INCLUDEPATH += /usr/local/include
 INCLUDEPATH += ../../../Common/include
-INCLUDEPATH += ../../../Common/shogun/src
-INCLUDEPATH += ../../../Common/drl/drl
+#INCLUDEPATH += ../../../Common/drl/drl
 INCLUDEPATH += .
 INCLUDEPATH += ../
 
@@ -61,7 +60,6 @@ SOURCES += \
     ../../src/muView/RenderEngine3D.cpp \
     ../../src/muView/RenderEngine2D.cpp \
     ../../src/Shogun_Wrapper.cpp \
-    ../../src/DRL_Wrapper.cpp \
     ../../src/DimensionalityReductionThreaded.cpp \
     ../../src/DimensionalityReduction.cpp \
     ../../src/muView/PCAView.cpp
@@ -78,7 +76,6 @@ HEADERS  += \
     ../../include/muView/RenderEngine3D.h \
     ../../include/muView/RenderEngine2D.h \
     ../../include/Shogun_Wrapper.h \
-    ../../include/DRL_Wrapper.h \
     ../../include/DimensionalityReductionThreaded.h \
     ../../include/DimensionalityReduction.h \
     ../../include/muView/PCAView.h

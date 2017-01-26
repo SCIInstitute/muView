@@ -11,12 +11,12 @@ TEMPLATE = app
 TARGET = uncertainty_client
 
 # Include TEEM library
-LIBS += -lteem
+LIBS += -lteem -L/usr/local/Cellar/teem/1.11.0/lib
 LIBS += -lcommon
 LIBS += -ldata
 LIBS += -ldr
 unix{
-    LIBS += -lshogun
+    LIBS += -lshogun -L/usr/local/lib/
 }
 
 LIBS += -lcommon -L../../bin/libs
@@ -26,7 +26,7 @@ win32:LIBS += -lglew32
 
 unix {
     # Include OpenMP
-    LIBS += -lgomp
+    #LIBS += -lgomp
 
     # Include BLAS
     LIBS += -lblas
@@ -48,11 +48,14 @@ UI_DIR      = ../../bin/build/uncertainty_client_app/.ui
 win32:DEFINES += _CRT_SECURE_NO_WARNINGS
 
 INCLUDEPATH += ../../include
+INCLUDEPATH += /usr/local/include
 INCLUDEPATH += .
 INCLUDEPATH += ../
+INCLUDEPATH += ../../src
 #INCLUDEPATH += ../drl/drl
 INCLUDEPATH += ../shogun_lib/src
 INCLUDEPATH += ../shogun_lib/src/shogun
+INCLUDEPATH += /usr/local/Cellar/teem/1.11.0/include
 
 SOURCES += \
     ../../src/MainWindow.cpp \

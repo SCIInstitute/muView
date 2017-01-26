@@ -1,7 +1,7 @@
 #include <Data/MappedData.h>
 
-/*
-#include <malloc.h>
+#include <stdlib.h>
+//#include <malloc.h>
 #include <float.h>
 #include <iostream>
 #include <stdio.h>
@@ -25,12 +25,12 @@ MappedData::~MappedData(){
     }
 }
 
-float MappedData::GetMaximumValue( ){
+float MappedData::GetMaximumValue( ) const{
     std::cout << "ERROR: Not yet implemented" << std::endl; fflush(stdout);
     return 0;
 }
 
-float MappedData::GetMinimumValue( ){
+float MappedData::GetMinimumValue( ) const{
     std::cout << "ERROR: Not yet implemented" << std::endl; fflush(stdout);
     return 0;
 }
@@ -158,4 +158,4 @@ void MappedData::GetElement( int vox_id, double * space ) const {
         }
     }
 }
-*/
+

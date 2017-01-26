@@ -1,7 +1,7 @@
 #ifndef MAPPEDDATA_H
 #define MAPPEDDATA_H
 
-/*
+
 #include <map>
 
 #include <Data/BasicData.h>
@@ -40,8 +40,8 @@ namespace Data {
         // Get a rough estimate of the size of the data contained in the class
         virtual int GetDataSize();
 
-        virtual float             GetMaximumValue( );
-        virtual float             GetMinimumValue( );
+        virtual float             GetMaximumValue( ) const;
+        virtual float             GetMinimumValue( ) const;
 
 
     protected:
@@ -56,6 +56,5 @@ namespace Data {
 
 }
 
-*/
 
 #endif // MAPPEDDATA_H

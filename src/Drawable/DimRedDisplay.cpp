@@ -172,8 +172,8 @@ bool DimRedDisplay::MouseClick(int button, int state, int x, int y){
         return true;
     }
     if(button == LeftButton && state == Up){
-        SCI::Vex2 real_min = SCI::Vex2( STD_MIN(sel_min.x,sel_max.x), STD_MIN(sel_min.y,sel_max.y) );
-        SCI::Vex2 real_max = SCI::Vex2( STD_MAX(sel_min.x,sel_max.x), STD_MAX(sel_min.y,sel_max.y) );
+        SCI::Vex2 real_min = SCI::Vex2( min(sel_min.x,sel_max.x), min(sel_min.y,sel_max.y) );
+        SCI::Vex2 real_max = SCI::Vex2( max(sel_min.x,sel_max.x), max(sel_min.y,sel_max.y) );
         sel_min = real_min;
         sel_max = real_max;
     }
@@ -207,8 +207,8 @@ bool DimRedDisplay::MouseClick(int button, int state, int x, int y){
 
 bool DimRedDisplay::MouseMotion(int button, int x, int dx, int y, int dy){
     if( mouse_active ){
-        x = STD_MIN( STD_MAX( x-u0, 0 ), width -1 );
-        y = STD_MIN( STD_MAX( y-v0, 0 ), height-1 );
+        x = min( max( x-u0, 0 ), width -1 );
+        y = min( max( y-v0, 0 ), height-1 );
         sel_max = SCI::Vex2(x,y) / SCI::Vex2(width,height) * 2.0f - 1.0f;
     }
 

@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui opengl
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += widgets
 
 TEMPLATE = app
 
@@ -25,7 +25,7 @@ win32 {
 win32:QMAKE_CXXFLAGS += -openmp
 unix:QMAKE_CXXFLAGS  += -fopenmp
 
-unix:LIBS += -lgomp
+#unix:LIBS += -lgomp
 
 
 DESTDIR     = ../../bin

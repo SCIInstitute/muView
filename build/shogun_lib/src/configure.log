@@ -1,0 +1,1316 @@
+============ Checking for C Compiler ============
+
+int main(void) { return 0; }
+
+  -fPIC ./configure-642-1421.c -o ./configure-16246-1421.o  
+./configure: line 1015: : command not found
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC ./configure-642-1421.c -o ./configure-16246-1421.o  
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: clang 4.2.1
+##########################################
+
+============ Checking for C Compiler flags ============
+
+int main(void) { return 0; }
+
+cc  -fPIC ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -g
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -Wall
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -O9
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -fexpensive-optimizations
+clang: error: optimization flag '-fexpensive-optimizations' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -frerun-cse-after-loop
+clang: error: unknown argument: '-frerun-cse-after-loop'
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -fcse-follow-jumps
+clang: error: unknown argument: '-fcse-follow-jumps'
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -finline-functions
+clang: error: optimization flag '-finline-functions' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -fschedule-insns2
+clang: error: optimization flag '-fschedule-insns2' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -fthread-jumps
+clang: error: unknown argument: '-fthread-jumps'
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -fforce-addr
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 -fforce-addr ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -fstrength-reduce
+clang: error: optimization flag '-fstrength-reduce' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 -fforce-addr ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -funroll-loops
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops ./configure-642-1421.c -o ./configure-16246-1421.o  -Werror -mfpmath=sse
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse
+##########################################
+
+============ Checking for C++ Compiler ============
+
+int main(void) { return 0; }
+
+  -fPIC ./configure-5058-1421.cpp -o ./configure-16246-1421.o  
+./configure: line 1035: : command not found
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC ./configure-5058-1421.cpp -o ./configure-16246-1421.o  
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: clang 4.2.1
+##########################################
+
+============ Checking for C++ Compiler flags ============
+
+int main(void) { return 0; }
+
+c++  -fPIC ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -g
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -Wall
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -O9
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -fexpensive-optimizations
+clang: error: optimization flag '-fexpensive-optimizations' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -frerun-cse-after-loop
+clang: error: unknown argument: '-frerun-cse-after-loop'
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -fcse-follow-jumps
+clang: error: unknown argument: '-fcse-follow-jumps'
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -finline-functions
+clang: error: optimization flag '-finline-functions' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -fschedule-insns2
+clang: error: optimization flag '-fschedule-insns2' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -fthread-jumps
+clang: error: unknown argument: '-fthread-jumps'
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -fforce-addr
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 -fforce-addr ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -fstrength-reduce
+clang: error: optimization flag '-fstrength-reduce' is not supported
+no object file created
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 -fforce-addr ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -funroll-loops
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+
+int main(void) { return 0; }
+
+c++  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -Werror -mfpmath=sse
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse
+##########################################
+
+============ Checking for makedepend ============
+Result is: gcc -MM
+##########################################
+
+============ Checking for Python ============
+Result is: 2.7.8
+##########################################
+
+============ Checking for pkg-config ============
+Result is: 0.29.1
+##########################################
+
+============ Checking for GNU Make ============
+Result is: GNU Make 3.81
+##########################################
+
+============ Checking for Doxygen ============
+Result is: doxygen not detected, for documentation please install
+##########################################
+
+============ Checking for CPU vendor ============
+Result is: GenuineIntel (6:5:2)
+##########################################
+
+============ Checking for CPU type ============
+Result is:  Intel(R) Core(TM) i5 CPU       M 540  @ 2.53GHz
+##########################################
+
+============ Checking for GCC & CPU optimization abilities ============
+
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse ./configure-642-1421.c -o ./configure-16246-1421.o  -march=native
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: native
+##########################################
+
+============ Checking for compiler and kernel support of mmx ============
+
+#include <stdlib.h>
+#include <signal.h>
+void catch() { exit(1); }
+int main(void){
+  signal(SIGILL, catch);
+  __asm__ volatile ("emms":::"memory"); return(0);
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse ./configure-642-1421.c -o ./configure-16246-1421.o  
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for compiler and kernel support of mmxext ============
+
+#include <stdlib.h>
+#include <signal.h>
+void catch() { exit(1); }
+int main(void){
+  signal(SIGILL, catch);
+  __asm__ volatile ("sfence":::"memory"); return(0);
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse ./configure-642-1421.c -o ./configure-16246-1421.o  
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for compiler and kernel support of sse ============
+
+#include <stdlib.h>
+#include <signal.h>
+void catch() { exit(1); }
+int main(void){
+  signal(SIGILL, catch);
+  __asm__ volatile ("xorps %%xmm0, %%xmm0":::"memory"); return(0);
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse ./configure-642-1421.c -o ./configure-16246-1421.o  
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for compiler and kernel support of sse2 ============
+
+#include <stdlib.h>
+#include <signal.h>
+void catch() { exit(1); }
+int main(void){
+  signal(SIGILL, catch);
+  __asm__ volatile ("xorpd %%xmm0, %%xmm0":::"memory"); return(0);
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse ./configure-642-1421.c -o ./configure-16246-1421.o  
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for compiler and kernel support of cmov ============
+
+#include <stdlib.h>
+#include <signal.h>
+void catch() { exit(1); }
+int main(void){
+  signal(SIGILL, catch);
+  __asm__ volatile ("cmovb %%eax,%%ebx":::"memory"); return(0);
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse ./configure-642-1421.c -o ./configure-16246-1421.o  
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for xmmintrin.h ============
+
+#include <xmmintrin.h>
+int main() { _mm_sfence(); return 0; }
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse ./configure-642-1421.c -o ./configure-16246-1421.o  -msse
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Word Size ============
+Result is: 64 bit
+##########################################
+
+============ Checking for Math support (-lm) ============
+
+#include <math.h>
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native ./configure-642-1421.c -o ./configure-16246-1421.o  -lm
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Math powl() support ============
+
+#include <math.h>
+int main(int argc, char** argv)
+{
+	long double a=powl((long double) argc, (long double) argc);
+	return (int) a;
+}
+
+c++  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -lm -lm
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Math lgammal() support ============
+
+#include <math.h>
+int main(int argc, char** argv)
+{
+	long double a=lgammal((long double) argc);
+	return (int) a;
+}
+
+c++  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -lm -lm
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Math sqrtl() support ============
+
+#include <math.h>
+int main(int argc, char** argv)
+{
+	long double a=sqrtl((long double) argc);
+	return (int) a;
+}
+
+c++  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -lm -lm
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Math log2() support ============
+
+#include <math.h>
+int main(int argc, char** argv)
+{
+	double a=log2((double) argc);
+	return (int) a;
+}
+
+c++  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -lm -lm
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Posix threads support ============
+
+#include <pthread.h>
+int main(void) { return 0; }
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native ./configure-642-1421.c -o ./configure-16246-1421.o  -pthread -lm
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for HDF5 (>= 1.8.0) support ============
+
+#include <hdf5.h>
+int main(void)
+{
+	hid_t file = H5Fcreate("foobar.h5", H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
+	hid_t group = H5Gcreate2(file, "groupname", H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
+
+	return 0;
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lhdf5 -lm -pthread
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'hdf5.h' file not found
+#include <hdf5.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for libjson (json-c) ============
+
+#include <json.h>
+int main(void)
+{
+	json_object* x = json_object_new_object();
+	json_object_put(x);
+
+	return 0;
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -ljson -lm -pthread
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'json.h' file not found
+#include <json.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for libxml2 (>= 2.7.0) ============
+
+#include <libxml/parser.h>
+#include <libxml/tree.h>
+
+int main(void)
+{
+	LIBXML_TEST_VERSION;
+
+#if !defined(LIBXML_TREE_ENABLED) || !defined(LIBXML_OUTPUT_ENABLED)
+	this_is_not_compilable :)
+#endif
+
+	xmlDocPtr doc = xmlNewDoc(BAD_CAST "1.0");
+	xmlNode* node = xmlNewNode(NULL, BAD_CAST "Hello");
+	xmlDocSetRootElement(doc, node);
+
+	xmlChildElementCount(node);
+
+	xmlFreeDoc(doc);
+	xmlCleanupParser();
+
+	return 0;
+}
+
+cc  -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -I/opt/local/include/libxml2 -L/opt/local/lib -lxml2 -lm -pthread
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/opt/local/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for AMD ACML support ============
+
+#include <cblas.h>
+void dpotrf(char uplo, int n, double *a, int lda, int *info);
+
+int main(int argc, char** argv)
+{
+	char uplo = 'U';
+	int info=0;
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int lda=1;
+	dpotrf(uplo, n, a, lda, &info);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lacml -lcblas -lgfortran -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for Intel MKL support ============
+
+#include <mkl_cblas.h>
+void dpotrf(char* uplo, int* n, double* a, int* lda, int* info);
+
+int main(int argc, char** argv)
+{
+	char uplo = 'U';
+	int info=0;
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int lda=1;
+	dpotrf(&uplo, &n, a, &lda, &info);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lmkl -lguide -lmkl_lapack -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'mkl_cblas.h' file not found
+#include <mkl_cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+
+#include <mkl_cblas.h>
+void dpotrf(char* uplo, int* n, double* a, int* lda, int* info);
+
+int main(int argc, char** argv)
+{
+	char uplo = 'U';
+	int info=0;
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int lda=1;
+	dpotrf(&uplo, &n, a, &lda, &info);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lmkl -lguide -lmkl_lapack64 -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'mkl_cblas.h' file not found
+#include <mkl_cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for Atlas support ============
+
+#include <cblas.h>
+#include <clapack.h>
+
+int main(int argc, char** argv)
+{
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int result=clapack_dpotrf(CblasRowMajor, CblasUpper, n, a, n);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -llapack -lcblas -llapack_atlas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+
+#include <cblas.h>
+#include <clapack.h>
+
+int main(int argc, char** argv)
+{
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int result=clapack_dpotrf(CblasRowMajor, CblasUpper, n, a, n);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -I/usr/include/atlas -llapack -lcblas -llapack_atlas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+
+#include <cblas.h>
+#include <clapack.h>
+
+int main(int argc, char** argv)
+{
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int result=clapack_dpotrf(CblasRowMajor, CblasUpper, n, a, n);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -L/usr/lib/atlas -llapack -lcblas -llapack_atlas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+
+#include <cblas.h>
+#include <clapack.h>
+
+int main(int argc, char** argv)
+{
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int result=clapack_dpotrf(CblasRowMajor, CblasUpper, n, a, n);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -llapack -lcblas -latlas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+
+#include <cblas.h>
+#include <clapack.h>
+
+int main(int argc, char** argv)
+{
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	int result=clapack_dpotrf(CblasRowMajor, CblasUpper, n, a, n);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -L/usr/lib/atlas -llapack -lcblas -latlas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for Mac OS vector library ============
+
+#include </System/Library/Frameworks/vecLib.framework/Headers/cblas.h>
+#include </System/Library/Frameworks/vecLib.framework/Headers/clapack.h>
+
+int dpotrf_(char* uplo, int* n, double* a, int* lda, int* info);
+int main(int argc, char** argv)
+{
+	char uplo = 'U';
+	int info=0;
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	dpotrf_(uplo, &n, a, 1, &info);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -llapack -lcblas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: '/System/Library/Frameworks/vecLib.framework/Headers/cblas.h' file not found
+#include </System/Library/Frameworks/vecLib.framework/Headers/cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for Vanilla lapack and blas support ============
+
+#include <cblas.h>
+int dpotrf_(char* uplo, int* n, double* a, int* lda, int* info);
+int main(int argc, char** argv)
+{
+	char uplo = 'U';
+	int info=0;
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	dpotrf_(uplo, &n, a, 1, &info);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -llapack -lcblas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+
+#include <cblas.h>
+int dpotrf_(char* uplo, int* n, double* a, int* lda, int* info);
+int main(int argc, char** argv)
+{
+	char uplo = 'U';
+	int info=0;
+	int skip=argc;
+	int n=argc; double* a=0; double* v1=0; double* v2=0;
+	dpotrf_(uplo, &n, a, 1, &info);
+	int r = cblas_ddot(n, v1, skip, v2, skip);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -llapack -lblas -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'cblas.h' file not found
+#include <cblas.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no (missing some features: LDA, liblinear, ...)
+##########################################
+
+============ Checking for SuperLU support ============
+
+#include <superlu/slu_ddefs.h>
+int main(int argc, char **argv)
+{
+	SuperMatrix A;
+	return 0;
+}
+
+c++  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -lsuperlu -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-5058-1421.cpp:1:10: fatal error: 'superlu/slu_ddefs.h' file not found
+#include <superlu/slu_ddefs.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for ARPACK support ============
+
+extern "C" void dsaupd_(int *ido, char *bmat, int *n, char *which,
+int *nev, double *tol, double *resid, int *ncv,
+double *v, int *ldv, int *iparam, int *ipntr,
+double *workd, double *workl, int *lworkl,
+int *info);
+
+int main(int argc, char **argv)
+{
+	int ido = 0,n = 3, nev=1;
+	double tol = 0.0;
+	double* resid = new double[n];
+	int ncv = n;
+	int ldv = n;
+	double* v = new double[ldv*ncv];
+	int* iparam = new int[11];
+	iparam[0] = 1;
+	iparam[2] = 3*n;
+	iparam[6] = 1;
+	int* ipntr = new int[11];
+	double* workd = new double[3*n];
+	double* workl = new double[ncv*(ncv+8)];
+	int lworkl = ncv*(ncv+8);
+	char bmat[2] = "I";
+	char which[3] = "SM";
+	int info = 0;
+	dsaupd_(&ido,bmat,&n,which,
+	&nev,&tol,resid,&ncv,
+	v,&ldv,iparam,ipntr,
+	workd,workl,&lworkl,&info);
+	delete[] resid;
+	delete[] v;
+	delete[] iparam;
+	delete[] ipntr;
+	delete[] workd;
+	delete[] workl;
+	return 0;
+}
+
+c++  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -larpack -lm -pthread -L/opt/local/lib -lxml2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/opt/local/lib/libarpack.2.dylib (compatibility version 3.0.0, current version 3.0.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/opt/local/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 120.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for NLOPT support ============
+
+#include <nlopt.h>
+int main(int argc, char **argv)
+{
+	nlopt_opt opt;
+	return 0;
+}
+
+c++  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -lnlopt -lm -pthread -L/opt/local/lib -lxml2 -larpack
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-5058-1421.cpp:1:10: fatal error: 'nlopt.h' file not found
+#include <nlopt.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for CPLEX support ============
+Result is: no
+##########################################
+
+============ Checking for GLPK ============
+
+#include <glpk.h>
+int main()
+{
+	glp_term_out(GLP_OFF);
+	LPX* lp=lpx_create_prob();
+	lpx_delete_prob(lp);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lglpk -lm -lm -pthread -L/opt/local/lib -lxml2 -larpack
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'glpk.h' file not found
+#include <glpk.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+
+#include <glpk.h>
+int main()
+{
+	glp_term_out(GLP_OFF);
+	LPX* lp=lpx_create_prob();
+	lpx_delete_prob(lp);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -I/usr/include/glpk -lglpk -lm -lm -pthread -L/opt/local/lib -lxml2 -larpack
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'glpk.h' file not found
+#include <glpk.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for lzo ============
+
+#include "lzo/lzoconf.h"
+#include "lzo/lzo1x.h"
+int main(int argc, char** argv)
+{
+	volatile lzo_bytep in;
+	volatile lzo_uint in_len;
+	return (lzo_init() != LZO_E_OK) ? 1 : 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -llzo2 -lm -pthread -L/opt/local/lib -lxml2 -larpack
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:1:10: fatal error: 'lzo/lzoconf.h' file not found
+#include "lzo/lzoconf.h"
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for snappy ============
+
+#include <snappy.h>
+int main(int argc, char** argv)
+{
+	size_t input_length = (size_t) argc;
+	char* input = new char[input_length];
+	char* output = new char[snappy::MaxCompressedLength(input_length)];
+	size_t output_length;
+	snappy::RawCompress(input, input_length, output, &output_length);
+	delete [] output;
+	return int(output_length);
+}
+
+c++  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-5058-1421.cpp -o ./configure-16246-1421.o  -lsnappy -lm -pthread -L/opt/local/lib -lxml2 -larpack
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-5058-1421.cpp:1:10: fatal error: 'snappy.h' file not found
+#include <snappy.h>
+         ^
+1 warning and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for gzip ============
+
+#include <zlib.h>
+int main(int argc, char** argv)
+{
+	uLongf l=argc;
+	return (compress2((Bytef*) argv, &l, (Bytef*) argv, l, argc) != Z_OK);
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lz -lm -pthread -L/opt/local/lib -lxml2 -larpack
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/opt/local/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.8)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/opt/local/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+	/opt/local/lib/libarpack.2.dylib (compatibility version 3.0.0, current version 3.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for bzip2 ============
+
+#include <bzlib.h>
+int main(int argc, char** argv)
+{
+	bz_stream* strm=NULL;
+	return BZ2_bzCompress(strm, argc);
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lbz2 -lm -pthread -L/opt/local/lib -lxml2 -larpack -lz
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/opt/local/lib/libbz2.1.0.dylib (compatibility version 1.0.0, current version 1.0.6)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/opt/local/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+	/opt/local/lib/libarpack.2.dylib (compatibility version 3.0.0, current version 3.0.0)
+	/opt/local/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.8)
+
+Result is: yes
+##########################################
+
+============ Checking for lzma ============
+
+#include <lzma.h>
+int main(int argc, char** argv)
+{
+	return (int) lzma_stream_buffer_bound((size_t) argc) ;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -llzma -lm -pthread -L/opt/local/lib -lxml2 -larpack -lz -lbz2
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/opt/local/lib/liblzma.5.dylib (compatibility version 8.0.0, current version 8.2.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/opt/local/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+	/opt/local/lib/libarpack.2.dylib (compatibility version 3.0.0, current version 3.0.0)
+	/opt/local/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.8)
+	/opt/local/lib/libbz2.1.0.dylib (compatibility version 1.0.0, current version 1.0.6)
+
+Result is: yes
+##########################################
+
+============ Checking for Posix thread spinlock support ============
+
+#include <pthread.h>
+int main(void)
+{
+	volatile pthread_spinlock_t lock;
+	pthread_spin_init(&lock, 0);
+	return 0;
+}
+
+cc  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -pthread -lm -pthread -L/opt/local/lib -lxml2 -larpack -lz -lbz2 -llzma
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:4:11: error: unknown type name 'pthread_spinlock_t'; did you mean 'pthread_rwlock_t'?
+        volatile pthread_spinlock_t lock;
+                 ^~~~~~~~~~~~~~~~~~
+                 pthread_rwlock_t
+/usr/include/sys/_pthread/_pthread_rwlock_t.h:30:35: note: 'pthread_rwlock_t' declared here
+typedef __darwin_pthread_rwlock_t pthread_rwlock_t;
+                                  ^
+./configure-642-1421.c:5:2: warning: implicit declaration of function 'pthread_spin_init' is invalid in C99 [-Wimplicit-function-declaration]
+        pthread_spin_init(&lock, 0);
+        ^
+2 warnings and 1 error generated.
+no object file created
+
+Result is: no
+##########################################
+
+============ Checking for libshogun ============
+Result is: yes (internal in source tree)
+##########################################
+
+============ Checking for Readline support ============
+
+#include <readline/readline.h>
+int main(void) { return 0; }
+
+cc -I. -I..  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -lreadline -lm -pthread -L/opt/local/lib -lxml2 -larpack -lz -lbz2 -llzma
+warning: optimization level '-O9' is not supported; using '-O3' instead
+1 warning generated.
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	/opt/local/lib/libreadline.6.dylib (compatibility version 6.0.0, current version 6.3.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/opt/local/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+	/opt/local/lib/libarpack.2.dylib (compatibility version 3.0.0, current version 3.0.0)
+	/opt/local/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.8)
+	/opt/local/lib/libbz2.1.0.dylib (compatibility version 1.0.0, current version 1.0.6)
+	/opt/local/lib/liblzma.5.dylib (compatibility version 8.0.0, current version 8.2.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Python numpy support ============
+Result is: no
+##########################################
+
+============ Checking for Octave ============
+Result is: no
+##########################################
+
+============ Checking for R ============
+Result is: 3.2.2
+##########################################
+
+============ Checking for R Developer Files ============
+
+#include <R.h>
+#include <Rinternals.h>
+#include <R_ext/Rdynload.h>
+#include <Rdefines.h>
+
+static SEXP sg_helper(SEXP args)
+{
+	SEXP result=NEW_LOGICAL(args);
+	return result;
+}
+
+cc -I. -I..  -I/opt/local/include/libxml2 -fPIC -g -Wall -O9 -fforce-addr -funroll-loops -mfpmath=sse -march=native -mcpu=native -pthread ./configure-642-1421.c -o ./configure-16246-1421.o  -fPIC -I/Library/Frameworks/R.framework/Resources/include -F/Library/Frameworks/R.framework/.. -framework R -lpcre -llzma -lbz2 -lz -licucore -lm -liconv -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -lm -pthread -L/opt/local/lib -lxml2 -larpack -lz -lbz2 -llzma
+warning: optimization level '-O9' is not supported; using '-O3' instead
+./configure-642-1421.c:8:26: warning: incompatible pointer to integer conversion passing 'SEXP' (aka 'struct SEXPREC *') to parameter of type 'R_xlen_t' (aka 'long') [-Wint-conversion]
+        SEXP result=NEW_LOGICAL(args);
+                                ^~~~
+/Library/Frameworks/R.framework/Resources/include/Rdefines.h:71:44: note: expanded from macro 'NEW_LOGICAL'
+#define NEW_LOGICAL(n)          allocVector(LGLSXP,n)
+                                                   ^
+/Library/Frameworks/R.framework/Resources/include/Rinternals.h:1280:43: note: passing argument to parameter here
+SEXP     Rf_allocVector(SEXPTYPE, R_xlen_t);
+                                          ^
+./configure-642-1421.c:6:13: warning: unused function 'sg_helper' [-Wunused-function]
+static SEXP sg_helper(SEXP args)
+            ^
+3 warnings generated.
+warning: no debug symbols in executable (-arch x86_64)
+
+otool -L ./configure-16246-1421.o
+./configure-16246-1421.o:
+	./configure-16246-1421.o (compatibility version 0.0.0, current version 0.0.0)
+	/Library/Frameworks/R.framework/Versions/3.2/Resources/lib/libR.dylib (compatibility version 3.2.0, current version 3.2.2)
+	/opt/local/lib/libpcre.1.dylib (compatibility version 4.0.0, current version 4.6.0)
+	/opt/local/lib/liblzma.5.dylib (compatibility version 8.0.0, current version 8.2.0)
+	/opt/local/lib/libbz2.1.0.dylib (compatibility version 1.0.0, current version 1.0.6)
+	/opt/local/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.8)
+	/usr/lib/libicucore.A.dylib (compatibility version 1.0.0, current version 53.1.0)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1213.0.0)
+	/opt/local/lib/libiconv.2.dylib (compatibility version 8.0.0, current version 8.1.0)
+	/opt/local/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+	/opt/local/lib/libarpack.2.dylib (compatibility version 3.0.0, current version 3.0.0)
+
+Result is: yes
+##########################################
+
+============ Checking for Matlab ============
+Result is: no
+##########################################
+
+============ Checking for Java ============
+Result is: 1.7.0_71
+##########################################
+
+============ Checking for Java native interface files (jni.h) ============
+Result is: yes
+##########################################
+
+============ Checking for Ant ============
+Result is: ant not detected
+##########################################
+
+============ Checking for Mono C# ============
+Result is: not detected
+##########################################
+
+============ Checking for Ruby ============
+Result is: 2.0.0p481
+##########################################
+
+============ Checking for Ruby Developer Files ============
+Result is: yes
+##########################################
+
+============ Checking for Ruby NArray ============
+Result is: not detected
+##########################################
+
+============ Checking for Lua ============
+Result is: 5.3.1
+##########################################
+
+============ Checking for SWIG ============
+Result is: 3.0.5
+##########################################
+

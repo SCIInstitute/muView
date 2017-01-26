@@ -22,7 +22,7 @@ struct refcount_t
 	int32_t rc;
 #ifdef HAVE_PTHREAD
 	/** lock for thread safety */
-	PTHREAD_LOCK_T lock;
+	pthread_rwlock_t;
 #endif
 };
 

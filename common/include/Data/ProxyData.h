@@ -15,32 +15,32 @@ namespace Data {
         ~ProxyData();
 
         // Various functions for setting voxel values
-        virtual void SetElement( int x, int y, int z, int dim, float val );
-        virtual void SetElement( int x, int y, int z, std::vector<float> & val );
+        virtual void SetElement( int x, int y, int z, int dim, float val ) ;
+        virtual void SetElement( int x, int y, int z, std::vector<float> & val ) ;
         virtual void SetElement( int x, int y, int z, float  * val );
         virtual void SetElement( int x, int y, int z, double * val );
 
         virtual void SetElement( int vox_id, std::vector<float> & val );
-        virtual void SetElement( int vox_id, int dim, float val );
-        virtual void SetElement( int vox_id, float  * val );
-        virtual void SetElement( int vox_id, double * val );
+        virtual void SetElement( int vox_id, int dim, float val ) ;
+        virtual void SetElement( int vox_id, float  * val ) ;
+        virtual void SetElement( int vox_id, double * val ) ;
 
         // Various functions for getting voxel values
-        virtual float              GetElement( int x, int y, int z, int dim );
-        virtual std::vector<float> GetElement( int x, int y, int z );
-        virtual void               GetElement( int x, int y, int z, float  * space );
-        virtual void               GetElement( int x, int y, int z, double * space );
+        virtual float              GetElement( int x, int y, int z, int dim )           const ;
+        virtual std::vector<float> GetElement( int x, int y, int z )                    const ;
+        virtual void               GetElement( int x, int y, int z, float  * space )    const ;
+        virtual void               GetElement( int x, int y, int z, double * space )    const ;
 
-        virtual std::vector<float> GetElement( int vox_id );
-        virtual float              GetElement( int vox_id, int dim );
-        virtual void               GetElement( int vox_id, float  * space );
-        virtual void               GetElement( int vox_id, double * space );
+        virtual std::vector<float> GetElement( int vox_id )                             const ;
+        virtual float              GetElement( int vox_id, int dim )                    const ;
+        virtual void               GetElement( int vox_id, float  * space )             const ;
+        virtual void               GetElement( int vox_id, double * space )             const ;
 
         // Get a rough estimate of the size of the data contained in the class
-        virtual int GetDataSize();
+        virtual int GetDataSize() ;
 
-        virtual float             GetMaximumValue( );
-        virtual float             GetMinimumValue( );
+        virtual float             GetMaximumValue( )                                    const ;
+        virtual float             GetMinimumValue( )                                    const ;
 
         virtual std::string       GetIP() const { return ip; }
         virtual unsigned short    GetPort() const { return port; }

@@ -6,7 +6,7 @@
 
 #QT       += core gui opengl
 QT += network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += widgets
 
 TEMPLATE = lib
 CONFIG += staticlib

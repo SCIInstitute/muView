@@ -7,8 +7,8 @@
 #include <Drawable/DrawableObject.h>
 #include <Drawable/Provenance.h>
 
-#include <MyLib/FrustumProjection.h>
-#include <MyLib/ThirdPersonCameraControls.h>
+#include <SCI/Camera/FrustumProjection.h>
+#include <SCI/Camera/ThirdPersonCameraControls.h>
 
 #include <GL/oglTexture3D.h>
 #include <GL/oglShader.h>
@@ -42,8 +42,8 @@ namespace Drawable {
         Data::ProxyData                  * data;
         Drawable::Provenance             * prov;
 
-        MyLib::FrustumProjection           proj;
-        MyLib::ThirdPersonCameraControls   view;
+        SCI::FrustumProjection           proj;
+        SCI::ThirdPersonCameraControls   view;
 
         oglWidgets::oglTexture3D           vol_tex;
 

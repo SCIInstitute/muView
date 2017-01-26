@@ -43,7 +43,7 @@ unix {
 INCLUDEPATH += ../../include
 INCLUDEPATH += ../../../Common/include
 INCLUDEPATH += ../../../Common/shogun/src
-INCLUDEPATH += ../../../Common/drl/drl
+#INCLUDEPATH += ../../../Common/drl/drl
 INCLUDEPATH += .
 INCLUDEPATH += ../
 
@@ -60,7 +60,6 @@ SOURCES += \
     ../../src/muView/RenderEngine3D.cpp \
     ../../src/muView/RenderEngine2D.cpp \
     ../../src/Shogun_Wrapper.cpp \
-    ../../src/DRL_Wrapper.cpp \
     ../../src/DimensionalityReductionThreaded.cpp \
     ../../src/DimensionalityReduction.cpp \
     ../../src/muView/PCAView.cpp
@@ -77,7 +76,6 @@ HEADERS  += \
     ../../include/muView/RenderEngine3D.h \
     ../../include/muView/RenderEngine2D.h \
     ../../include/Shogun_Wrapper.h \
-    ../../include/DRL_Wrapper.h \
     ../../include/DimensionalityReductionThreaded.h \
     ../../include/DimensionalityReduction.h \
     ../../include/muView/PCAView.h

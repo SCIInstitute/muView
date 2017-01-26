@@ -43,7 +43,7 @@ public:
 
 protected:
     Data::PointData          * pdata;
-    Data::Mesh::PointMesh    * pmesh;
+    Data::Mesh::PointMesh    * pmesh; 
     Data::Mesh::SolidMesh    * tdata;
     Data::FiberDirectionData * fdata;
     Data::DistanceFieldSet   * dfield;

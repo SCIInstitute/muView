@@ -6,7 +6,7 @@
 
 #include <GL/oglCommon.h>
 
-#include <omp.h>
+//#include <omp.h>
 
 
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 for file in `find . -name '*.pr?'`; do
-   dos2unix $file
+   #dos2unix $file
    filetype=`echo $file |sed -e 's/.*\.\(pr.\)/\1/'`
    path=`dirname $file`
    base=`basename $file`

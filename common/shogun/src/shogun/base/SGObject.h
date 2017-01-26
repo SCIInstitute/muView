@@ -493,7 +493,7 @@ private:
 	int32_t m_refcount;
 
 #ifdef HAVE_PTHREAD
-	PTHREAD_LOCK_T m_ref_lock;
+	pthread_rwlock_t;
 #endif //HAVE_PTHREAD
 };
 }

@@ -1,7 +1,7 @@
 #ifndef VOLDATA_H
 #define VOLDATA_H
 
-/*
+
 #include <Data/BasicData.h>
 
 namespace Data {
@@ -48,7 +48,5 @@ namespace Data {
         bool    readonly;
     };
 }
-
-*/
 
 #endif // VOLDATA_H

@@ -16,11 +16,11 @@ LIBS += -lcommon -L../../bin/libs
 LIBS += -lcommon
 LIBS += -ldata
 LIBS += -ldr
-LIBS += -lteem
+LIBS += -lteem -L/usr/local/Cellar/teem/1.11.0/lib/
 
 unix {
-    LIBS += -lshogun
-    LIBS += -lgomp
+    LIBS += -lshogun -L/usr/local/lib/
+    #LIBS += -lgomp
     LIBS += -lblas
     LIBS += -llapack
     LIBS += -lbz2
@@ -37,8 +37,10 @@ RCC_DIR     = ../../bin/build/server_app/.rcc
 UI_DIR      = ../../bin/build/server_app/.ui
 
 INCLUDEPATH += ../../include
-INCLUDEPATH += ../../shogun_lib/src
-INCLUDEPATH += ../../shogun_lib/src/shogun
+INCLUDEPATH += /usr/local/include
+INCLUDEPATH += ../shogun_lib/src
+INCLUDEPATH += ../shogun_lib/src/shogun
+INCLUDEPATH += /usr/local/Cellar/teem/1.11.0/include/
 
 SOURCES += \
     ../../src/Server/DataServer.cpp \

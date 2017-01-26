@@ -9,7 +9,6 @@ TEMPLATE = subdirs
 CONFIG += ordered
 #CONFIG += web_apps
 
-
 SUBDIRS += common_lib
 SUBDIRS += data_lib
 #web_apps {
@@ -22,5 +21,5 @@ SUBDIRS += data_lib
 #}
 SUBDIRS += muView_app
 SUBDIRS += dfield_app
-SUBDIRS +=
+SUBDIRS += heart_app
 

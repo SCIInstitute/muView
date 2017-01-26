@@ -26,10 +26,10 @@ ProvenanceNode::ProvenanceNode( Data::ProxyData * _data_in, SCI::Subset & _eleme
 
     // Create a subset with random elements from the complete set
     if(method == 0){
-        features.GetRandomSubset( elements, STD_MIN( (int)elements.size(), 200 ) );
+        features.GetRandomSubset( elements, min( (int)elements.size(), 200 ) );
     }
     else{
-        features.GetRandomSubset( elements, STD_MIN( (int)elements.size(), 200 ) );
+        features.GetRandomSubset( elements, min( (int)elements.size(), 200 ) );
     }
 
     // Run PCA as our default DR approach
@@ -108,7 +108,7 @@ const RemoteDimensionalityReduction *ProvenanceNode::GetDR() const{
 int ProvenanceNode::CountDepth( ) const {
     int maxdepth = 1;
     for(int i = 0; i < (int)children.size(); i++){
-        maxdepth = STD_MAX( maxdepth, 1 + children[i]->CountDepth() );
+        maxdepth = max( maxdepth, 1 + children[i]->CountDepth() );
     }
     return maxdepth;
 }
