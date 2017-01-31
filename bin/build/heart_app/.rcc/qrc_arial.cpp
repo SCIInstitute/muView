@@ -1,13 +1,13 @@
 /****************************************************************************
 ** Resource object code
 **
-** Created by: The Resource Compiler for Qt version 5.7.0
+** Created by: The Resource Compiler for Qt version 5.8.0
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
 static const unsigned char qt_resource_data[] = {
-  // /Users/mschwarzl/Documents/uni/courseUtahGIT/research/Common/fonts/arial.font
+  // /Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/Common/fonts/arial.font
   0x0,0x4,0xbf,0x31,
   0x0,
   0x1d,0x6a,0xe0,0x78,0x9c,0xe4,0xbd,0x79,0x98,0x5c,0x55,0xb5,0xfe,0xbf,0x99,0x3,
@@ -19474,10 +19474,13 @@ static const unsigned char qt_resource_name[] = {
 static const unsigned char qt_resource_struct[] = {
   // :
   0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x1,
+0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
   // :/fonts
   0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2,
+0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
   // :/fonts/arial.font
   0x0,0x0,0x0,0x10,0x0,0x1,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x0,
+0x0,0x0,0x1,0x59,0xf0,0xd6,0x1,0x50,
 
 };
 
@@ -19509,7 +19512,7 @@ int QT_RCC_MANGLE_NAMESPACE(qInitResources_arial)();
 int QT_RCC_MANGLE_NAMESPACE(qInitResources_arial)()
 {
     QT_RCC_PREPEND_NAMESPACE(qRegisterResourceData)
-        (0x01, qt_resource_struct, qt_resource_name, qt_resource_data);
+        (0x02, qt_resource_struct, qt_resource_name, qt_resource_data);
     return 1;
 }
 
@@ -19517,7 +19520,7 @@ int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_arial)();
 int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_arial)()
 {
     QT_RCC_PREPEND_NAMESPACE(qUnregisterResourceData)
-       (0x01, qt_resource_struct, qt_resource_name, qt_resource_data);
+       (0x02, qt_resource_struct, qt_resource_name, qt_resource_data);
     return 1;
 }
 

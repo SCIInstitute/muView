@@ -34,7 +34,7 @@ win32 {
     LIBS += "/nodefaultlib:libcmt"
 }
 unix {
-    QMAKE_CXXFLAGS  += -fopenmp
+    QMAKE_CXXFLAGS  += -openmp
     #LIBS += -lgomp
     LIBS += -lshogun -L/usr/local/lib/
 }

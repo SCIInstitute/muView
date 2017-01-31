@@ -31,7 +31,7 @@ RCC_DIR     = ../../bin/build/heart_app/.rcc
 UI_DIR      = ../../bin/build/heart_app/.ui
 
 win32:QMAKE_CXXFLAGS += -openmp
-unix:QMAKE_CXXFLAGS  += -fopenmp
+unix:QMAKE_CXXFLAGS  += -openmp
 
 #unix:LIBS += -lgomp
 

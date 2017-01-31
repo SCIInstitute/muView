@@ -17,11 +17,12 @@ RCC_DIR     = ../../bin/build/data_lib/.rcc
 UI_DIR      = ../../bin/build/data_lib/.ui
 
 INCLUDEPATH += ../../../Common/include
+INCLUDEPATH += /usr/local/Cellar/gcc/6.3.0_1/lib/gcc/6/gcc/x86_64-apple-darwin16.3.0/6.3.0/include
 
 win32:DEFINES += _CRT_SECURE_NO_WARNINGS
 
 win32:QMAKE_CXXFLAGS += -openmp
-unix:QMAKE_CXXFLAGS  += -fopenmp
+unix:QMAKE_CXXFLAGS  += -openmp -L/usr/local/Cellar/gcc/6.3.0_1/lib/gcc/6/gcc/x86_64-apple-darwin16.3.0/6.3.0/libcc
 
 SOURCES += \
     ../../../Common/src/Data/PointData.cpp \

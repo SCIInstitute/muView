@@ -20,6 +20,7 @@ INCLUDEPATH += ../../include
 #INCLUDEPATH += ../../drl/drl
 
 INCLUDEPATH += ../shogun_lib/src
+INCLUDEPATH += /usr/local/Cellar/gcc/6.3.0_1/lib/gcc/6/gcc/x86_64-apple-darwin16.3.0/6.3.0/include
 
 unix {
     # Include OpenMP

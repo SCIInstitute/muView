@@ -1,3 +1,0 @@
-repository='http://msinttypes.googlecode.com/svn/trunk/ user= password='
-module=''
-tag='-r;29'

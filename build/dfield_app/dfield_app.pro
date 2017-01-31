@@ -23,7 +23,7 @@ win32 {
 
 
 win32:QMAKE_CXXFLAGS += -openmp
-unix:QMAKE_CXXFLAGS  += -fopenmp
+unix:QMAKE_CXXFLAGS  += -openmp
 
 #unix:LIBS += -lgomp
 
