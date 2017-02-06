@@ -1,4 +1,4 @@
-#-------------------------------------------------
+s#-------------------------------------------------
 #
 # Project created by QtCreator 2011-12-26T20:42:08
 #
@@ -44,11 +44,11 @@ INCLUDEPATH += ../
 INCLUDEPATH += ../../src
 INCLUDEPATH += /usr/local/include
 INCLUDEPATH += /usr/local/Cellar/teem/1.11.0/include
-
 #CUDA_SOURCES = heart/distance_field.cu heart/voxel_associativity.cu heart/cuda_common.cu
 
 #/NODEFAULTLIB:libcmt
 win32:LIBS += "/nodefaultlib:libcmt"
+
 
 SOURCES += \
     ../../src/muView/HeartMainWindow.cpp \

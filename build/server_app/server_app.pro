@@ -17,9 +17,9 @@ LIBS += -lcommon
 LIBS += -ldata
 LIBS += -ldr
 LIBS += -lteem -L/usr/local/Cellar/teem/1.11.0/lib/
+LIBS += -lshogun -L/usr/local/Cellar/shogun/4.1.0_4/lib/
 
 unix {
-    LIBS += -lshogun -L/usr/local/lib/
     #LIBS += -lgomp
     LIBS += -lblas
     LIBS += -llapack
@@ -41,6 +41,7 @@ INCLUDEPATH += /usr/local/include
 INCLUDEPATH += ../shogun_lib/src
 INCLUDEPATH += ../shogun_lib/src/shogun
 INCLUDEPATH += /usr/local/Cellar/teem/1.11.0/include/
+INCLUDEPATH += /usr/local/Cellar/shogun/4.1.0_4/include
 
 SOURCES += \
     ../../src/Server/DataServer.cpp \
