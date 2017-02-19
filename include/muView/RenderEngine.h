@@ -26,6 +26,7 @@
 #include <muView/Histogram.h>
 #include <muView/ParallelCoordinates.h>
 #include <muView/RenderEngine3D.h>
+#include <muView/ChartCloud.h>
 #include <muView/RenderEngine2D.h>
 #include <muView/PCAView.h>
 
@@ -154,6 +155,7 @@ public:
     RenderEngine3D re;
     RenderEngine2D re2[3];
     PCAView        pca;
+    ChartCloud reNew;
 
     void SetParallelCoordinateView( ParallelCoordinates * pc ){ re.parallel_coordinates = pc; }
 

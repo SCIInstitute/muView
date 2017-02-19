@@ -62,7 +62,8 @@ SOURCES += \
     ../../src/Shogun_Wrapper.cpp \
     ../../src/DimensionalityReductionThreaded.cpp \
     ../../src/DimensionalityReduction.cpp \
-    ../../src/muView/PCAView.cpp
+    ../../src/muView/PCAView.cpp \
+    ../../src/muView/ChartCloud.cpp
 
 
 HEADERS  += \
@@ -78,7 +79,8 @@ HEADERS  += \
     ../../include/Shogun_Wrapper.h \
     ../../include/DimensionalityReductionThreaded.h \
     ../../include/DimensionalityReduction.h \
-    ../../include/muView/PCAView.h
+    ../../include/muView/PCAView.h \
+    ../../include/muView/ChartCloud.h
 
 
 RESOURCES += \

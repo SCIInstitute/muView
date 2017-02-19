@@ -9,6 +9,7 @@
 RenderEngine::RenderEngine(SCI::ThirdPersonCameraControls *_pView) {
 
     re.pView = _pView;
+    reNew.pView = _pView;
 
 
     draw_mode  =  0;
@@ -34,6 +35,32 @@ RenderEngine::RenderEngine(SCI::ThirdPersonCameraControls *_pView) {
 
     //font.Load( "../fonts/arial.font" );
     font.Load( ":/fonts/arial.font" );
+
+
+    reNew.pdata = pdata;
+    reNew.pmesh = pmesh;
+    reNew.tdata = tdata;
+    reNew.NeedUpdate();
+    reNew.draw_mode = draw_mode;
+    reNew.iso_points = &iso_points;
+    reNew.iso_tris = &iso_tris;
+    reNew.iso_tets = &iso_tets;
+    reNew.iso_hexs = &iso_hexs;
+    reNew.iso_color = &iso_color;
+    reNew.df_points = &df_points;
+    reNew.df_tris = &df_tris;
+    reNew.df_color = &df_color;
+    //reNew.edge_data = &edge_data;
+    //reNew.edge_mesh = &edge_mesh;
+    reNew.cluster = &cluster;
+    //reNew.vox_assoc = &vox_assoc;
+    reNew.colormap = &colormap;
+    reNew.seq_cmap = &seq_cmap;
+    reNew.cat_cmap = &cat_cmap;
+    reNew.draw_mode = draw_mode;
+    reNew.color_mode = color_mode;
+    reNew.font = &font;
+    reNew.cluster_histogram = cluster_histogram;
 
 
     re.pdata = pdata;
@@ -66,6 +93,10 @@ RenderEngine::RenderEngine(SCI::ThirdPersonCameraControls *_pView) {
     for(int i = 0; i < 3; i++){
         re.pln[i] = &(re2[i].plane);
         re.pln_color[i] = &(re2[i].pln_color);
+
+        reNew.pln[i] = &(re2[i].plane);
+        reNew.pln_color[i] = &(re2[i].pln_color);
+
         re2[i].font = &font;
         connect( &(re2[i]), SIGNAL(Updated(RenderEngine2D*)), this, SLOT(UpdateRenderEngine2DColor(RenderEngine2D*)) );
     }
@@ -113,17 +144,17 @@ void RenderEngine::setMeanIsosurface( bool v ){   view_mean_iso = v; Recalculate
 void RenderEngine::setMaxIsosurface( bool v ){    view_max_iso  = v; Recalculate(); }
 void RenderEngine::setIsovalue( double v ){       isoval        = v; Recalculate(); }
 
-void RenderEngine::setClipXVal( double v ){ re.clpX[3] = re.clpX[0] * v; }
-void RenderEngine::setClipYVal( double v ){ re.clpY[3] = re.clpY[1] * v; }
-void RenderEngine::setClipZVal( double v ){ re.clpZ[3] = re.clpZ[2] * v; }
+void RenderEngine::setClipXVal( double v ){ re.clpX[3] = re.clpX[0] * v; reNew.clpX[3] = reNew.clpX[0] * v; }
+void RenderEngine::setClipYVal( double v ){ re.clpY[3] = re.clpY[1] * v; reNew.clpY[3] = reNew.clpY[1] * v;}
+void RenderEngine::setClipZVal( double v ){ re.clpZ[3] = re.clpZ[2] * v; reNew.clpZ[3] = reNew.clpZ[2] * v;}
 
-void RenderEngine::setClipXFlip( ){ re.clpX[0] *= -1.0f; }
-void RenderEngine::setClipYFlip( ){ re.clpY[1] *= -1.0f; }
-void RenderEngine::setClipZFlip( ){ re.clpZ[2] *= -1.0f; }
+void RenderEngine::setClipXFlip( ){ re.clpX[0] *= -1.0f; reNew.clpX[0] *= -1.0f;}
+void RenderEngine::setClipYFlip( ){ re.clpY[1] *= -1.0f; reNew.clpY[1] *= -1.0f;}
+void RenderEngine::setClipZFlip( ){ re.clpZ[2] *= -1.0f; reNew.clpZ[2] *= -1.0f;}
 
-void RenderEngine::setClipXEnable( bool v ){ re.useClipX = v; }
-void RenderEngine::setClipYEnable( bool v ){ re.useClipY = v; }
-void RenderEngine::setClipZEnable( bool v ){ re.useClipZ = v; }
+void RenderEngine::setClipXEnable( bool v ){ re.useClipX = v; reNew.useClipX = v;}
+void RenderEngine::setClipYEnable( bool v ){ re.useClipY = v; reNew.useClipY = v;}
+void RenderEngine::setClipZEnable( bool v ){ re.useClipZ = v; reNew.useClipZ = v;}
 
 void RenderEngine::setFiberDirection( bool v ){   view_fibers   = v; }
 void RenderEngine::setFiberLength( double v ){     fiber_length  = v; }
@@ -152,6 +183,9 @@ void RenderEngine::SetDistanceFieldData( Data::DistanceFieldSet * _dfield ){
 void RenderEngine::AddImportedMesh( Data::Mesh::PointMesh *pmesh, Data::Mesh::SolidMesh *tdata ){
     re.addl_points.push_back( pmesh );
     re.addl_solid.push_back( tdata );
+
+    reNew.addl_points.push_back( pmesh );
+    reNew.addl_solid.push_back( tdata );
 }
 
 void RenderEngine::SetData( Data::PointData * _pdata, Data::Mesh::PointMesh * _pmesh, Data::Mesh::SolidMesh * _tdata  ){
@@ -422,6 +456,44 @@ void RenderEngine::Recalculate( ){
         re.parallel_coordinates->Reset();
     }
 
+    if( reNew.parallel_coordinates ){
+        /*
+        if( draw_mode == 4 ){
+            re.parallel_coordinates->SetData( &edge_data, &colormap );
+        }
+        */
+        //else {
+            reNew.parallel_coordinates->SetData( pdata, &colormap );
+        //}
+        reNew.parallel_coordinates->Reset();
+    }
+
+    reNew.pdata = pdata;
+    reNew.pmesh = pmesh;
+    reNew.tdata = tdata;
+    reNew.NeedUpdate();
+    reNew.draw_mode = draw_mode;
+    reNew.iso_points = &iso_points;
+    reNew.iso_tris = &iso_tris;
+    reNew.iso_tets = &iso_tets;
+    reNew.iso_hexs = &iso_hexs;
+    reNew.iso_color = &iso_color;
+    reNew.df_points = &df_points;
+    reNew.df_tris = &df_tris;
+    reNew.df_color = &df_color;
+    //reNew.edge_data = &edge_data;
+    //reNew.edge_mesh = &edge_mesh;
+    reNew.cluster = &cluster;
+    //reNew.vox_assoc = &vox_assoc;
+    reNew.colormap = &colormap;
+    reNew.seq_cmap = &seq_cmap;
+    reNew.cat_cmap = &cat_cmap;
+    reNew.draw_mode = draw_mode;
+    reNew.color_mode = color_mode;
+    reNew.font = &font;
+    reNew.cluster_histogram = cluster_histogram;
+
+    re.update();
     re.pdata = pdata;
     re.pmesh = pmesh;
     re.tdata = tdata;

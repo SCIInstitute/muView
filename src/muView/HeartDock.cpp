@@ -16,6 +16,7 @@ HeartDock::HeartDock(SCI::ThirdPersonCameraControls * pView, Data::Mesh::PointMe
 
     sp0->addWidget( &(render_engine.re) );
     sp0->addWidget( &(render_engine.pca) );
+    sp0->addWidget( &(render_engine.reNew) );
 
     sp1->addWidget( &(render_engine.re2[0]) );
     sp1->addWidget( &(render_engine.re2[1]) );
