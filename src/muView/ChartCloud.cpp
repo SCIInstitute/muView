@@ -165,50 +165,24 @@ void ChartCloud::Draw( int width, int height ){
     glLineWidth(1.0f);
 
 
-    if(draw_mode == 0){
-        glEnable(GL_DEPTH_TEST);
-            glPointSize(3.0f);
-            if( pdata == 0 ){
-                pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
-            }
-            else{
-                pmesh->Draw( *colormap );
-            }
-            //glPointSize(4.0f);
-            //pmesh->Draw( SCI::Vex4(0,0,0,1) );
-        glDisable(GL_DEPTH_TEST);
+    // draw_mode = 0
+    // This draws the colored volum
+    {
+    glEnable(GL_DEPTH_TEST);
+        glPointSize(3.0f);
+        if( pdata == 0 ){
+            pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
+        }
+        else{
+            pmesh->Draw( *colormap );
+        }
+        //glPointSize(4.0f);
+        //pmesh->Draw( SCI::Vex4(0,0,0,1) );
+    glDisable(GL_DEPTH_TEST);
     }
+    //////
 
-    /*
-    if(draw_mode == 4){
-        glLineWidth(4.0f);
-        glDisable(GL_DEPTH_TEST);
-        glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-        glEnable( GL_BLEND );
-            edge_mesh->Draw( edge_mesh_ro, *pmesh, *colormap );
-        glDisable( GL_BLEND );
-    }
-    */
-
-
-
-
-    if( draw_mode == 2 ){
-        glDisable(GL_DEPTH_TEST);
-        glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-        glEnable( GL_BLEND );
-            iso_tris->Draw( iso_tris_ro, *iso_points, *iso_color );
-        glDisable( GL_BLEND );
-    }
-
-    if( draw_mode == 3 ){
-        glDisable(GL_DEPTH_TEST);
-        glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-        glEnable( GL_BLEND );
-            df_tris->Draw( df_tris_ro, *df_points, *df_color );
-        glDisable( GL_BLEND );
-    }
-
+    // This draws the black contours
     glDisable(GL_DEPTH_TEST);
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glEnable( GL_BLEND );
@@ -221,90 +195,63 @@ void ChartCloud::Draw( int width, int height ){
 
 
 
+
+
+
+
+    float overviewWindow00 = width / 16;
+    float overviewWindow01 = width / 8;
+    float overviewWindow10 = height / 16;
+    float overviewWindow11 = height / 8;
+
+
+
+    // Draw border not aligned right now
     /*
-    if( view_fibers ){
-        glEnable( GL_DEPTH_TEST );
+    std::vector<SCI::Vex3> overviewWindow;
 
-        glColorMask( GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE );
-            glDepthRange(0.10f,1.0f);
-                tdata->tri_mesh.Draw( tri_mesh_ro, *pmesh, SCI::Vex4(0,0,0,0) );
-            glDepthRange(0.0f,1.0f);
-        glColorMask( GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE );
+    overviewWindow.push_back(SCI::Vex3((overviewWindow00/width) -1,(overviewWindow10/height) -1,0));
+    overviewWindow.push_back(SCI::Vex3((overviewWindow00/width) -1,(overviewWindow11/height) -1,0));
+    overviewWindow.push_back(SCI::Vex3((overviewWindow01/width) -1,(overviewWindow10/height) -1,0));
+    overviewWindow.push_back(SCI::Vex3((overviewWindow01/width) -1,(overviewWindow11/height) -1,0));
 
-        glLineWidth( 3.0f );
-        glColor3f(0,0,0);
-        glBegin(GL_LINES);
-        if(fdata){
-            for(int i = 0; i < (int)tdata->tri_mesh.size(); i++){
-                Data::Mesh::Triangle t = tdata->tri_mesh.at(i);
-                int j = t.v0;
-                SCI::Vex3 p0 = pmesh->points[j];
-                SCI::Vex3 d  = fdata->fibs[j];
-                SCI::Vex3 p1 = p0 + d * fiber_length;
 
-                glVertex3fv( p0.data );
-                glVertex3fv( p1.data );
-            }
-        }
-        glEnd();
-
+    glBegin(GL_LINE_LOOP);
+    for(int i = 0; i < (int)overviewWindow.size(); i++){
+        glColor3f(0,1,0);
+        glVertex3fv( overviewWindow[i].data );
     }
+    glEnd();
     */
 
+    //draw Overview inside
+    glViewport( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
+    glScissor( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
+    glClearColor(0,0,1,0.05);
+    glEnable(GL_SCISSOR_TEST);
+    glClear(GL_COLOR_BUFFER_BIT);
 
-    glDisable( GL_CLIP_PLANE0 );
-    glDisable( GL_CLIP_PLANE1 );
-    glDisable( GL_CLIP_PLANE2 );
-
-
-    /*
-    glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+    {
     glEnable(GL_DEPTH_TEST);
-    glLineWidth(5.0f);
-    float max_dim = pmesh->bb.GetMaximumDimensionSize()/2.0f*1.05f;
-    SCI::Vex3 cen = pmesh->bb.GetCenter();
-    for(int pass = 0; pass <= 1; pass++){
-        for(int i = 0; i < 3; i++){
-            if( pln[i] == 0 ) continue;
-            if(pass == 0) glEnable( GL_BLEND );
-            if(pass == 1) glDisable( GL_BLEND );
-            if(pass == 0) glBegin(GL_QUADS);
-            if(pass == 1) glBegin(GL_LINE_LOOP);
-            glColor4f(pln_color[i]->x,pln_color[i]->y,pln_color[i]->z,0.4f);
-            if( pln[i]->x != 0 ){
-                glVertex3f(-pln[i]->w,cen.y-max_dim,cen.z-max_dim);
-                glVertex3f(-pln[i]->w,cen.y-max_dim,cen.z+max_dim);
-                glVertex3f(-pln[i]->w,cen.y+max_dim,cen.z+max_dim);
-                glVertex3f(-pln[i]->w,cen.y+max_dim,cen.z-max_dim);
-            }
-            if( pln[i]->y != 0 ){
-                glVertex3f(cen.x-max_dim,-pln[i]->w,cen.z-max_dim);
-                glVertex3f(cen.x-max_dim,-pln[i]->w,cen.z+max_dim);
-                glVertex3f(cen.x+max_dim,-pln[i]->w,cen.z+max_dim);
-                glVertex3f(cen.x+max_dim,-pln[i]->w,cen.z-max_dim);
-            }
-            if( pln[i]->z != 0 ){
-                glVertex3f(cen.x-max_dim,cen.y-max_dim,-pln[i]->w);
-                glVertex3f(cen.x-max_dim,cen.y+max_dim,-pln[i]->w);
-                glVertex3f(cen.x+max_dim,cen.y+max_dim,-pln[i]->w);
-                glVertex3f(cen.x+max_dim,cen.y-max_dim,-pln[i]->w);
-            }
-            glEnd();
+        glPointSize(3.0f);
+        if( pdata == 0 ){
+            pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
         }
-    }
+        else{
+            pmesh->Draw( *colormap );
+        }
     glDisable(GL_DEPTH_TEST);
-    glDisable( GL_BLEND );
-    */
+    }
 
-    glLineWidth(1.0f);
 
-    // Now othrographic mode drawing
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
 
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity();
+    glDisable(GL_SCISSOR_TEST);
+    glClearColor(1,1,1,1);
 
+
+
+
+/*
     if(color_mode != 3){
         seq_cmap->Draw( 0.8f, 0.875f, 0.15f, 0.9f, (float)width/(float)height, font );
     }
@@ -353,6 +300,7 @@ void ChartCloud::Draw( int width, int height ){
 
         }
     }
+    */
 
 }
 
