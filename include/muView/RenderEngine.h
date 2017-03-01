@@ -155,7 +155,7 @@ public:
     RenderEngine3D re;
     RenderEngine2D re2[3];
     PCAView        pca;
-    ChartCloud reNew;
+    ChartCloud chartCloud;
 
     void SetParallelCoordinateView( ParallelCoordinates * pc ){ re.parallel_coordinates = pc; }
 

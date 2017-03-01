@@ -5,11 +5,12 @@
 #-------------------------------------------------
 
 QT       += core gui opengl network
-QT += widgets
+QT += widgets charts
 
 TEMPLATE = app
 
 TARGET = muView
+
 
 
 
@@ -63,7 +64,8 @@ SOURCES += \
     ../../src/DimensionalityReductionThreaded.cpp \
     ../../src/DimensionalityReduction.cpp \
     ../../src/muView/PCAView.cpp \
-    ../../src/muView/ChartCloud.cpp
+    ../../src/muView/ChartCloud.cpp \
+    ../../src/muView/ChartRect.cpp
 
 
 HEADERS  += \
@@ -80,7 +82,8 @@ HEADERS  += \
     ../../include/DimensionalityReductionThreaded.h \
     ../../include/DimensionalityReduction.h \
     ../../include/muView/PCAView.h \
-    ../../include/muView/ChartCloud.h
+    ../../include/muView/ChartCloud.h \
+    ../../include/muView/ChartRect.h
 
 
 RESOURCES += \

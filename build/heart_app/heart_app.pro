@@ -5,7 +5,7 @@ s#-------------------------------------------------
 #-------------------------------------------------
 
 QT       += core gui opengl network
-QT += widgets
+QT += widgets charts
 
 TEMPLATE = app
 
@@ -83,7 +83,8 @@ SOURCES += \
     ../../../Common/src/Data/MappedData.cpp\
     ../../../Common/src/Data/ProxyData.cpp\
     ../../src/muView/PCAView.cpp \
-    ../../src/muView/ChartCloud.cpp
+    ../../src/muView/ChartCloud.cpp \
+    ../../src/muView/ChartRect.cpp
 
 HEADERS  += \
     ../../include/muView/HeartMainWindow.h \
@@ -117,7 +118,8 @@ HEADERS  += \
     ../../../Common/include/Data/MappedData.h\
     ../../../Common/include/Data/ProxyData.h\
     ../../include/muView/PCAView.h \
-    ../../include/muView/ChartCloud.h
+    ../../include/muView/ChartCloud.h \
+    ../../include/muView/ChartRect.h
 
 
 RESOURCES += \

@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_OPENGL_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_CFLAGS) -g -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_CFLAGS) -openmp -g -std=gnu++11 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../../build/heart_app -I. -I../../include -I../../../Common/include -I../../build/heart_app -I../../build -I../../src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I../../bin/build/heart_app/.moc -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib
+INCPATH       = -I../../build/heart_app -I. -I../../include -I../../../Common/include -I../../build/heart_app -I../../build -I../../src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I../../bin/build/heart_app/.moc -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib
 QMAKE         = /Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = heart1.0.0
 DISTDIR = /Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/bin/build/heart_app/.obj/heart1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_LFLAGS) -Wl,-rpath,/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib -lteem -L/usr/local/Cellar/teem/1.11.0/lib -L../../bin/libs -lcommon -ldata -lshogun -L/usr/local/lib/ -framework QtOpenGL -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtNetwork -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib -lteem -L/usr/local/Cellar/teem/1.11.0/lib -L../../bin/libs -lcommon -ldata -lshogun -L/usr/local/lib/ -framework QtOpenGL -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtCharts -framework QtNetwork -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -80,7 +80,8 @@ SOURCES       = ../../src/muView/HeartMainWindow.cpp \
 		../../../Common/src/Data/MappedData.cpp \
 		../../../Common/src/Data/ProxyData.cpp \
 		../../src/muView/PCAView.cpp \
-		../../src/muView/ChartCloud.cpp ../../bin/build/heart_app/.rcc/qrc_arial.cpp \
+		../../src/muView/ChartCloud.cpp \
+		../../src/muView/ChartRect.cpp ../../bin/build/heart_app/.rcc/qrc_arial.cpp \
 		../../bin/build/heart_app/.moc/moc_HeartMainWindow.cpp \
 		../../bin/build/heart_app/.moc/moc_VoxelAssociativity.cpp \
 		../../bin/build/heart_app/.moc/moc_RenderEngine.cpp \
@@ -133,6 +134,7 @@ OBJECTS       = ../../bin/build/heart_app/.obj/HeartMainWindow.o \
 		../../bin/build/heart_app/.obj/ProxyData.o \
 		../../bin/build/heart_app/.obj/PCAView.o \
 		../../bin/build/heart_app/.obj/ChartCloud.o \
+		../../bin/build/heart_app/.obj/ChartRect.o \
 		../../bin/build/heart_app/.obj/qrc_arial.o \
 		../../bin/build/heart_app/.obj/moc_HeartMainWindow.o \
 		../../bin/build/heart_app/.obj/moc_VoxelAssociativity.o \
@@ -360,7 +362,8 @@ DIST          = /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/spec_p
 		../../../Common/include/Data/MappedData.h \
 		../../../Common/include/Data/ProxyData.h \
 		../../include/muView/PCAView.h \
-		../../include/muView/ChartCloud.h ../../src/muView/HeartMainWindow.cpp \
+		../../include/muView/ChartCloud.h \
+		../../include/muView/ChartRect.h ../../src/muView/HeartMainWindow.cpp \
 		../../src/muView/HeartMain.cpp \
 		../../src/muView/Histogram.cpp \
 		../../src/muView/VolumeRenderer.cpp \
@@ -392,7 +395,8 @@ DIST          = /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/spec_p
 		../../../Common/src/Data/MappedData.cpp \
 		../../../Common/src/Data/ProxyData.cpp \
 		../../src/muView/PCAView.cpp \
-		../../src/muView/ChartCloud.cpp
+		../../src/muView/ChartCloud.cpp \
+		../../src/muView/ChartRect.cpp
 QMAKE_TARGET  = heart
 DESTDIR       = ../../bin/
 TARGET        = ../../bin/heart.app/Contents/MacOS/heart
@@ -584,6 +588,7 @@ Makefile: ../../build/heart_app/heart_app.pro /Users/magdalenaschwarzl/Qt/5.8/cl
 		../../build/heart_app/heart_app.pro \
 		../../../Common/fonts/arial.qrc \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/QtOpenGL.prl \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/QtCharts.prl \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/QtGui.prl \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/QtNetwork.prl \
@@ -768,6 +773,7 @@ Makefile: ../../build/heart_app/heart_app.pro /Users/magdalenaschwarzl/Qt/5.8/cl
 ../../build/heart_app/heart_app.pro:
 ../../../Common/fonts/arial.qrc:
 /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/QtOpenGL.prl:
+/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/QtCharts.prl:
 /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/QtGui.prl:
 /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/QtNetwork.prl:
@@ -803,8 +809,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Common/fonts/arial.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../include/muView/HeartMainWindow.h ../../include/muView/Histogram.h ../../include/muView/VolumeRenderer.h ../../include/muView/VoxelAssociativity.h ../../include/muView/RenderEngine.h ../../include/muView/ParallelCoordinates.h ../../include/muView/HeartDock.h ../../include/muView/RenderEngine3D.h ../../include/muView/RenderEngine2D.h ../../include/MainWidget.h ../../include/DimensionalityReduction.h ../../include/Shogun_Wrapper.h ../../include/Drawable/DimRedDisplay.h ../../include/Drawable/VolumeDisplay.h ../../include/Drawable/DrawableObject.h ../../include/Drawable/Provenance.h ../../include/Drawable/MeshDisplay.h ../../include/Drawable/PointDisplay.h ../../include/Drawable/ProvenanceNode.h ../../include/Drawable/Barchart.h ../../include/Drawable/ColorLine.h ../../include/Dialog/Metadata.h ../../include/Histogram2D.h ../../include/BoundingRegion.h ../../include/RemoteDimensionalityReduction.h ../../../Common/include/SCI/Network/QExtendedTcpSocket.h ../../../Common/include/MyLib/PolylineSimplification.h ../../../Common/include/Data/BasicData.h ../../../Common/include/Data/MappedData.h ../../../Common/include/Data/ProxyData.h ../../include/muView/PCAView.h ../../include/muView/ChartCloud.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/muView/HeartMainWindow.cpp ../../src/muView/HeartMain.cpp ../../src/muView/Histogram.cpp ../../src/muView/VolumeRenderer.cpp ../../src/muView/VoxelAssociativity.cpp ../../src/muView/RenderEngine.cpp ../../src/muView/ParallelCoordinates.cpp ../../src/muView/HeartDock.cpp ../../src/muView/RenderEngine3D.cpp ../../src/muView/RenderEngine2D.cpp ../../src/MainWidget.cpp ../../src/DimensionalityReduction.cpp ../../src/Shogun_Wrapper.cpp ../../src/Drawable/DimRedDisplay.cpp ../../src/Drawable/VolumeDisplay.cpp ../../src/Drawable/DrawableObject.cpp ../../src/Drawable/Provenance.cpp ../../src/Drawable/MeshDisplay.cpp ../../src/Drawable/PointDisplay.cpp ../../src/Drawable/ProvenanceNode.cpp ../../src/Drawable/Barchart.cpp ../../src/Drawable/ColorLine.cpp ../../src/Dialog/Metadata.cpp ../../src/Histogram2D.cpp ../../src/BoundingRegion.cpp ../../src/RemoteDimensionalityReduction.cpp ../../../Common/src/SCI/Network/QExtendedTcpSocket.cpp ../../../Common/src/MyLib/PolylineSimplification.cpp ../../../Common/src/Data/BasicData.cpp ../../../Common/src/Data/MappedData.cpp ../../../Common/src/Data/ProxyData.cpp ../../src/muView/PCAView.cpp ../../src/muView/ChartCloud.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../include/muView/HeartMainWindow.h ../../include/muView/Histogram.h ../../include/muView/VolumeRenderer.h ../../include/muView/VoxelAssociativity.h ../../include/muView/RenderEngine.h ../../include/muView/ParallelCoordinates.h ../../include/muView/HeartDock.h ../../include/muView/RenderEngine3D.h ../../include/muView/RenderEngine2D.h ../../include/MainWidget.h ../../include/DimensionalityReduction.h ../../include/Shogun_Wrapper.h ../../include/Drawable/DimRedDisplay.h ../../include/Drawable/VolumeDisplay.h ../../include/Drawable/DrawableObject.h ../../include/Drawable/Provenance.h ../../include/Drawable/MeshDisplay.h ../../include/Drawable/PointDisplay.h ../../include/Drawable/ProvenanceNode.h ../../include/Drawable/Barchart.h ../../include/Drawable/ColorLine.h ../../include/Dialog/Metadata.h ../../include/Histogram2D.h ../../include/BoundingRegion.h ../../include/RemoteDimensionalityReduction.h ../../../Common/include/SCI/Network/QExtendedTcpSocket.h ../../../Common/include/MyLib/PolylineSimplification.h ../../../Common/include/Data/BasicData.h ../../../Common/include/Data/MappedData.h ../../../Common/include/Data/ProxyData.h ../../include/muView/PCAView.h ../../include/muView/ChartCloud.h ../../include/muView/ChartRect.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/muView/HeartMainWindow.cpp ../../src/muView/HeartMain.cpp ../../src/muView/Histogram.cpp ../../src/muView/VolumeRenderer.cpp ../../src/muView/VoxelAssociativity.cpp ../../src/muView/RenderEngine.cpp ../../src/muView/ParallelCoordinates.cpp ../../src/muView/HeartDock.cpp ../../src/muView/RenderEngine3D.cpp ../../src/muView/RenderEngine2D.cpp ../../src/MainWidget.cpp ../../src/DimensionalityReduction.cpp ../../src/Shogun_Wrapper.cpp ../../src/Drawable/DimRedDisplay.cpp ../../src/Drawable/VolumeDisplay.cpp ../../src/Drawable/DrawableObject.cpp ../../src/Drawable/Provenance.cpp ../../src/Drawable/MeshDisplay.cpp ../../src/Drawable/PointDisplay.cpp ../../src/Drawable/ProvenanceNode.cpp ../../src/Drawable/Barchart.cpp ../../src/Drawable/ColorLine.cpp ../../src/Dialog/Metadata.cpp ../../src/Histogram2D.cpp ../../src/BoundingRegion.cpp ../../src/RemoteDimensionalityReduction.cpp ../../../Common/src/SCI/Network/QExtendedTcpSocket.cpp ../../../Common/src/MyLib/PolylineSimplification.cpp ../../../Common/src/Data/BasicData.cpp ../../../Common/src/Data/MappedData.cpp ../../../Common/src/Data/ProxyData.cpp ../../src/muView/PCAView.cpp ../../src/muView/ChartCloud.cpp ../../src/muView/ChartRect.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -918,6 +924,20 @@ compiler_moc_header_clean:
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
 		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -949,7 +969,7 @@ compiler_moc_header_clean:
 		../../include/muView/HeartMainWindow.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/HeartMainWindow.h -o ../../bin/build/heart_app/.moc/moc_HeartMainWindow.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/HeartMainWindow.h -o ../../bin/build/heart_app/.moc/moc_HeartMainWindow.cpp
 
 ../../bin/build/heart_app/.moc/moc_VoxelAssociativity.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QThread \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qthread.h \
@@ -985,7 +1005,7 @@ compiler_moc_header_clean:
 		../../include/muView/VoxelAssociativity.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/VoxelAssociativity.h -o ../../bin/build/heart_app/.moc/moc_VoxelAssociativity.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/VoxelAssociativity.h -o ../../bin/build/heart_app/.moc/moc_VoxelAssociativity.cpp
 
 ../../bin/build/heart_app/.moc/moc_RenderEngine.cpp: ../../../Common/include/Data/VolumetricData.h \
 		../../../Common/include/Data/DenseMultiDimensionalData.h \
@@ -1046,6 +1066,20 @@ compiler_moc_header_clean:
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
 		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -1054,7 +1088,7 @@ compiler_moc_header_clean:
 		../../include/muView/RenderEngine.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/RenderEngine.h -o ../../bin/build/heart_app/.moc/moc_RenderEngine.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/RenderEngine.h -o ../../bin/build/heart_app/.moc/moc_RenderEngine.cpp
 
 ../../bin/build/heart_app/.moc/moc_ParallelCoordinates.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
@@ -1076,7 +1110,7 @@ compiler_moc_header_clean:
 		../../include/muView/ParallelCoordinates.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/ParallelCoordinates.h -o ../../bin/build/heart_app/.moc/moc_ParallelCoordinates.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/ParallelCoordinates.h -o ../../bin/build/heart_app/.moc/moc_ParallelCoordinates.cpp
 
 ../../bin/build/heart_app/.moc/moc_HeartDock.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QDockWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdockwidget.h \
@@ -1144,6 +1178,20 @@ compiler_moc_header_clean:
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
 		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -1175,7 +1223,7 @@ compiler_moc_header_clean:
 		../../include/muView/HeartDock.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/HeartDock.h -o ../../bin/build/heart_app/.moc/moc_HeartDock.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/HeartDock.h -o ../../bin/build/heart_app/.moc/moc_HeartDock.cpp
 
 ../../bin/build/heart_app/.moc/moc_RenderEngine3D.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -1234,7 +1282,7 @@ compiler_moc_header_clean:
 		../../include/muView/RenderEngine3D.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/RenderEngine3D.h -o ../../bin/build/heart_app/.moc/moc_RenderEngine3D.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/RenderEngine3D.h -o ../../bin/build/heart_app/.moc/moc_RenderEngine3D.cpp
 
 ../../bin/build/heart_app/.moc/moc_RenderEngine2D.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
@@ -1265,7 +1313,7 @@ compiler_moc_header_clean:
 		../../include/muView/RenderEngine2D.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/RenderEngine2D.h -o ../../bin/build/heart_app/.moc/moc_RenderEngine2D.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/RenderEngine2D.h -o ../../bin/build/heart_app/.moc/moc_RenderEngine2D.cpp
 
 ../../bin/build/heart_app/.moc/moc_MainWidget.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
@@ -1452,7 +1500,7 @@ compiler_moc_header_clean:
 		../../include/MainWidget.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/MainWidget.h -o ../../bin/build/heart_app/.moc/moc_MainWidget.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/MainWidget.h -o ../../bin/build/heart_app/.moc/moc_MainWidget.cpp
 
 ../../bin/build/heart_app/.moc/moc_VolumeDisplay.cpp: ../../../Common/include/SCI/Subset.h \
 		../../../Common/include/Data/BasicData.h \
@@ -1498,14 +1546,14 @@ compiler_moc_header_clean:
 		../../include/Drawable/VolumeDisplay.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/VolumeDisplay.h -o ../../bin/build/heart_app/.moc/moc_VolumeDisplay.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/VolumeDisplay.h -o ../../bin/build/heart_app/.moc/moc_VolumeDisplay.cpp
 
 ../../bin/build/heart_app/.moc/moc_DrawableObject.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../include/Drawable/DrawableObject.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/DrawableObject.h -o ../../bin/build/heart_app/.moc/moc_DrawableObject.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/DrawableObject.h -o ../../bin/build/heart_app/.moc/moc_DrawableObject.cpp
 
 ../../bin/build/heart_app/.moc/moc_Provenance.cpp: ../../include/Drawable/ProvenanceNode.h \
 		../../include/RemoteDimensionalityReduction.h \
@@ -1543,7 +1591,7 @@ compiler_moc_header_clean:
 		../../include/Drawable/Provenance.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/Provenance.h -o ../../bin/build/heart_app/.moc/moc_Provenance.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/Provenance.h -o ../../bin/build/heart_app/.moc/moc_Provenance.cpp
 
 ../../bin/build/heart_app/.moc/moc_MeshDisplay.cpp: ../../../Common/include/SCI/Subset.h \
 		../../../Common/include/Data/BasicData.h \
@@ -1589,7 +1637,7 @@ compiler_moc_header_clean:
 		../../include/Drawable/MeshDisplay.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/MeshDisplay.h -o ../../bin/build/heart_app/.moc/moc_MeshDisplay.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/MeshDisplay.h -o ../../bin/build/heart_app/.moc/moc_MeshDisplay.cpp
 
 ../../bin/build/heart_app/.moc/moc_PointDisplay.cpp: ../../../Common/include/SCI/Subset.h \
 		../../../Common/include/Data/BasicData.h \
@@ -1635,7 +1683,7 @@ compiler_moc_header_clean:
 		../../include/Drawable/PointDisplay.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/PointDisplay.h -o ../../bin/build/heart_app/.moc/moc_PointDisplay.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/PointDisplay.h -o ../../bin/build/heart_app/.moc/moc_PointDisplay.cpp
 
 ../../bin/build/heart_app/.moc/moc_ProvenanceNode.cpp: ../../include/RemoteDimensionalityReduction.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
@@ -1670,7 +1718,7 @@ compiler_moc_header_clean:
 		../../include/Drawable/ProvenanceNode.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/ProvenanceNode.h -o ../../bin/build/heart_app/.moc/moc_ProvenanceNode.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Drawable/ProvenanceNode.h -o ../../bin/build/heart_app/.moc/moc_ProvenanceNode.cpp
 
 ../../bin/build/heart_app/.moc/moc_Metadata.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1696,7 +1744,7 @@ compiler_moc_header_clean:
 		../../include/Dialog/Metadata.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Dialog/Metadata.h -o ../../bin/build/heart_app/.moc/moc_Metadata.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/Dialog/Metadata.h -o ../../bin/build/heart_app/.moc/moc_Metadata.cpp
 
 ../../bin/build/heart_app/.moc/moc_RemoteDimensionalityReduction.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -1717,7 +1765,7 @@ compiler_moc_header_clean:
 		../../include/RemoteDimensionalityReduction.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/RemoteDimensionalityReduction.h -o ../../bin/build/heart_app/.moc/moc_RemoteDimensionalityReduction.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/RemoteDimensionalityReduction.h -o ../../bin/build/heart_app/.moc/moc_RemoteDimensionalityReduction.cpp
 
 ../../bin/build/heart_app/.moc/moc_QExtendedTcpSocket.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers/QTcpSocket \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers/qtcpsocket.h \
@@ -1732,7 +1780,7 @@ compiler_moc_header_clean:
 		../../../Common/include/SCI/Network/QExtendedTcpSocket.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../../Common/include/SCI/Network/QExtendedTcpSocket.h -o ../../bin/build/heart_app/.moc/moc_QExtendedTcpSocket.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../../Common/include/SCI/Network/QExtendedTcpSocket.h -o ../../bin/build/heart_app/.moc/moc_QExtendedTcpSocket.cpp
 
 ../../bin/build/heart_app/.moc/moc_PCAView.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
@@ -1771,10 +1819,14 @@ compiler_moc_header_clean:
 		../../include/muView/PCAView.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/PCAView.h -o ../../bin/build/heart_app/.moc/moc_PCAView.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/PCAView.h -o ../../bin/build/heart_app/.moc/moc_PCAView.cpp
 
 ../../bin/build/heart_app/.moc/moc_ChartCloud.cpp: /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../Common/include/Data/VolumetricData.h \
 		../../../Common/include/Data/DenseMultiDimensionalData.h \
 		../../../Common/include/Data/MultiDimensionalData.h \
@@ -1821,6 +1873,16 @@ compiler_moc_header_clean:
 		../../include/muView/ParallelCoordinates.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../../Common/include/SCI/Camera/FrustumProjection.h \
 		../../../Common/include/SCI/Camera/Projection.h \
 		../../../Common/include/SCI/Camera/OrthoProjection.h \
@@ -1830,7 +1892,7 @@ compiler_moc_header_clean:
 		../../include/muView/ChartCloud.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
-	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/ChartCloud.h -o ../../bin/build/heart_app/.moc/moc_ChartCloud.cpp
+	/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc $(DEFINES) --include ../../bin/build/heart_app/.moc/moc_predefs.h -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/macx-clang -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/Common/include -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build/heart_app -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/build -I/Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/src -I/usr/local/include -I/usr/local/Cellar/teem/1.11.0/include -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCharts.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtNetwork.framework/Headers -I/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib ../../include/muView/ChartCloud.h -o ../../bin/build/heart_app/.moc/moc_ChartCloud.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1923,6 +1985,20 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
 		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -2030,6 +2106,20 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
 		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -2180,6 +2270,20 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
 		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -2280,6 +2384,20 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
 		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -3252,6 +3370,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../../Common/include/Data/VolumetricData.h \
 		../../../Common/include/Data/DenseMultiDimensionalData.h \
 		../../../Common/include/Data/MultiDimensionalData.h \
@@ -3298,6 +3420,16 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/muView/ParallelCoordinates.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
 		../../../Common/include/SCI/Camera/FrustumProjection.h \
 		../../../Common/include/SCI/Camera/Projection.h \
 		../../../Common/include/SCI/Camera/OrthoProjection.h \
@@ -3307,6 +3439,120 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/ChartCloud.o ../../src/muView/ChartCloud.cpp
+
+../../bin/build/heart_app/.obj/ChartRect.o: ../../src/muView/ChartRect.cpp /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QtGui \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtguiglobal.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qabstracttextdocumentlayout.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qaccessible.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qaccessiblebridge.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qaccessibleobject.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qaccessibleplugin.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbackingstore.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbitmap.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qclipboard.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcolor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qcursor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qdesktopservices.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qdrag.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qfont.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qfontdatabase.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qfontinfo.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qfontmetrics.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qgenericmatrix.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qgenericplugin.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qgenericpluginfactory.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qglyphrun.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qguiapplication.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qicon.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qiconengine.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qiconengineplugin.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimageiohandler.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimagereader.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimagewriter.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qinputmethod.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qkeysequence.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qmatrix.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qmatrix4x4.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qmovie.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qoffscreensurface.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopengl.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglbuffer.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglcontext.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopengldebug.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglextrafunctions.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglframebufferobject.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglfunctions.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglpaintdevice.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglpixeltransferoptions.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglshaderprogram.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopengltexture.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopengltextureblitter.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopengltimerquery.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglversionfunctions.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglvertexarrayobject.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qopenglwindow.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpagedpaintdevice.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpagelayout.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpagesize.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpaintdevice.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpaintdevicewindow.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpaintengine.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpainterpath.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpalette.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpdfwriter.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpen.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpicture.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpictureformatplugin.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixelformat.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmapcache.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpolygon.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qquaternion.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qrasterwindow.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qrawfont.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qregion.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qrgb.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qrgba64.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qscreen.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qsessionmanager.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qstandarditemmodel.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qstatictext.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qstylehints.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qsurface.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qsurfaceformat.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qsyntaxhighlighter.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextcursor.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextdocument.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextdocumentfragment.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextdocumentwriter.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextformat.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextlayout.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextlist.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextobject.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtextoption.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtexttable.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtouchdevice.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtransform.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qvalidator.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qvector2d.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qvector3d.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qvector4d.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qwindow.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qwindowdefs.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qtguiversion.h \
+		../../include/muView/ChartRect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QColor \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QPointF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/ChartRect.o ../../src/muView/ChartRect.cpp
 
 ../../bin/build/heart_app/.obj/qrc_arial.o: ../../bin/build/heart_app/.rcc/qrc_arial.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/qrc_arial.o ../../bin/build/heart_app/.rcc/qrc_arial.cpp

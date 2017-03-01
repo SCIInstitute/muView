@@ -47,54 +47,64 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     chartView->setRenderHint(QPainter::Antialiasing);
 
 
+    allCharts.push_back(chartView);
 
 
 
-
-
+    QString path2 = "/Users/magdalenaschwarzl/Desktop/testImage.png";
     QImage * img = new QImage();
-    *img = QImage(chartView->size().width(),chartView->size().height(), QImage::Format_ARGB32);
+    if(! img->load(path2)){
+        std::cout << "creating image..." << std::endl;
+        *img = QImage(chartView->size().width(),chartView->size().height(), QImage::Format_ARGB32);
+    }
 
 
-    QImage * imgSmall = new QImage();
-    *imgSmall = img->scaledToHeight(height()/8.0);
+    img->fill(QColor(200,70,120));
+    QPainter painter(img);
 
-    imgSmall->fill(QColor(230,230,230));
+    QPixmap pix = chartView->grab();
+    int h = painter.window().height();
+    int w = painter.window().width();
+    chartView->resize(w, h);
+    painter.drawPixmap(0,0, w, h, pix);
 
-    QString path = "/Users/magdalenaschwarzl/Desktop/graph.png";
-    imgSmall->save(path);
+    if(!img->save(path2)){
+        std::cout << "ERROR saving image..." << std::endl;
+    }
 
-    allChartViews.push_back(chartView);
-
-    setAutoFillBackground(false);
+   textures.push_back(0);
+    myLoadTexture(path2, textures.back());
 }
 
 
+void ChartCloud::myLoadTexture(QString filename, int texID){
+
+
+    QImage t;
+    QImage b;
+
+    if ( !b.load( filename ) )
+    {
+      b.load( "/Users/magdalenaschwarzl/Desktop/error.png" );
+      //b = QImage( 20,20, QImage::Format_ARGB32 );
+      //b.fill( Qt::green.rgb() );
+
+    }
+b.save("/Users/magdalenaschwarzl/Desktop/usedTexture.png");
+    t = QGLWidget::convertToGLFormat( b );
+    glGenTextures( 1, &textures[texID] );
+    glBindTexture( GL_TEXTURE_2D, textures[texID] );
+    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, t.width(), t.height(), 0, GL_RGBA8, GL_UNSIGNED_BYTE, t.bits() );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+
+}
 
 void ChartCloud::initializeGL(){
     glewInit( );
 }
 
-
-void ChartCloud::createChartRects(int number)
-{
-    for (int i = 0; i < number; ++i) {
-        QPointF position(width()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
-                        height()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))));
-
-        chartRects.append(new ChartRect(position));
-    }
-}
-
-
-
-void ChartCloud::paintEvent(QPaintEvent *event){
-
-    makeCurrent();
-
-    glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
-
+void ChartCloud::paintGL(){
 
     // Clear the display
     glClearColor(1,1,1,1);
@@ -102,44 +112,7 @@ void ChartCloud::paintEvent(QPaintEvent *event){
 
     Draw( size().width(), size().height() );
 
-    glMatrixMode(GL_MODELVIEW);
-    glPopMatrix();
-
-
-
-
-
-
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-    foreach (ChartRect *chartRect, chartRects) {
-        QImage * imgSmall = new QImage();
-        * imgSmall = QImage(allChartViews[0]->size().width(),allChartViews[0]->size().height(), QImage::Format_ARGB32);
-        *imgSmall = imgSmall->scaledToHeight(height()/8.0);
-
-        imgSmall->fill(QColor(230,230,230));
-
-        QPixmap pix = allChartViews[0]->grab();
-        int h = painter.window().height()/5;
-        int w = painter.window().width()/5;
-        allChartViews[0]->resize(w, h);
-
-
-        chartRect->drawChartRect(&painter, pix, w, h);
-    }
-    painter.end();
-
 }
-
-
-
-void ChartCloud::showEvent(QShowEvent *event){
-
-   Q_UNUSED(event);
-   createChartRects(4);
-
-}
-
 
 void ChartCloud::mouseDoubleClickEvent ( QMouseEvent * event ){
 
@@ -194,7 +167,7 @@ void ChartCloud::mouseReleaseEvent ( QMouseEvent * event ){
 
 void ChartCloud::keyPressEvent ( QKeyEvent * event ){
 
-    Keypress( event->key(), mouse_x, mouse_y );
+    Keypress( event->key(), mouse_x, chartCloud_y );
 
 }
 
@@ -226,24 +199,6 @@ void ChartCloud::UpdateView( ){
 
 
     need_view_update = false;
-}
-
-void ChartCloud::resizeGL(int width, int height){
-    setupViewport(width, height);
-}
-
-void ChartCloud::setupViewport(int width, int height){
-    int side = qMin(width, height);
-    glViewport((width - side) / 2, (height - side) / 2, side, side);
-
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-#ifdef QT_OPENGL_ES
-    glOrthof(-0.5, +0.5, -0.5, 0.5, 4.0, 15.0);
-#else
-    glOrtho(-0.5, +0.5, -0.5, 0.5, 4.0, 15.0);
-#endif
-    glMatrixMode(GL_MODELVIEW);
 }
 
 void ChartCloud::Draw( int width, int height ){
@@ -366,6 +321,73 @@ void ChartCloud::Draw( int width, int height ){
         }
     glDisable(GL_DEPTH_TEST);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+     * A first chart
+     */
+
+
+
+    glViewport( width/4, height/4, width/3, height/3);
+    glScissor( width/4, height/4, width/3, height/3);
+    glClearColor(0,1,0,0.05);
+    glEnable(GL_SCISSOR_TEST);
+    glEnable(GL_TEXTURE_2D);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+
+
+    std::vector<SCI::Vex2> texCoords;
+    texCoords.push_back(SCI::Vex2(0,0));
+    texCoords.push_back(SCI::Vex2(1,0));
+    texCoords.push_back(SCI::Vex2(1,1));
+    texCoords.push_back(SCI::Vex2(0,1));
+
+    std::vector<SCI::Vex3> chart1;
+
+    chart1.push_back(SCI::Vex3(-20,-20,0));
+    chart1.push_back(SCI::Vex3(-20,80,0));
+    chart1.push_back(SCI::Vex3(80,80,0));
+    chart1.push_back(SCI::Vex3(80,-20,0));
+
+
+    glBindTexture(GL_TEXTURE_2D, textures[0]);
+    glBegin(GL_QUADS);
+    for(int i = 0; i < (int)chart1.size(); i++){
+        //glColor3f(0,0,0);
+        glTexCoord2f(texCoords[i].data[0], texCoords[i].data[1]);
+        glVertex3fv( chart1[i].data );
+    }
+    glEnd();
+
+
+
+
+
 
 
     glDisable(GL_SCISSOR_TEST);

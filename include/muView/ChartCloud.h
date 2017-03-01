@@ -2,6 +2,13 @@
 #define CHARTCLOUD_H
 
 #include <QObject>
+#include <QImage>
+#include <QTimer>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QtCharts/QChart>
+
+using namespace QtCharts;
 
 #include <Data/VolumetricData.h>
 #include <Data/PointData.h>
@@ -18,6 +25,7 @@
 #include <muView/VoxelAssociativity.h>
 #include <muView/Histogram.h>
 #include <muView/ParallelCoordinates.h>
+#include <muView/ChartRect.h>
 
 #include <SCI/Camera/FrustumProjection.h>
 #include <SCI/Camera/OrthoProjection.h>
@@ -41,7 +49,9 @@ public:
 protected:
 
     virtual void initializeGL();
-    virtual void paintGL();
+ //   virtual void paintGL();
+    virtual void paintEvent(QPaintEvent *event);
+    virtual void showEvent(QShowEvent *event);
 
 public:
     virtual void mouseDoubleClickEvent ( QMouseEvent * event );
@@ -142,7 +152,28 @@ public:
     double clpZ[4];
     bool useClipX, useClipY, useClipZ;
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    std::vector<QChartView *> allChartViews;
+
+    void createChartRects(int number);
+    void setupViewport(int width, int height);
+    void resizeGL(int width, int height);
+
+    QList<ChartRect *> chartRects;
 };
 
 #endif // CHARTCLOUD_H
