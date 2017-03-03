@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QImage>
-#include <QTimer>
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QChart>

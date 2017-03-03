@@ -25,6 +25,8 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     pln[0] = pln[1] = pln[2] = 0;
 
 
+    /*
+
     QLineSeries *series = new QLineSeries();
     series->append(0, 6);
     series->append(2, 4);
@@ -65,7 +67,7 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     imgSmall->save(path);
 
     allChartViews.push_back(chartView);
-
+    */
     setAutoFillBackground(false);
 }
 
@@ -78,11 +80,25 @@ void ChartCloud::initializeGL(){
 
 void ChartCloud::createChartRects(int number)
 {
+
+    SCI::Vex3 location(1,2,3);
+    std::vector<float> data;
+    data.push_back(3);
+    data.push_back(10);
+    data.push_back(22);
+    data.push_back(4);
+    data.push_back(6);
+    data.push_back(3);
+    data.push_back(2);
+
+    int numData = 7;
+
+
     for (int i = 0; i < number; ++i) {
         QPointF position(width()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
                         height()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))));
 
-        chartRects.append(new ChartRect(position));
+        chartRects.append(new ChartRect(position, location, &data[0], numData));
     }
 }
 
@@ -114,15 +130,15 @@ void ChartCloud::paintEvent(QPaintEvent *event){
     painter.setRenderHint(QPainter::Antialiasing);
     foreach (ChartRect *chartRect, chartRects) {
         QImage * imgSmall = new QImage();
-        * imgSmall = QImage(allChartViews[0]->size().width(),allChartViews[0]->size().height(), QImage::Format_ARGB32);
+        * imgSmall = QImage(chartRect->width(),chartRect->height(), QImage::Format_ARGB32);
         *imgSmall = imgSmall->scaledToHeight(height()/8.0);
 
         imgSmall->fill(QColor(230,230,230));
 
-        QPixmap pix = allChartViews[0]->grab();
+        QPixmap pix = chartRect->grabChartView();
         int h = painter.window().height()/5;
         int w = painter.window().width()/5;
-        allChartViews[0]->resize(w, h);
+        chartRect->resize(w, h);
 
 
         chartRect->drawChartRect(&painter, pix, w, h);
