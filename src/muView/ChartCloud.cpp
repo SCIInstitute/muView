@@ -25,49 +25,12 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     pln[0] = pln[1] = pln[2] = 0;
 
 
-    /*
+    pView = new SCI::ThirdPersonCameraControls();
+    pViewRotationOnly = new SCI::ThirdPersonCameraControls();
 
-    QLineSeries *series = new QLineSeries();
-    series->append(0, 6);
-    series->append(2, 4);
-    series->append(3, 8);
-    series->append(7, 4);
-    series->append(10, 5);
-    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
+    pView->Set( 15.0f, 75.0f, 5.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
+    pViewRotationOnly->Set( 15.0f, 75.0f, 5.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
 
-
-
-    QChart *chart = new QChart();
-
-    chart->legend()->hide();
-    chart->addSeries(series);
-    chart->createDefaultAxes();
-    chart->setTitle("Simple line chart example");
-
-
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-
-
-
-
-
-
-
-    QImage * img = new QImage();
-    *img = QImage(chartView->size().width(),chartView->size().height(), QImage::Format_ARGB32);
-
-
-    QImage * imgSmall = new QImage();
-    *imgSmall = img->scaledToHeight(height()/8.0);
-
-    imgSmall->fill(QColor(230,230,230));
-
-    QString path = "/Users/magdalenaschwarzl/Desktop/graph.png";
-    imgSmall->save(path);
-
-    allChartViews.push_back(chartView);
-    */
     setAutoFillBackground(false);
 }
 
@@ -312,6 +275,9 @@ void ChartCloud::Draw( int width, int height ){
         }
         //glPointSize(4.0f);
         //pmesh->Draw( SCI::Vex4(0,0,0,1) );
+        //for(int i = 0; i < (int)pmesh->points.size(); i++){
+        //std::cout << "point (x,y,z) " << pmesh->points[i].data[0] << " " << pmesh->points[i].data[1] << " " << pmesh->points[i].data[2] << std::endl;
+        //}
     glDisable(GL_DEPTH_TEST);
     }
     //////
@@ -367,12 +333,16 @@ void ChartCloud::Draw( int width, int height ){
     //draw Overview inside
     glViewport( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
     glScissor( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
-    glClearColor(0,0,1,0.05);
+    glClearColor(0.2,0.2,0.2,0.05);
     glEnable(GL_SCISSOR_TEST);
     glClear(GL_COLOR_BUFFER_BIT);
 
+    glMatrixMode( GL_MODELVIEW );
+    glLoadIdentity();
+    glMultMatrixf( pViewRotationOnly->GetView().data );
+    glMultMatrixf( tform.data );
+
     {
-    glEnable(GL_DEPTH_TEST);
         glPointSize(3.0f);
         if( pdata == 0 ){
             pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
@@ -380,7 +350,6 @@ void ChartCloud::Draw( int width, int height ){
         else{
             pmesh->Draw( *colormap );
         }
-    glDisable(GL_DEPTH_TEST);
     }
 
 
@@ -422,7 +391,7 @@ void ChartCloud::RecalculateSil(){
 }
 
 bool ChartCloud::MouseClick(int button, int state, int x, int y){
-    pView->Save("view.txt");
+    //pView->Save("view.txt");
     mouse_active = ( state == QMouseEvent::MouseButtonPress );
     return mouse_active;
 }
@@ -430,9 +399,16 @@ bool ChartCloud::MouseClick(int button, int state, int x, int y){
 
 bool ChartCloud::MouseMotion(int button, int x, int dx, int y, int dy){
     if(mouse_active){
-        if(button == Qt::LeftButton)   pView->Rotate(-(float)(dx),(float)(dy));
-        if(button == Qt::MiddleButton) pView->Translate((float)(dx),(float)(dy));
-        if(button == Qt::RightButton)  pView->Zoom((float)(dy));
+        if(button == Qt::LeftButton) {
+            pView->Rotate(-(float)(dx),(float)(dy));
+            pViewRotationOnly->Rotate(-(float)(dx),(float)(dy));
+        }
+        if(button == Qt::MiddleButton){
+            pView->Translate((float)(dx),(float)(dy));
+        }
+        if(button == Qt::RightButton){
+            pView->Zoom((float)(dy));
+        }
         need_view_update = true;
         update();
     }

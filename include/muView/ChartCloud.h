@@ -145,6 +145,7 @@ public:
 
     SCI::FrustumProjection           proj;
     SCI::ThirdPersonCameraControls * pView;
+    SCI::ThirdPersonCameraControls * pViewRotationOnly;
 
     double clpX[4];
     double clpY[4];

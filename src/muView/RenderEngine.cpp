@@ -9,7 +9,6 @@
 RenderEngine::RenderEngine(SCI::ThirdPersonCameraControls *_pView) {
 
     re.pView = _pView;
-    chartCloud.pView = _pView;
 
 
     draw_mode  =  0;
