@@ -344,10 +344,10 @@ void ChartCloud::Draw( int width, int height ){
     3D_Point = View^-1 * Projection^-1 * Screen_Space_Position
 
     */
-    SCI::Vex4 left_up = tform.Inverse() * pView->GetView().Inverse() *  proj.GetMatrix().Inverse()*SCI::Vex4(-1,-1,-1,1);
-    SCI::Vex4 left_down = tform.Inverse() * pView->GetView().Inverse() *  proj.GetMatrix().Inverse()*SCI::Vex4(-1,1,-1,1);
-    SCI::Vex4 right_up = tform.Inverse() * pView->GetView().Inverse() *  proj.GetMatrix().Inverse()*SCI::Vex4(1,-1,-1,1);
-    SCI::Vex4 right_down = tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(1,1,-1,1);
+    SCI::Vex4 left_up =     tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(-1,-1,-1,1);
+    SCI::Vex4 left_down =   tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(-1,1,-1,1);
+    SCI::Vex4 right_up =    tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(1,-1,-1,1);
+    SCI::Vex4 right_down =  tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(1,1,-1,1);
 
 
     left_up = left_up/left_up.w;
@@ -372,18 +372,6 @@ void ChartCloud::Draw( int width, int height ){
     colors.push_back(SCI::Vex3(1,0,0));
     colors.push_back(SCI::Vex3(0,1,0));
     colors.push_back(SCI::Vex3(0,0,1));
-
-
-    glDisable(GL_DEPTH_TEST);
-    {
-        glPointSize(3.0f);
-        if( pdata == 0 ){
-            pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
-        }
-        else{
-            pmesh->Draw( *colormap );
-        }
-    }
 
 
 
@@ -505,7 +493,7 @@ void ChartCloud::Draw( int width, int height ){
 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
-    glMultMatrixf( rawProj->GetView().data );
+    glMultMatrixf( pViewRotationOnly->GetView().data );
     glMultMatrixf( tform.data );
 
     glDisable(GL_DEPTH_TEST);
@@ -526,7 +514,7 @@ void ChartCloud::Draw( int width, int height ){
     glMultMatrixf( tform.data );
 
 
-    // Draw the near plane
+    // Draw the near plane in the overview window
     glDisable(GL_DEPTH_TEST);
     glBegin(GL_QUADS);
     for(int i = 0; i < (int)quad1.size(); i++){
