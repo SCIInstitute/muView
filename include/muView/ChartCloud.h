@@ -145,7 +145,7 @@ public:
 
     SCI::FrustumProjection           proj;
     SCI::ThirdPersonCameraControls * pView;
-    SCI::ThirdPersonCameraControls * pViewRotationOnly;
+
 
     double clpX[4];
     double clpY[4];
@@ -166,7 +166,11 @@ public:
 
 
 
-
+    SCI::ThirdPersonCameraControls * pViewRotationOnly;
+    SCI::ThirdPersonCameraControls * rawProj;
+    float zoomFactor;
+    float translationFactorX;
+    float translationFactorY;
     std::vector<QChartView *> allChartViews;
 
     void createChartRects(int number);

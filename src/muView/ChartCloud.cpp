@@ -27,9 +27,23 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
 
     pView = new SCI::ThirdPersonCameraControls();
     pViewRotationOnly = new SCI::ThirdPersonCameraControls();
+    rawProj = new SCI::ThirdPersonCameraControls();
 
+    /*
     pView->Set( 15.0f, 75.0f, 5.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
     pViewRotationOnly->Set( 15.0f, 75.0f, 5.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
+    rawProj->Set( 15.0f, 75.0f, 5.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
+    */
+
+
+    pView->Set( 0.0f, 0.0f, 3.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
+    pViewRotationOnly->Set( 0.0f, 0.0f, 3.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
+    rawProj->Set( 0.0f, 0.0f,3.0f, SCI::Vex3(0,0,0), SCI::Vex3(0,1,0) );
+
+
+    zoomFactor=1;
+    translationFactorX=0;
+    translationFactorY=0;
 
     setAutoFillBackground(false);
 }
@@ -57,6 +71,7 @@ void ChartCloud::createChartRects(int number)
     int numData = 7;
 
 
+
     for (int i = 0; i < number; ++i) {
         QPointF position(width()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
                         height()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))));
@@ -79,7 +94,8 @@ void ChartCloud::paintEvent(QPaintEvent *event){
     glClearColor(1,1,1,1);
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
-    Draw( size().width(), size().height() );
+
+    Draw(width(), height() );
 
     glMatrixMode(GL_MODELVIEW);
     glPopMatrix();
@@ -226,6 +242,7 @@ void ChartCloud::setupViewport(int width, int height){
 }
 
 void ChartCloud::Draw( int width, int height ){
+
     if(pmesh == 0 || tdata == 0) return;
 
     proj.Set( proj.GetHFOV(), width, height, proj.GetHither(), proj.GetYon() );
@@ -242,7 +259,8 @@ void ChartCloud::Draw( int width, int height ){
         parallel_coordinates->Reset();
     }
 
-    glViewport( 0,0,width,height );
+    //todo
+    glViewport( 0,0,width, height);
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
@@ -302,46 +320,61 @@ void ChartCloud::Draw( int width, int height ){
 
 
     /*
-      OVERVIEW WINDOW
+      OVERVIEW WINDOW starts here
 
-    */
+
     float overviewWindow00 = width / 16;
     float overviewWindow01 = width / 8;
     float overviewWindow10 = height / 16;
     float overviewWindow11 = height / 8;
-
-
-
-    // Draw border not aligned right now
-    /*
-    std::vector<SCI::Vex3> overviewWindow;
-
-    overviewWindow.push_back(SCI::Vex3((overviewWindow00/width) -1,(overviewWindow10/height) -1,0));
-    overviewWindow.push_back(SCI::Vex3((overviewWindow00/width) -1,(overviewWindow11/height) -1,0));
-    overviewWindow.push_back(SCI::Vex3((overviewWindow01/width) -1,(overviewWindow10/height) -1,0));
-    overviewWindow.push_back(SCI::Vex3((overviewWindow01/width) -1,(overviewWindow11/height) -1,0));
-
-
-    glBegin(GL_LINE_LOOP);
-    for(int i = 0; i < (int)overviewWindow.size(); i++){
-        glColor3f(0,1,0);
-        glVertex3fv( overviewWindow[i].data );
-    }
-    glEnd();
     */
 
-    //draw Overview inside
-    glViewport( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
-    glScissor( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
-    glClearColor(0.2,0.2,0.2,0.05);
-    glEnable(GL_SCISSOR_TEST);
-    glClear(GL_COLOR_BUFFER_BIT);
+    float overviewWindow00 = width / 6;
+    float overviewWindow01 = width / 3;
+    float overviewWindow10 = height / 6;
+    float overviewWindow11 = height / 3;
 
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity();
-    glMultMatrixf( pViewRotationOnly->GetView().data );
-    glMultMatrixf( tform.data );
 
+    //find current view
+    /*
+    Projection * View * 3D_Point = Screen_Space_Position
+
+    And
+
+    3D_Point = View^-1 * Projection^-1 * Screen_Space_Position
+
+    */
+    SCI::Vex4 left_up = tform.Inverse() * pView->GetView().Inverse() *  proj.GetMatrix().Inverse()*SCI::Vex4(-1,-1,-1,1);
+    SCI::Vex4 left_down = tform.Inverse() * pView->GetView().Inverse() *  proj.GetMatrix().Inverse()*SCI::Vex4(-1,1,-1,1);
+    SCI::Vex4 right_up = tform.Inverse() * pView->GetView().Inverse() *  proj.GetMatrix().Inverse()*SCI::Vex4(1,-1,-1,1);
+    SCI::Vex4 right_down = tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(1,1,-1,1);
+
+
+    left_up = left_up/left_up.w;
+    right_down = right_down/right_down.w;
+    left_down = left_down/left_down.w;
+    right_up = right_up/right_up.w;
+
+    /*
+    THIS Should be the near plane quad
+    */
+    std::vector<SCI::Vex3> quad1;
+    quad1.push_back(SCI::Vex3(left_up.x,left_up.y,left_up.z));
+    quad1.push_back(SCI::Vex3(left_down.x,left_down.y,left_down.z));
+    quad1.push_back(SCI::Vex3(right_down.x,right_down.y,right_down.z));
+    quad1.push_back(SCI::Vex3(right_up.x,right_up.y,right_up.z));
+
+
+
+
+    std::vector<SCI::Vex3> colors;
+    colors.push_back(SCI::Vex3(0,0,0));
+    colors.push_back(SCI::Vex3(1,0,0));
+    colors.push_back(SCI::Vex3(0,1,0));
+    colors.push_back(SCI::Vex3(0,0,1));
+
+
+    glDisable(GL_DEPTH_TEST);
     {
         glPointSize(3.0f);
         if( pdata == 0 ){
@@ -351,6 +384,156 @@ void ChartCloud::Draw( int width, int height ){
             pmesh->Draw( *colormap );
         }
     }
+
+
+
+    //USING OPENGL MATRICES
+    /* DOES NOT WORK
+    float p2[16];
+    float m2[16];
+    glGetFloatv(GL_MODELVIEW_MATRIX, p2);
+    glGetFloatv(GL_PROJECTION_MATRIX, m2);
+
+    SCI::Mat4 projectionMatrix;
+    SCI::Mat4 modelviewMatrix;
+    projectionMatrix.Load(p2);
+    modelviewMatrix.Load(m2);
+
+
+    SCI::Vex4 left_up = modelviewMatrix.Inverse()*projectionMatrix.Inverse()*SCI::Vex4(-1,-1,-1,1);
+    SCI::Vex4 left_down =modelviewMatrix.Inverse()*projectionMatrix.Inverse()*SCI::Vex4(-1,1,-1,1);
+    SCI::Vex4 right_up = modelviewMatrix.Inverse()*projectionMatrix.Inverse()*SCI::Vex4(1,-1,-1,1);
+    SCI::Vex4 right_down = modelviewMatrix.Inverse()*projectionMatrix.Inverse() * SCI::Vex4(1,1,-1,1);
+
+
+    left_up = left_up/left_up.w;
+    right_down = right_down/right_down.w;
+    left_down = left_down/left_down.w;
+    right_up = right_up/right_up.w;
+    */
+
+
+
+
+
+
+
+    // Draw it in the big window
+    // shuold fill the whole screen
+    glDisable(GL_DEPTH_TEST);
+    glBegin(GL_QUADS);
+    for(int i = 0; i < (int)quad1.size(); i++){
+        glColor3f(colors[i].data[0],colors[i].data[1],colors[i].data[2]);
+        glVertex3fv( quad1[i].data );
+    }
+    glEnd();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    // TEST SOMETHING
+    // this fills the whole screen as expected
+    glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+
+    glMatrixMode( GL_MODELVIEW );
+    glLoadIdentity();
+
+
+    std::vector<SCI::Vex3> quad2;
+    quad2.push_back(SCI::Vex3(1,1,0.8));//right top
+    quad2.push_back(SCI::Vex3(1,-1,0.8));//right bottom
+    quad2.push_back(SCI::Vex3(-1,-1,0.8));// left bottom
+    quad2.push_back(SCI::Vex3(-1,1,0.8));// left top
+
+    //z=1 not visible -> far
+    // z=-1 visible -> near
+
+    std::vector<SCI::Vex3> colors;
+    colors.push_back(SCI::Vex3(0,0,0));
+    colors.push_back(SCI::Vex3(1,0,0));
+    colors.push_back(SCI::Vex3(0,1,0));
+    colors.push_back(SCI::Vex3(0,0,1));
+
+
+    glEnable(GL_DEPTH_TEST);
+    glBegin(GL_QUADS);
+    for(int i = 0; i < (int)quad1.size(); i++){
+        glColor3f(colors[i].data[0],colors[i].data[1],colors[i].data[2]);
+        glVertex3fv( quad2[i].data );
+    }
+    glEnd();
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //draw Overview inside
+    glViewport( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
+    glScissor( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
+    glClearColor(0.2,0.2,0.2,0.05);
+    glEnable(GL_SCISSOR_TEST);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+
+    glMatrixMode( GL_MODELVIEW );
+    glLoadIdentity();
+    glMultMatrixf( rawProj->GetView().data );
+    glMultMatrixf( tform.data );
+
+    glDisable(GL_DEPTH_TEST);
+    {
+        glPointSize(3.0f);
+        if( pdata == 0 ){
+            pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
+        }
+        else{
+            pmesh->Draw( *colormap );
+        }
+    }
+
+
+    glMatrixMode( GL_MODELVIEW );
+    glLoadIdentity();
+    glMultMatrixf( pViewRotationOnly->GetView().data );
+    glMultMatrixf( tform.data );
+
+
+    // Draw the near plane
+    glDisable(GL_DEPTH_TEST);
+    glBegin(GL_QUADS);
+    for(int i = 0; i < (int)quad1.size(); i++){
+        glColor3f(0,0,1);
+        glVertex3fv( quad1[i].data );
+    }
+    glEnd();
 
 
     glDisable(GL_SCISSOR_TEST);
@@ -405,10 +588,14 @@ bool ChartCloud::MouseMotion(int button, int x, int dx, int y, int dy){
         }
         if(button == Qt::MiddleButton){
             pView->Translate((float)(dx),(float)(dy));
+            translationFactorX = translationFactorX + dx;
+            translationFactorY = translationFactorY + dy;
         }
         if(button == Qt::RightButton){
             pView->Zoom((float)(dy));
-        }
+            zoomFactor = zoomFactor + dy;
+            std::cout << zoomFactor << "zoom w:" << width() << std::endl;
+         }
         need_view_update = true;
         update();
     }
