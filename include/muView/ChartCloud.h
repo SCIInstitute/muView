@@ -6,6 +6,7 @@
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QChart>
+#include <QApplication>>
 
 using namespace QtCharts;
 
@@ -143,7 +144,9 @@ public:
     oglWidgets::oglFont * font;
 
 
-    SCI::FrustumProjection           proj;
+    SCI::FrustumProjection           projPersp;
+    SCI::OrthoProjection           projOrtho;
+    SCI::OrthoProjection           projOrthoPlain;
     SCI::ThirdPersonCameraControls * pView;
 
 
@@ -176,6 +179,8 @@ public:
     void createChartRects(int number);
     void setupViewport(int width, int height);
     void resizeGL(int width, int height);
+
+    float left, right, top, bottom, near, far;
 
     QList<ChartRect *> chartRects;
 };

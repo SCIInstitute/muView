@@ -2,7 +2,8 @@
 
 #include <muView/ChartCloud.h>
 #include <GL/oglCommon.h>
-#include <QMouseEvent>
+#include <QScreen>
+#include <QGuiApplication>
 
 ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     need_view_update = true;
@@ -11,9 +12,18 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     memset(clpZ,0,sizeof(double)*4);
     clpX[0] = clpY[1] = clpZ[2] = -1;
     useClipX = useClipY = useClipZ = false;
-    proj.Set( 40.0f,40.0f, 0.1f,15.0f);
+    //projPersp.Set( 40.0f,40.0f, 0.1f,15.0f);
     mouse_active = false;
     parallel_coordinates = 0;
+
+    left = -1.1f;
+    right = 1.1f;
+    bottom = -1.1f;
+    top = 1.1f;
+    near = 0.1f;
+    far = 15.0f;
+    projOrtho.Set(left, right, bottom, top, near, far);
+    projOrthoPlain.Set(left, right, bottom, top, near, far);
 
 
     mouse_button = Qt::NoButton;
@@ -71,10 +81,15 @@ void ChartCloud::createChartRects(int number)
     int numData = 7;
 
 
+    std::cout<< "widht in create:" << width()<<std::endl;
+    int factor = ((QGuiApplication*)QCoreApplication::instance())
+            ->primaryScreen()->devicePixelRatio();
 
     for (int i = 0; i < number; ++i) {
-        QPointF position(width()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
-                        height()*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))));
+        QPointF position(width()*factor*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
+                        height()*factor*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))));
+
+        std::cout << "position " << position.x() << " "<< position.y() << std::endl;
 
         chartRects.append(new ChartRect(position, location, &data[0], numData));
     }
@@ -94,14 +109,15 @@ void ChartCloud::paintEvent(QPaintEvent *event){
     glClearColor(1,1,1,1);
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
+    int factor = ((QGuiApplication*)QCoreApplication::instance())
+            ->primaryScreen()->devicePixelRatio();
 
-    Draw(width(), height() );
+
+
+    Draw(width()*factor, height() *factor);
 
     glMatrixMode(GL_MODELVIEW);
     glPopMatrix();
-
-
-
 
 
 
@@ -115,8 +131,8 @@ void ChartCloud::paintEvent(QPaintEvent *event){
         imgSmall->fill(QColor(230,230,230));
 
         QPixmap pix = chartRect->grabChartView();
-        int h = painter.window().height()/5;
-        int w = painter.window().width()/5;
+        int h = painter.window().height()*factor/10;
+        int w = painter.window().width()*factor/10;
         chartRect->resize(w, h);
 
 
@@ -204,19 +220,19 @@ void ChartCloud::UpdateView( ){
     tform *= SCI::Mat4( SCI::Mat4::MAT4_TRANSLATE, -pmesh->bb.GetCenter() );
 
     if( draw_mode == 2 ){
-        iso_tris->SortByPainters( iso_tris_ro, proj.GetMatrix() * pView->GetView() * tform, *iso_points );
+        iso_tris->SortByPainters( iso_tris_ro, projOrtho.GetMatrix() * pView->GetView() * tform, *iso_points );
     }
     if( draw_mode == 3 ){
-        df_tris->SortByPainters( df_tris_ro, proj.GetMatrix() * pView->GetView() * tform, *df_points );
+        df_tris->SortByPainters( df_tris_ro, projOrtho.GetMatrix() * pView->GetView() * tform, *df_points );
     }
     /*
     if(draw_mode == 4){
-        edge_mesh->SortByPainters( edge_mesh_ro, proj.GetMatrix() * pView->GetView() * tform, *pmesh );
+        edge_mesh->SortByPainters( edge_mesh_ro, projOrtho.GetMatrix() * pView->GetView() * tform, *pmesh );
     }
     */
-    tdata->tri_mesh.SortByPainters( tri_mesh_ro, proj.GetMatrix() * pView->GetView() * tform, *pmesh );
+    tdata->tri_mesh.SortByPainters( tri_mesh_ro, projOrtho.GetMatrix() * pView->GetView() * tform, *pmesh );
     for(int i = 0; i < addl_sil_mesh.size(); i++){
-        addl_solid[i]->tri_mesh.SortByPainters( *(addl_mesh_ro[i]), proj.GetMatrix() * pView->GetView() * tform, *(addl_points[i]) );
+        addl_solid[i]->tri_mesh.SortByPainters( *(addl_mesh_ro[i]), projOrtho.GetMatrix() * pView->GetView() * tform, *(addl_points[i]) );
     }
 
 
@@ -245,7 +261,11 @@ void ChartCloud::Draw( int width, int height ){
 
     if(pmesh == 0 || tdata == 0) return;
 
-    proj.Set( proj.GetHFOV(), width, height, proj.GetHither(), proj.GetYon() );
+
+
+
+    //TODO
+    //proj.Set( proj.GetHFOV(), width, height, proj.GetHither(), proj.GetYon() );
 
     if( need_view_update ){
         UpdateView();
@@ -264,7 +284,7 @@ void ChartCloud::Draw( int width, int height ){
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    glMultMatrixf( proj.GetMatrix().data );
+    glMultMatrixf( projOrtho.GetMatrix().data );
 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
@@ -322,17 +342,19 @@ void ChartCloud::Draw( int width, int height ){
     /*
       OVERVIEW WINDOW starts here
 
+    float overviewWindow00 = width / 6;
+    float overviewWindow01 = width / 3;
+    float overviewWindow10 = height / 6;
+    float overviewWindow11 = height / 3;
+
+    */
+
+
 
     float overviewWindow00 = width / 16;
     float overviewWindow01 = width / 8;
     float overviewWindow10 = height / 16;
     float overviewWindow11 = height / 8;
-    */
-
-    float overviewWindow00 = width / 6;
-    float overviewWindow01 = width / 3;
-    float overviewWindow10 = height / 6;
-    float overviewWindow11 = height / 3;
 
 
     //find current view
@@ -344,10 +366,10 @@ void ChartCloud::Draw( int width, int height ){
     3D_Point = View^-1 * Projection^-1 * Screen_Space_Position
 
     */
-    SCI::Vex4 left_up =     tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(-1,-1,-1,1);
-    SCI::Vex4 left_down =   tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(-1,1,-1,1);
-    SCI::Vex4 right_up =    tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(1,-1,-1,1);
-    SCI::Vex4 right_down =  tform.Inverse() * pView->GetView().Inverse() * proj.GetMatrix().Inverse() * SCI::Vex4(1,1,-1,1);
+    SCI::Vex4 left_up =     tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1,-1,-0.7,1);
+    SCI::Vex4 left_down =   tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1, 1,-0.7,1);
+    SCI::Vex4 right_up =    tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1,-1,-0.7,1);
+    SCI::Vex4 right_down =  tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1, 1,-0.7,1);
 
 
     left_up = left_up/left_up.w;
@@ -405,7 +427,7 @@ void ChartCloud::Draw( int width, int height ){
 
 
 
-
+/*
     // Draw it in the big window
     // shuold fill the whole screen
     glDisable(GL_DEPTH_TEST);
@@ -415,6 +437,7 @@ void ChartCloud::Draw( int width, int height ){
         glVertex3fv( quad1[i].data );
     }
     glEnd();
+*/
 
 
 
@@ -490,6 +513,11 @@ void ChartCloud::Draw( int width, int height ){
     glClear(GL_COLOR_BUFFER_BIT);
 
 
+    // set projection matrix to orthographic projection
+
+    glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+    glMultMatrixf( projOrthoPlain.GetMatrix().data );
 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
@@ -516,9 +544,11 @@ void ChartCloud::Draw( int width, int height ){
 
     // Draw the near plane in the overview window
     glDisable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glBegin(GL_QUADS);
     for(int i = 0; i < (int)quad1.size(); i++){
-        glColor3f(0,0,1);
+        glColor4f(0,0,1,1);
         glVertex3fv( quad1[i].data );
     }
     glEnd();
@@ -573,16 +603,24 @@ bool ChartCloud::MouseMotion(int button, int x, int dx, int y, int dy){
         if(button == Qt::LeftButton) {
             pView->Rotate(-(float)(dx),(float)(dy));
             pViewRotationOnly->Rotate(-(float)(dx),(float)(dy));
+            //std::cout << "rotate " << std::endl;
         }
-        if(button == Qt::MiddleButton){
+        if(QApplication::keyboardModifiers() && Qt::ControlModifier || button == Qt::MiddleButton){
             pView->Translate((float)(dx),(float)(dy));
             translationFactorX = translationFactorX + dx;
             translationFactorY = translationFactorY + dy;
+            //std::cout << "translate " << std::endl;
         }
         if(button == Qt::RightButton){
-            pView->Zoom((float)(dy));
-            zoomFactor = zoomFactor + dy;
-            std::cout << zoomFactor << "zoom w:" << width() << std::endl;
+            // zoom handled by projection and not by translation
+
+            zoomFactor = zoomFactor + dy*0.001;
+            zoomFactor = fmax(0.0001,zoomFactor);
+            zoomFactor = fmin(10,zoomFactor);
+
+            projOrtho.Set(left*zoomFactor, right*zoomFactor, bottom*zoomFactor, top*zoomFactor, near*zoomFactor, far*zoomFactor);
+            //pView->Zoom((float)(dy));
+            //std::cout << "zoom " << std::endl;
          }
         need_view_update = true;
         update();
