@@ -311,14 +311,8 @@ void ChartCloud::Draw( int width, int height ){
         else{
             pmesh->Draw( *colormap );
         }
-        //glPointSize(4.0f);
-        //pmesh->Draw( SCI::Vex4(0,0,0,1) );
-        //for(int i = 0; i < (int)pmesh->points.size(); i++){
-        //std::cout << "point (x,y,z) " << pmesh->points[i].data[0] << " " << pmesh->points[i].data[1] << " " << pmesh->points[i].data[2] << std::endl;
-        //}
     glDisable(GL_DEPTH_TEST);
     }
-    //////
 
     // This draws the black contours
     glDisable(GL_DEPTH_TEST);
@@ -357,19 +351,11 @@ void ChartCloud::Draw( int width, int height ){
     float overviewWindow11 = height / 8;
 
 
-    //find current view
-    /*
-    Projection * View * 3D_Point = Screen_Space_Position
-
-    And
-
-    3D_Point = View^-1 * Projection^-1 * Screen_Space_Position
-
-    */
-    SCI::Vex4 left_up =     tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1,-1,-0.7,1);
-    SCI::Vex4 left_down =   tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1, 1,-0.7,1);
-    SCI::Vex4 right_up =    tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1,-1,-0.7,1);
-    SCI::Vex4 right_down =  tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1, 1,-0.7,1);
+    //find current near plane
+    SCI::Vex4 left_up =     tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1,-1,0.9,1);
+    SCI::Vex4 left_down =   tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1, 1,0.9,1);
+    SCI::Vex4 right_up =    tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1,-1,0.9,1);
+    SCI::Vex4 right_down =  tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1, 1,0.9,1);
 
 
     left_up = left_up/left_up.w;
@@ -394,36 +380,6 @@ void ChartCloud::Draw( int width, int height ){
     colors.push_back(SCI::Vex3(1,0,0));
     colors.push_back(SCI::Vex3(0,1,0));
     colors.push_back(SCI::Vex3(0,0,1));
-
-
-
-    //USING OPENGL MATRICES
-    /* DOES NOT WORK
-    float p2[16];
-    float m2[16];
-    glGetFloatv(GL_MODELVIEW_MATRIX, p2);
-    glGetFloatv(GL_PROJECTION_MATRIX, m2);
-
-    SCI::Mat4 projectionMatrix;
-    SCI::Mat4 modelviewMatrix;
-    projectionMatrix.Load(p2);
-    modelviewMatrix.Load(m2);
-
-
-    SCI::Vex4 left_up = modelviewMatrix.Inverse()*projectionMatrix.Inverse()*SCI::Vex4(-1,-1,-1,1);
-    SCI::Vex4 left_down =modelviewMatrix.Inverse()*projectionMatrix.Inverse()*SCI::Vex4(-1,1,-1,1);
-    SCI::Vex4 right_up = modelviewMatrix.Inverse()*projectionMatrix.Inverse()*SCI::Vex4(1,-1,-1,1);
-    SCI::Vex4 right_down = modelviewMatrix.Inverse()*projectionMatrix.Inverse() * SCI::Vex4(1,1,-1,1);
-
-
-    left_up = left_up/left_up.w;
-    right_down = right_down/right_down.w;
-    left_down = left_down/left_down.w;
-    right_up = right_up/right_up.w;
-    */
-
-
-
 
 
 
@@ -457,60 +413,12 @@ void ChartCloud::Draw( int width, int height ){
 
 
 
-/*
-    // TEST SOMETHING
-    // this fills the whole screen as expected
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
-
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity();
-
-
-    std::vector<SCI::Vex3> quad2;
-    quad2.push_back(SCI::Vex3(1,1,0.8));//right top
-    quad2.push_back(SCI::Vex3(1,-1,0.8));//right bottom
-    quad2.push_back(SCI::Vex3(-1,-1,0.8));// left bottom
-    quad2.push_back(SCI::Vex3(-1,1,0.8));// left top
-
-    //z=1 not visible -> far
-    // z=-1 visible -> near
-
-    std::vector<SCI::Vex3> colors;
-    colors.push_back(SCI::Vex3(0,0,0));
-    colors.push_back(SCI::Vex3(1,0,0));
-    colors.push_back(SCI::Vex3(0,1,0));
-    colors.push_back(SCI::Vex3(0,0,1));
-
-
-    glEnable(GL_DEPTH_TEST);
-    glBegin(GL_QUADS);
-    for(int i = 0; i < (int)quad1.size(); i++){
-        glColor3f(colors[i].data[0],colors[i].data[1],colors[i].data[2]);
-        glVertex3fv( quad2[i].data );
-    }
-    glEnd();
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //draw Overview inside
     glViewport( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
     glScissor( overviewWindow00,overviewWindow10,overviewWindow01, overviewWindow11);
     glClearColor(0.2,0.2,0.2,0.05);
     glEnable(GL_SCISSOR_TEST);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 
 
     // set projection matrix to orthographic projection
@@ -542,14 +450,70 @@ void ChartCloud::Draw( int width, int height ){
     glMultMatrixf( tform.data );
 
 
+    /*
     // Draw the near plane in the overview window
     glDisable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glBegin(GL_QUADS);
     for(int i = 0; i < (int)quad1.size(); i++){
-        glColor4f(0,0,1,1);
+        glColor4f(0,1,0,0.5);
         glVertex3fv( quad1[i].data );
+    }
+    glEnd();
+    */
+
+
+
+
+    SCI::Vex4 left_up_overview =     tform.Inverse() * pViewRotationOnly->GetView().Inverse() * projOrthoPlain.GetMatrix().Inverse() * SCI::Vex4(-1,-1,0.9,1);
+    SCI::Vex4 left_down_overview  =   tform.Inverse() * pViewRotationOnly->GetView().Inverse() * projOrthoPlain.GetMatrix().Inverse() * SCI::Vex4(-1, 1,0.9,1);
+    SCI::Vex4 right_up_overview  =    tform.Inverse() * pViewRotationOnly->GetView().Inverse() * projOrthoPlain.GetMatrix().Inverse() * SCI::Vex4( 1,-1,0.9,1);
+    SCI::Vex4 right_down_overview  =  tform.Inverse() * pViewRotationOnly->GetView().Inverse() * projOrthoPlain.GetMatrix().Inverse() * SCI::Vex4( 1, 1,0.9,1);
+
+
+    left_up_overview  = left_up_overview /left_up_overview.w;
+    right_down_overview  = right_down_overview /right_down_overview.w;
+    left_down_overview  = left_down_overview /left_down_overview.w;
+    right_up_overview  = right_up_overview /right_up_overview.w;
+
+    /*
+    THIS Should be the near plane quad
+    */
+    std::vector<SCI::Vex3> quads_overview ;
+    quads_overview.push_back(SCI::Vex3(left_down.x,left_down.y,left_down.z));
+    quads_overview.push_back(SCI::Vex3(left_down_overview.x,left_down_overview.y,left_down_overview.z));
+    quads_overview.push_back(SCI::Vex3(right_down_overview.x,right_down_overview.y,right_down_overview.z));
+    quads_overview.push_back(SCI::Vex3(right_down.x,right_down.y,right_down.z));
+
+
+    quads_overview.push_back(SCI::Vex3(left_down.x,left_down.y,left_down.z));
+    quads_overview.push_back(SCI::Vex3(left_down_overview.x,left_down_overview.y,left_down_overview.z));
+    quads_overview.push_back(SCI::Vex3(left_up_overview.x,left_up_overview.y,left_up_overview.z));
+    quads_overview.push_back(SCI::Vex3(left_up.x,left_up.y,left_up.z));
+
+
+    quads_overview.push_back(SCI::Vex3(right_up.x,right_up.y,right_up.z));
+    quads_overview.push_back(SCI::Vex3(right_up_overview.x,right_up_overview.y,right_up_overview.z));
+    quads_overview.push_back(SCI::Vex3(left_up_overview.x,left_up_overview.y,left_up_overview.z));
+    quads_overview.push_back(SCI::Vex3(left_up.x,left_up.y,left_up.z));
+
+
+    quads_overview.push_back(SCI::Vex3(right_up.x,right_up.y,right_up.z));
+    quads_overview.push_back(SCI::Vex3(right_up_overview.x,right_up_overview.y,right_up_overview.z));
+    quads_overview.push_back(SCI::Vex3(right_down_overview.x,right_down_overview.y,right_down_overview.z));
+    quads_overview.push_back(SCI::Vex3(right_down.x,right_down.y,right_down.z));
+
+
+
+    // Focus the near plane in the overview window
+    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBegin(GL_QUADS);
+    for(int i = 0; i < (int)quads_overview.size(); i++){
+        glColor4f(1,1,1,0.7);
+        glVertex3fv(quads_overview[i].data );
     }
     glEnd();
 
