@@ -46,6 +46,8 @@ float ChartRect::height(){
 
 void ChartRect::drawChartRect(QPainter *painter, QPixmap pix, int w, int h)
 {
+
+    std::cout << " x:" << position.x() << " y:" << position.y() << std::endl;
     painter->save();
     painter->drawPixmap(position.x(), position.y(), w, h, pix);
     QImage * img = new QImage();

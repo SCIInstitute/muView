@@ -25,6 +25,10 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     projOrtho.Set(left, right, bottom, top, near, far);
     projOrthoPlain.Set(left, right, bottom, top, near, far);
 
+    factor = ((QGuiApplication*)QCoreApplication::instance())
+            ->primaryScreen()->devicePixelRatio();
+
+
 
     mouse_button = Qt::NoButton;
     mouse_x = 0;
@@ -81,9 +85,30 @@ void ChartCloud::createChartRects(int number)
     int numData = 7;
 
 
+    SCI::Vex4 left_up =     tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1,-1,0.9,1);
+    SCI::Vex4 left_down =   tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1, 1,0.9,1);
+    SCI::Vex4 right_up =    tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1,-1,0.9,1);
+    SCI::Vex4 right_down =  tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1, 1,0.9,1);
+
+
+
     std::cout<< "widht in create:" << width()<<std::endl;
     int factor = ((QGuiApplication*)QCoreApplication::instance())
             ->primaryScreen()->devicePixelRatio();
+
+
+    QPointF position1(width()*0.1, height()*0.2);
+    QPointF position2(width()*0.2, height()*0.5);
+    QPointF position3(width()*0.6, height()*0.2);
+    QPointF position4(width()*0.6, height()*0.6);
+
+    chartRects.append(new ChartRect(position1, location, &data[0], numData));
+    chartRects.append(new ChartRect(position2, location, &data[0], numData));
+    chartRects.append(new ChartRect(position3, location, &data[0], numData));
+    chartRects.append(new ChartRect(position4, location, &data[0], numData));
+
+
+    /*
 
     for (int i = 0; i < number; ++i) {
         QPointF position(width()*factor*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
@@ -93,6 +118,7 @@ void ChartCloud::createChartRects(int number)
 
         chartRects.append(new ChartRect(position, location, &data[0], numData));
     }
+    */
 }
 
 
@@ -108,10 +134,6 @@ void ChartCloud::paintEvent(QPaintEvent *event){
     // Clear the display
     glClearColor(1,1,1,1);
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
-    int factor = ((QGuiApplication*)QCoreApplication::instance())
-            ->primaryScreen()->devicePixelRatio();
-
 
 
     Draw(width()*factor, height() *factor);
@@ -131,8 +153,8 @@ void ChartCloud::paintEvent(QPaintEvent *event){
         imgSmall->fill(QColor(230,230,230));
 
         QPixmap pix = chartRect->grabChartView();
-        int h = painter.window().height()*factor/10;
-        int w = painter.window().width()*factor/10;
+        int h = painter.window().height()/5;
+        int w = painter.window().width()/5;
         chartRect->resize(w, h);
 
 

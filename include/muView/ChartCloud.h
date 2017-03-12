@@ -182,6 +182,8 @@ public:
 
     float left, right, top, bottom, near, far;
 
+    int factor;
+
     QList<ChartRect *> chartRects;
 };
 
