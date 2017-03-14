@@ -2,8 +2,8 @@
 
 #include "muView/ChartRect.h"
 
-ChartRect::ChartRect(const QPointF &position, const SCI::Vex3 location, float *data, int numData)
-    : position(position), location(location){
+ChartRect::ChartRect(QPointF &position, float *data, int numData, int w, int h)
+    : position(position){
 
     QLineSeries *series = new QLineSeries();
 
@@ -18,12 +18,15 @@ ChartRect::ChartRect(const QPointF &position, const SCI::Vex3 location, float *d
     chart->legend()->hide();
     chart->addSeries(series);
     chart->createDefaultAxes();
-    chart->setMargins(QMargins(2,2,2,2));//(int left, int top, int right, int bottom)
+    chart->setMargins(QMargins(1,1,1,1));//(int left, int top, int right, int bottom)
+
 
 
 
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
+
+    resize(w,h);
 }
 
 QPixmap ChartRect::grabChartView(){
@@ -31,8 +34,31 @@ QPixmap ChartRect::grabChartView(){
 }
 
 
+void ChartRect::setData(float *data, int numData){
+
+    chartView->chart()->removeAllSeries();
+
+    QLineSeries *series = new QLineSeries();
+    for (int i=0; i<numData;i++){
+        this->data.push_back(data[i]);
+        *series << QPointF(i, data[i]);
+    }
+
+    chartView->chart()->addSeries(series);
+}
+
+void ChartRect::setLocation(SCI::Vex3 location){
+    this->location = location;
+}
+
+void ChartRect::setPosition(QPointF pos){
+    this->position = pos;
+}
+
 void ChartRect::resize(int w, int h){
     this->chartView->resize(w, h);
+    this->w = w;
+    this->h = h;
 }
 
 float ChartRect::width(){
@@ -44,10 +70,8 @@ float ChartRect::height(){
 }
 
 
-void ChartRect::drawChartRect(QPainter *painter, QPixmap pix, int w, int h)
+void ChartRect::drawChartRect(QPainter *painter, QPixmap pix)
 {
-
-    std::cout << " x:" << position.x() << " y:" << position.y() << std::endl;
     painter->save();
     painter->drawPixmap(position.x(), position.y(), w, h, pix);
     QImage * img = new QImage();

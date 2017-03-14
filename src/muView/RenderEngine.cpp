@@ -271,6 +271,7 @@ void RenderEngine::Recalculate( ){
         if( color_mode == 0 ){
             seq_cmap.LoadDefaultMapRed();
             colormap.SetByDataDimension( *pdata, seq_cmap, color_dim );
+
         }
         if( color_mode == 1 ){
             seq_cmap.LoadDefaultMapRed();

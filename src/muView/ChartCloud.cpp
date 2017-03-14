@@ -69,56 +69,69 @@ void ChartCloud::initializeGL(){
 }
 
 
+void ChartCloud::mapToScreen(float& x, float& y, SCI::Vex3 location){
+
+    SCI::Vex4 screen = projOrtho.GetMatrix()*pView->GetView()*tform*SCI::Vex4(location.x, location.y, location.z, 1);
+    screen/=screen.w;
+
+    x = screen.x;
+    y = screen.z;
+
+}
+
+void ChartCloud::redoChartRects(){
+
+     for (int i = 0; i < chartRects.size(); ++i) {
+
+         int dataIndex = rand() % pdata->GetElementCount();
+
+         std::vector<float> chartData;
+         pdata->GetData(dataIndex,chartData);
+         int numData = chartData.size();
+
+         float x,y=0;
+         SCI::Vex3 location = pmesh->GetVertex(dataIndex);
+         mapToScreen(x,y,location);
+         x = (x+1)*0.5;
+         y = (y+1)*0.5;
+         int w = width();
+         int h = height();
+         x = fmin(fmax(0.0,x),0.9);
+         y = fmin(fmax(0.0,y),0.9);
+         QPointF position(x*width(),y*height());
+
+         chartRects[i]->setPosition(position);
+         chartRects[i]->setData(&chartData[0], chartData.size());
+
+         std::cout << "set position " << position.x() << " " << position.y() << std::endl;
+     }
+
+ }
+
+
 void ChartCloud::createChartRects(int number)
 {
-
-    SCI::Vex3 location(1,2,3);
-    std::vector<float> data;
-    data.push_back(3);
-    data.push_back(10);
-    data.push_back(22);
-    data.push_back(4);
-    data.push_back(6);
-    data.push_back(3);
-    data.push_back(2);
-
-    int numData = 7;
-
-
-    SCI::Vex4 left_up =     tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1,-1,0.9,1);
-    SCI::Vex4 left_down =   tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4(-1, 1,0.9,1);
-    SCI::Vex4 right_up =    tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1,-1,0.9,1);
-    SCI::Vex4 right_down =  tform.Inverse() * pView->GetView().Inverse() * projOrtho.GetMatrix().Inverse() * SCI::Vex4( 1, 1,0.9,1);
-
-
-
-    std::cout<< "widht in create:" << width()<<std::endl;
-    int factor = ((QGuiApplication*)QCoreApplication::instance())
-            ->primaryScreen()->devicePixelRatio();
-
-
-    QPointF position1(width()*0.1, height()*0.2);
-    QPointF position2(width()*0.2, height()*0.5);
-    QPointF position3(width()*0.6, height()*0.2);
-    QPointF position4(width()*0.6, height()*0.6);
-
-    chartRects.append(new ChartRect(position1, location, &data[0], numData));
-    chartRects.append(new ChartRect(position2, location, &data[0], numData));
-    chartRects.append(new ChartRect(position3, location, &data[0], numData));
-    chartRects.append(new ChartRect(position4, location, &data[0], numData));
-
-
-    /*
-
     for (int i = 0; i < number; ++i) {
-        QPointF position(width()*factor*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))),
-                        height()*factor*(0.1 + (0.8*qrand()/(RAND_MAX+1.0))));
 
-        std::cout << "position " << position.x() << " "<< position.y() << std::endl;
+        int dataIndex = rand() % pdata->GetElementCount();
 
-        chartRects.append(new ChartRect(position, location, &data[0], numData));
+        std::vector<float> chartData;
+        pdata->GetData(dataIndex,chartData);
+        int numData = chartData.size();
+
+        float x,y=0;
+        SCI::Vex3 location = pmesh->GetVertex(dataIndex);
+        mapToScreen(x,y,location);
+        x = (x+1)*0.5;
+        y = (y+1)*0.5;
+        int w = width();
+        int h = height();
+        x = fmin(fmax(0.0,x),0.9);
+        y = fmin(fmax(0.0,y),0.9);
+        QPointF position(x*width(),y*height());
+
+        chartRects.append(new ChartRect(position,  &chartData[0], numData, w/5.0, h/5.0));
     }
-    */
 }
 
 
@@ -150,15 +163,10 @@ void ChartCloud::paintEvent(QPaintEvent *event){
         * imgSmall = QImage(chartRect->width(),chartRect->height(), QImage::Format_ARGB32);
         *imgSmall = imgSmall->scaledToHeight(height()/8.0);
 
-        imgSmall->fill(QColor(230,230,230));
+        imgSmall->fill(QColor(230,230,230, 125));
 
         QPixmap pix = chartRect->grabChartView();
-        int h = painter.window().height()/5;
-        int w = painter.window().width()/5;
-        chartRect->resize(w, h);
-
-
-        chartRect->drawChartRect(&painter, pix, w, h);
+        chartRect->drawChartRect(&painter, pix);
     }
     painter.end();
 
@@ -257,6 +265,7 @@ void ChartCloud::UpdateView( ){
         addl_solid[i]->tri_mesh.SortByPainters( *(addl_mesh_ro[i]), projOrtho.GetMatrix() * pView->GetView() * tform, *(addl_points[i]) );
     }
 
+    redoChartRects();
 
     need_view_update = false;
 }
@@ -299,6 +308,7 @@ void ChartCloud::Draw( int width, int height ){
             colormap->at(i) = cat_cmap->GetColor( cluster->GetClusterID(i) ).UIntColor();
         }
         parallel_coordinates->Reset();
+
     }
 
     //todo
@@ -393,9 +403,6 @@ void ChartCloud::Draw( int width, int height ){
     quad1.push_back(SCI::Vex3(left_down.x,left_down.y,left_down.z));
     quad1.push_back(SCI::Vex3(right_down.x,right_down.y,right_down.z));
     quad1.push_back(SCI::Vex3(right_up.x,right_up.y,right_up.z));
-
-
-
 
     std::vector<SCI::Vex3> colors;
     colors.push_back(SCI::Vex3(0,0,0));

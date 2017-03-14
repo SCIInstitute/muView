@@ -23,9 +23,9 @@ class QPainter;
 class ChartRect
 {
 public:
-    ChartRect(const QPointF &position, const SCI::Vex3 location, float* data, int numData);
+    ChartRect(QPointF &position, float* data, int numData, int w, int h);
 
-    void drawChartRect(QPainter *painter, QPixmap pix, int w, int h);
+    void drawChartRect(QPainter *painter, QPixmap pix);
 
     float width();
     float height();
@@ -33,10 +33,16 @@ public:
 
     QPixmap grabChartView();
 
+    void setLocation(SCI::Vex3 location);
+    void setPosition(QPointF pos);
+    void setData(float* data, int numData);
+
 
 private:
     QPointF position;   // position on the screen -> 2D
     SCI::Vex3 location; // which vertex data we are showing -> 3D
+
+    int w,h;
 
     QChartView* chartView;
     std::vector<float> data; // from pdata at position

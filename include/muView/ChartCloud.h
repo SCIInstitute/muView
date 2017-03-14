@@ -61,6 +61,9 @@ public:
     virtual void keyPressEvent ( QKeyEvent * event );
     virtual void keyReleaseEvent ( QKeyEvent * event );
 
+    void mapToScreen(float& x, float& y, SCI::Vex3 location);
+    void redoChartRects();
+
     //RenderEngine render_engine;
 
 protected:
@@ -102,7 +105,7 @@ public:
     ParallelCoordinates * parallel_coordinates;
 
     Data::PointData          * pdata;
-    Data::Mesh::PointMesh    * pmesh;
+    Data::Mesh::PointMesh    * pmesh; //vertex geometry
     Data::Mesh::SolidMesh    * tdata;
 
     SCI::Mat4                          tform;
