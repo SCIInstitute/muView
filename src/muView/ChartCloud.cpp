@@ -597,28 +597,29 @@ bool ChartCloud::MouseClick(int button, int state, int x, int y){
 
 bool ChartCloud::MouseMotion(int button, int x, int dx, int y, int dy){
     if(mouse_active){
-        if(button == Qt::LeftButton) {
-            pView->Rotate(-(float)(dx),(float)(dy));
-            pViewRotationOnly->Rotate(-(float)(dx),(float)(dy));
-            //std::cout << "rotate " << std::endl;
-        }
-        if(QApplication::keyboardModifiers() && Qt::ControlModifier || button == Qt::MiddleButton){
+        if((button == Qt::LeftButton && QApplication::keyboardModifiers() && Qt::ControlModifier) || button == Qt::MiddleButton){
             pView->Translate((float)(dx),(float)(dy));
             translationFactorX = translationFactorX + dx;
             translationFactorY = translationFactorY + dy;
             //std::cout << "translate " << std::endl;
+        }else{
+            if(button == Qt::LeftButton) {
+                pView->Rotate(-(float)(dx),(float)(dy));
+                pViewRotationOnly->Rotate(-(float)(dx),(float)(dy));
+                //std::cout << "rotate " << std::endl;
+            }
+            if(button == Qt::RightButton){
+                // zoom handled by projection and not by translation
+
+                zoomFactor = zoomFactor + dy*0.001;
+                zoomFactor = fmax(0.0001,zoomFactor);
+                zoomFactor = fmin(10,zoomFactor);
+
+                projOrtho.Set(left*zoomFactor, right*zoomFactor, bottom*zoomFactor, top*zoomFactor, near*zoomFactor, far*zoomFactor);
+                //pView->Zoom((float)(dy));
+                //std::cout << "zoom " << std::endl;
+             }
         }
-        if(button == Qt::RightButton){
-            // zoom handled by projection and not by translation
-
-            zoomFactor = zoomFactor + dy*0.001;
-            zoomFactor = fmax(0.0001,zoomFactor);
-            zoomFactor = fmin(10,zoomFactor);
-
-            projOrtho.Set(left*zoomFactor, right*zoomFactor, bottom*zoomFactor, top*zoomFactor, near*zoomFactor, far*zoomFactor);
-            //pView->Zoom((float)(dy));
-            //std::cout << "zoom " << std::endl;
-         }
         need_view_update = true;
         update();
     }
