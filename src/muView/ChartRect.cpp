@@ -2,22 +2,18 @@
 
 #include "muView/ChartRect.h"
 
-ChartRect::ChartRect(QPointF &position, float *data, int numData, int w, int h)
+ChartRect::ChartRect(QPointF &position, float *data, int numData, int w, int h, float min, float max, float steps)
     : position(position){
-
-    QLineSeries *series = new QLineSeries();
 
     for (int i=0; i<numData;i++){
         this->data.push_back(data[i]);
-        *series << QPointF(i, data[i]);
+    }
+    for (int i=0; i<steps;i++){
+        axisTicks.push_back(min + i*(max-min)/steps);
     }
 
 
     QChart *chart = new QChart();
-
-    chart->legend()->hide();
-    chart->addSeries(series);
-    chart->createDefaultAxes();
     chart->setMargins(QMargins(1,1,1,1));//(int left, int top, int right, int bottom)
 
 
@@ -26,7 +22,11 @@ ChartRect::ChartRect(QPointF &position, float *data, int numData, int w, int h)
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
+
+
     resize(w,h);
+
+    computeBinning(min, max, steps);
 }
 
 QPixmap ChartRect::grabChartView(){
@@ -45,6 +45,32 @@ void ChartRect::setData(float *data, int numData){
     }
 
     chartView->chart()->addSeries(series);
+}
+
+void ChartRect::computeBinning(float min, float max, int steps){
+
+
+
+    // data is in between bin and bin+1
+    std::vector<int> binCounts;
+    for (int i=0;i<axisTicks.size();i++){
+        binCounts.push_back(0);
+    }
+
+    for (int i=0;i<data.size();i++){
+        int a = (data[i] - axisTicks[0])/((max-min)/steps);
+        binCounts[a] +=1;
+    }
+
+    QLineSeries *series = new QLineSeries();
+
+    for (int i=0;i<axisTicks.size();i++){
+        *series << QPointF(axisTicks[i], binCounts[i]);
+    }
+
+    chartView->chart()->addSeries(series);
+    chartView->chart()->legend()->hide();
+    chartView->chart()->createDefaultAxes();
 }
 
 void ChartRect::setLocation(SCI::Vex3 location){

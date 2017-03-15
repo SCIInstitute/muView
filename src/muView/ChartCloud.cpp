@@ -102,8 +102,6 @@ void ChartCloud::redoChartRects(){
 
          chartRects[i]->setPosition(position);
          chartRects[i]->setData(&chartData[0], chartData.size());
-
-         std::cout << "set position " << position.x() << " " << position.y() << std::endl;
      }
 
  }
@@ -111,6 +109,13 @@ void ChartCloud::redoChartRects(){
 
 void ChartCloud::createChartRects(int number)
 {
+
+    float steps = 20;
+    int w = width();
+    int h = height();
+    float x,y=0;
+    float globalMIN = pdata->GetGlobalMin();
+    float globalMAX = pdata->GetGlobalMax();
     for (int i = 0; i < number; ++i) {
 
         int dataIndex = rand() % pdata->GetElementCount();
@@ -119,18 +124,17 @@ void ChartCloud::createChartRects(int number)
         pdata->GetData(dataIndex,chartData);
         int numData = chartData.size();
 
-        float x,y=0;
+
         SCI::Vex3 location = pmesh->GetVertex(dataIndex);
         mapToScreen(x,y,location);
         x = (x+1)*0.5;
         y = (y+1)*0.5;
-        int w = width();
-        int h = height();
         x = fmin(fmax(0.0,x),0.9);
         y = fmin(fmax(0.0,y),0.9);
         QPointF position(x*width(),y*height());
 
-        chartRects.append(new ChartRect(position,  &chartData[0], numData, w/5.0, h/5.0));
+
+        chartRects.append(new ChartRect(position,  &chartData[0], numData, w/5.0, h/5.0, globalMIN, globalMAX, steps));
     }
 }
 
