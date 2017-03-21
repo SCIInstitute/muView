@@ -1,4 +1,5 @@
 #include <GL/glew.h>
+//#include <GLFW/glfw3.h>
 
 #include <muView/ChartCloud.h>
 #include <GL/oglCommon.h>
@@ -6,6 +7,8 @@
 #include <QGuiApplication>
 
 ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
+
+
     need_view_update = true;
     memset(clpX,0,sizeof(double)*4);
     memset(clpY,0,sizeof(double)*4);
@@ -66,6 +69,16 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
 
 void ChartCloud::initializeGL(){
     glewInit( );
+    //glfwInit();
+
+    int major, minor;
+    glGetIntegerv(GL_MAJOR_VERSION, &major);
+    glGetIntegerv(GL_MINOR_VERSION, &minor);
+
+    std::cout << "OPENGL version " << major << "." << minor << std::endl;
+   // std::cout<<"Status: Using GLEW " << glewGetString(GLEW_VERSION) << std::endl;
+
+
 }
 
 
@@ -77,28 +90,45 @@ void ChartCloud::mapToScreen(float& x, float& y, SCI::Vex3 location){
     x = screen.x;
     y = screen.z;
 
+    //std::cout << "x,y " << x << ", " << y << std::endl;
+
 }
 
 void ChartCloud::redoChartRects(){
 
+    int dataIndex;
+    float x,y=-2;
+
+    int w = width();
+    int h = height();
+
+    SCI::Vex3 location;
+    std::vector<float> chartData;
+    int numData = 0;
+
      for (int i = 0; i < chartRects.size(); ++i) {
 
-         int dataIndex = rand() % pdata->GetElementCount();
+         x =-2;
+         y = -2;
 
-         std::vector<float> chartData;
+         while(x < -1 || x > 0.9 || y < -1 || y > 0.65){
+             dataIndex = rand() % pdata->GetElementCount();
+             location = pmesh->GetVertex(dataIndex);
+             mapToScreen(x,y,location);
+             //std::cout<<"zoom: " << zoomFactor << "  iterating " << itCount << "... x,y" << x << ", " << y << std::endl;
+         }
+
          pdata->GetData(dataIndex,chartData);
-         int numData = chartData.size();
+         numData = chartData.size();
 
-         float x,y=0;
-         SCI::Vex3 location = pmesh->GetVertex(dataIndex);
-         mapToScreen(x,y,location);
+         //std::cout << "data index: " << dataIndex << std::endl;
+
+
          x = (x+1)*0.5;
          y = (y+1)*0.5;
-         int w = width();
-         int h = height();
-         x = fmin(fmax(0.0,x),0.9);
-         y = fmin(fmax(0.0,y),0.9);
+
          QPointF position(x*width(),y*height());
+         //std::cout<< "found  x,y " << x << ", " << y << std::endl;
 
          chartRects[i]->setPosition(position);
          chartRects[i]->setData(&chartData[0], chartData.size());
@@ -110,30 +140,34 @@ void ChartCloud::redoChartRects(){
 void ChartCloud::createChartRects(int number)
 {
 
-    float steps = 20;
+    float steps = 30;
     int w = width();
     int h = height();
     float x,y=0;
     float globalMIN = pdata->GetGlobalMin();
     float globalMAX = pdata->GetGlobalMax();
+    int dataIndex=0;
+    std::vector<float> chartData;
+    SCI::Vex3 location;
+    int numData;
+
     for (int i = 0; i < number; ++i) {
 
-        int dataIndex = rand() % pdata->GetElementCount();
+        dataIndex = rand() % pdata->GetElementCount();
 
-        std::vector<float> chartData;
+        dataIndex = i;
+
         pdata->GetData(dataIndex,chartData);
-        int numData = chartData.size();
+        numData = chartData.size();
 
 
-        SCI::Vex3 location = pmesh->GetVertex(dataIndex);
+        location = pmesh->GetVertex(dataIndex);
         mapToScreen(x,y,location);
+
         x = (x+1)*0.5;
         y = (y+1)*0.5;
-        x = fmin(fmax(0.0,x),0.9);
-        y = fmin(fmax(0.0,y),0.9);
+
         QPointF position(x*width(),y*height());
-
-
         chartRects.append(new ChartRect(position,  &chartData[0], numData, w/5.0, h/5.0, globalMIN, globalMAX, steps));
     }
 }
@@ -181,7 +215,7 @@ void ChartCloud::paintEvent(QPaintEvent *event){
 void ChartCloud::showEvent(QShowEvent *event){
 
    Q_UNUSED(event);
-   createChartRects(4);
+   createChartRects(2);
 
 }
 
@@ -609,15 +643,14 @@ bool ChartCloud::MouseMotion(int button, int x, int dx, int y, int dy){
                 //std::cout << "rotate " << std::endl;
             }
             if(button == Qt::RightButton){
-                // zoom handled by projection and not by translation
 
                 zoomFactor = zoomFactor + dy*0.001;
-                zoomFactor = fmax(0.0001,zoomFactor);
+                zoomFactor = fmax(0.2,zoomFactor);
                 zoomFactor = fmin(10,zoomFactor);
+                std::cout << "zoom Factor " << zoomFactor << std::endl;
 
                 projOrtho.Set(left*zoomFactor, right*zoomFactor, bottom*zoomFactor, top*zoomFactor, near*zoomFactor, far*zoomFactor);
-                //pView->Zoom((float)(dy));
-                //std::cout << "zoom " << std::endl;
+
              }
         }
         need_view_update = true;

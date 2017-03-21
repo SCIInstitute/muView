@@ -35,8 +35,8 @@ COMPRESS      = gzip -9f
 DISTNAME      = muView1.0.0
 DISTDIR = /Users/magdalenaschwarzl/Documents/uni/coursesUtahGIT/research/muView/bin/build/muView/.obj/muView1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_LFLAGS) -Wl,-rpath,/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib -L../../bin/libs -lcommon -ldata -lshogun -L/usr/local/lib/ -framework QtOpenGL -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtCharts -framework QtNetwork -framework OpenGL -framework AGL 
+LFLAGS        = -headerpad_max_install_names -stdlib=libc++ -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.9 $(EXPORT_QMAKE_XARCH_LFLAGS) -F /System/Library/Frameworks/Cocoa.framework/ -F /System/Library/Frameworks/CoreVideo.framework/ -Wl,-rpath,/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib
+LIBS          = $(SUBLIBS) -F/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib -L../../bin/libs -lcommon -ldata -framework Cocoa -framework CoreVideo -L/usr/local/lib -lglfw3 -framework OpenGL -lshogun -L/usr/local/lib/ -framework QtOpenGL -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtCharts -framework QtNetwork -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -836,8 +836,6 @@ compiler_moc_header_clean:
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../include/muView/ChartRect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
@@ -848,6 +846,8 @@ compiler_moc_header_clean:
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -978,8 +978,8 @@ compiler_moc_header_clean:
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../include/muView/ChartRect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
@@ -990,6 +990,8 @@ compiler_moc_header_clean:
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -1090,8 +1092,8 @@ compiler_moc_header_clean:
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../include/muView/ChartRect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
@@ -1102,6 +1104,8 @@ compiler_moc_header_clean:
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -1283,8 +1287,8 @@ compiler_moc_header_clean:
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../../Common/include/Data/VolumetricData.h \
 		../../../Common/include/Data/DenseMultiDimensionalData.h \
 		../../../Common/include/Data/MultiDimensionalData.h \
@@ -1341,6 +1345,8 @@ compiler_moc_header_clean:
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../../Common/include/SCI/Camera/FrustumProjection.h \
 		../../../Common/include/SCI/Camera/Projection.h \
 		../../../Common/include/SCI/Camera/OrthoProjection.h \
@@ -1445,8 +1451,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../include/muView/ChartRect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
@@ -1457,6 +1461,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -1566,8 +1572,6 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
 		../../include/muView/ChartRect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
@@ -1578,6 +1582,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -1730,8 +1736,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../include/muView/ChartRect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
@@ -1742,6 +1748,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -1844,8 +1852,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../include/muView/ChartRect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QBrush \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qbrush.h \
@@ -1856,6 +1864,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../include/muView/RenderEngine2D.h \
 		../../include/muView/PCAView.h \
 		../../include/DimensionalityReduction.h \
@@ -2130,8 +2140,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QTimer \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		../../../Common/include/Data/VolumetricData.h \
 		../../../Common/include/Data/DenseMultiDimensionalData.h \
 		../../../Common/include/Data/MultiDimensionalData.h \
@@ -2188,14 +2198,18 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		../../../Common/include/SCI/Camera/FrustumProjection.h \
 		../../../Common/include/SCI/Camera/Projection.h \
 		../../../Common/include/SCI/Camera/OrthoProjection.h \
 		../../../Common/include/SCI/Camera/ThirdPersonCameraControls.h \
 		../../../Common/include/SCI/Camera/CameraControls.h \
 		../../../Common/include/SCI/Camera/LookAt.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QScreen \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qscreen.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QGuiApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qguiapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/ChartCloud.o ../../src/muView/ChartCloud.cpp
 
 ../../bin/build/muView/.obj/ChartRect.o: ../../src/muView/ChartRect.cpp /Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QtGui \
@@ -2309,7 +2323,23 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qpoint.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRect \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qrect.h \
-		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QRectF \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../../Common/include/SCI/Camera/FrustumProjection.h \
+		../../../Common/include/SCI/Camera/Projection.h \
+		../../../Common/include/SCI/Mat4.h \
+		../../../Common/include/SCI/Vex2.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDataStream \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatastream.h \
+		../../../Common/include/SCI/Utility.h \
+		../../../Common/include/SCI/Vex3.h \
+		../../../Common/include/SCI/Vex4.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Common/include/SCI/Camera/OrthoProjection.h \
+		../../../Common/include/SCI/Camera/ThirdPersonCameraControls.h \
+		../../../Common/include/SCI/Camera/CameraControls.h \
+		../../../Common/include/SCI/Camera/LookAt.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/ChartRect.o ../../src/muView/ChartRect.cpp
 
 ../../bin/build/muView/.obj/qrc_arial.o: ../../bin/build/muView/.rcc/qrc_arial.cpp 

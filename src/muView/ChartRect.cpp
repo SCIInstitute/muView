@@ -2,12 +2,14 @@
 
 #include "muView/ChartRect.h"
 
-ChartRect::ChartRect(QPointF &position, float *data, int numData, int w, int h, float min, float max, float steps)
-    : position(position){
+ChartRect::ChartRect(QPointF &position, float *data, int numData, int w, int h, float min, float max, int steps)
+    : position(position), minGlobal(min), maxGlobal(max), steps(steps){
 
     for (int i=0; i<numData;i++){
         this->data.push_back(data[i]);
     }
+
+
     for (int i=0; i<steps;i++){
         axisTicks.push_back(min + i*(max-min)/steps);
     }
@@ -26,7 +28,7 @@ ChartRect::ChartRect(QPointF &position, float *data, int numData, int w, int h, 
 
     resize(w,h);
 
-    computeBinning(min, max, steps);
+    computeBinning(minGlobal, maxGlobal, steps);
 }
 
 QPixmap ChartRect::grabChartView(){
@@ -38,13 +40,27 @@ void ChartRect::setData(float *data, int numData){
 
     chartView->chart()->removeAllSeries();
 
+    /*
     QLineSeries *series = new QLineSeries();
     for (int i=0; i<numData;i++){
         this->data.push_back(data[i]);
         *series << QPointF(i, data[i]);
     }
 
+    //compute distribution
+
+
+
     chartView->chart()->addSeries(series);
+    */
+    this->data.clear();
+
+    for (int i=0; i<numData;i++){
+        this->data.push_back(data[i]);
+    }
+
+
+    computeBinning(minGlobal, maxGlobal, steps);
 }
 
 void ChartRect::computeBinning(float min, float max, int steps){

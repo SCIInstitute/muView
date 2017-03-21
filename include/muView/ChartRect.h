@@ -23,7 +23,7 @@ class QPainter;
 class ChartRect
 {
 public:
-    ChartRect(QPointF &position, float* data, int numData, int w, int h, float min, float max, float steps);
+    ChartRect(QPointF &position, float* data, int numData, int w, int h, float min, float max, int steps);
 
     void drawChartRect(QPainter *painter, QPixmap pix);
 
@@ -45,6 +45,8 @@ private:
     SCI::Vex3 location; // which vertex data we are showing -> 3D
 
     int w,h;
+    int steps;
+    float minGlobal,maxGlobal;
 
     std::vector<float> axisTicks;
 

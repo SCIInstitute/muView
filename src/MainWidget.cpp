@@ -4,7 +4,8 @@
 
 MainWidget::MainWidget( Dialog::Metadata *_data, QMenuBar *_menu_bar, QWidget *parent) : QGLWidget( QGLFormat(QGL::DoubleBuffer | QGL::DepthBuffer | QGL::Rgba | QGL::AlphaChannel | QGL::DirectRendering | QGL::SampleBuffers), parent ), menu_bar(_menu_bar) {
 
-    data = _data->GetProxyData();
+
+   data = _data->GetProxyData();
 
     if( data->conn.size() > 0 && data->vert.size() > 0 ){
         draw_data = new Drawable::MeshDisplay();

@@ -4,15 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui opengl network
+QT += core gui opengl network
 QT += widgets charts
 
 TEMPLATE = app
 
 TARGET = muView
-
-
-
 
 
 DESTDIR     = ../../bin
@@ -26,6 +23,18 @@ UI_DIR      = ../../bin/build/$$TARGET/.ui
 LIBS += -L../../bin/libs
 LIBS += -lcommon
 LIBS += -ldata
+
+
+
+
+
+QMAKE_LFLAGS += -F /System/Library/Frameworks/Cocoa.framework/
+LIBS += -framework Cocoa
+QMAKE_LFLAGS += -F /System/Library/Frameworks/CoreVideo.framework/
+LIBS += -framework CoreVideo
+
+LIBS += -L/usr/local/lib -lglfw3 -framework OpenGL
+
 
 # glew for windows
 win32 {
