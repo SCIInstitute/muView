@@ -31,8 +31,6 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     factor = ((QGuiApplication*)QCoreApplication::instance())
             ->primaryScreen()->devicePixelRatio();
 
-
-
     mouse_button = Qt::NoButton;
     mouse_x = 0;
     mouse_y = 0;
@@ -62,6 +60,9 @@ ChartCloud::ChartCloud(QObject *parent) : QGLWidget() {
     translationFactorX=0;
     translationFactorY=0;
 
+    chartRatioWidth = 1/5.0;
+    chartRatioHeight = 1/5.0;
+
     setAutoFillBackground(false);
 }
 
@@ -71,14 +72,14 @@ void ChartCloud::initializeGL(){
     glewInit( );
     //glfwInit();
 
+
+    /* OPENGL VERISON
     int major, minor;
     glGetIntegerv(GL_MAJOR_VERSION, &major);
     glGetIntegerv(GL_MINOR_VERSION, &minor);
 
     std::cout << "OPENGL version " << major << "." << minor << std::endl;
-   // std::cout<<"Status: Using GLEW " << glewGetString(GLEW_VERSION) << std::endl;
-
-
+    */
 }
 
 
@@ -102,21 +103,65 @@ void ChartCloud::redoChartRects(){
     int w = width();
     int h = height();
 
+
+    std::vector<float> xList;
+    std::vector<float> yList;
+
     SCI::Vex3 location;
     std::vector<float> chartData;
     int numData = 0;
+    bool onScreen;
 
      for (int i = 0; i < chartRects.size(); ++i) {
 
-         x =-2;
-         y = -2;
+         onScreen = false;
 
-         while(x < -1 || x > 0.9 || y < -1 || y > 0.65){
+         while(!onScreen){
              dataIndex = rand() % pdata->GetElementCount();
              location = pmesh->GetVertex(dataIndex);
              mapToScreen(x,y,location);
              //std::cout<<"zoom: " << zoomFactor << "  iterating " << itCount << "... x,y" << x << ", " << y << std::endl;
+
+             //find new point if not on screen
+             onScreen = !(x < -1 || x > 0.9 || y < -1 || y > 0.65);
+             bool overlapX = false;
+             bool overlapY = false;
+
+             //check overlap with other charts
+             if(onScreen){
+                 for (int iComp=0; iComp< xList.size(); iComp++){
+                    if(fabs(x - xList[iComp]) < (chartRatioWidth*2.0)) {
+                        //onScreen  = false;
+                        std::cout << "overlap x "<< x << " - " << xList[iComp] << "diff: " << chartRatioWidth << std::endl;
+                        overlapX = true;
+                    }
+                    if(fabs(y - yList[iComp]) < (chartRatioHeight*2.0)){
+                        //onScreen  = false;
+                        overlapY = true;
+                        std::cout << "overlap y " << y << " - " << yList[iComp] << "diff: " << chartRatioHeight << std::endl;
+                    }
+                    if(overlapX && overlapY){
+                        onScreen  = false;
+                        std::cout << "both overlkap" << std::endl;
+                    }
+                 }
+             }
          }
+
+
+
+
+
+
+         if(xList.size() > i){
+             xList[i] = x;
+             yList[i] = y;
+         }
+         else{
+             xList.push_back(x);
+             yList.push_back(y);
+         }
+
 
          pdata->GetData(dataIndex,chartData);
          numData = chartData.size();
@@ -168,7 +213,7 @@ void ChartCloud::createChartRects(int number)
         y = (y+1)*0.5;
 
         QPointF position(x*width(),y*height());
-        chartRects.append(new ChartRect(position,  &chartData[0], numData, w/5.0, h/5.0, globalMIN, globalMAX, steps));
+        chartRects.append(new ChartRect(position,  &chartData[0], numData, chartRatioWidth*w, chartRatioHeight*h, globalMIN, globalMAX, steps));
     }
 }
 
@@ -268,7 +313,6 @@ void ChartCloud::mouseReleaseEvent ( QMouseEvent * event ){
     mouse_button = Qt::NoButton;
     mouse_x = x;
     mouse_y = y;
-
 }
 
 void ChartCloud::keyPressEvent ( QKeyEvent * event ){
@@ -625,8 +669,11 @@ void ChartCloud::RecalculateSil(){
 bool ChartCloud::MouseClick(int button, int state, int x, int y){
     //pView->Save("view.txt");
     mouse_active = ( state == QMouseEvent::MouseButtonPress );
+
     return mouse_active;
 }
+
+
 
 
 bool ChartCloud::MouseMotion(int button, int x, int dx, int y, int dy){
@@ -647,8 +694,6 @@ bool ChartCloud::MouseMotion(int button, int x, int dx, int y, int dy){
                 zoomFactor = zoomFactor + dy*0.001;
                 zoomFactor = fmax(0.2,zoomFactor);
                 zoomFactor = fmin(10,zoomFactor);
-                std::cout << "zoom Factor " << zoomFactor << std::endl;
-
                 projOrtho.Set(left*zoomFactor, right*zoomFactor, bottom*zoomFactor, top*zoomFactor, near*zoomFactor, far*zoomFactor);
 
              }

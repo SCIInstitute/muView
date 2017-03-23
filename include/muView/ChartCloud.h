@@ -188,6 +188,8 @@ public:
     int factor;
 
     QList<ChartRect *> chartRects;
+
+    float chartRatioWidth, chartRatioHeight;
 };
 
 #endif // CHARTCLOUD_H
