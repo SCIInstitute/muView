@@ -36,6 +36,7 @@ public:
     virtual void mouseReleaseEvent ( QMouseEvent * event );
     virtual void keyPressEvent ( QKeyEvent * event );
     virtual void keyReleaseEvent ( QKeyEvent * event );
+    DimensionalityReduction* getDMR();
 
 protected:
     // Interaction based variables

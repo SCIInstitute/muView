@@ -33,6 +33,11 @@ DimensionalityReduction::DimensionalityReduction(){
 DimensionalityReduction::~DimensionalityReduction(){ }
 
 
+double * DimensionalityReduction::GetPrincipalComponent(int component){
+
+    return dr.GetPrincipalComponent(component);
+}
+
 void DimensionalityReduction::Stop( ){ }
 
 
@@ -82,6 +87,8 @@ void DimensionalityReduction::processNextElement(){
 
 }
 
+
+
 void DimensionalityReduction::Start( int method, Data::MultiDimensionalData & _data_in, SCI::Subset & _features, Data::MultiDimensionalData & _data_out, SCI::Subset & _elements ){
     Stop();
 
@@ -100,7 +107,7 @@ void DimensionalityReduction::Start( int method, Data::MultiDimensionalData & _d
 
     tmp = new double[high_dimN];
     for(int i = 0; i < (int)features->size(); i++){
-        data_in->GetElement( features->at(i), tmp );
+        data_in->GetElement( features->at(i), tmp ); // tmp size = dimension size = number of runs/simulations
         dr.SetInputData( i, tmp );
     }
     delete [] tmp;
@@ -129,9 +136,70 @@ void DimensionalityReduction::Start( int method, Data::MultiDimensionalData & _d
     }
     delete [] tmp;
 
+
     for(int i = 0; i < 10; i++){
         processNextElement();
     }
+
+}
+
+
+void DimensionalityReduction::StartAxis( int method, Data::MultiDimensionalData & _data_in, SCI::Subset & _features, Data::MultiDimensionalData & _data_out, SCI::Subset & _elements ){
+    std::cout << "DimensionalityReduction::StartAxis TODO" << std::endl;
+
+    Stop();
+
+    features = &_features;
+    elements = &_elements;
+    data_in  = &_data_in;
+    data_out = &_data_out;
+    e_comp   = 0;
+
+
+    // don't do it on all vertices
+    high_dimN     = features->size();//data_in->GetElementCount();
+    low_dimN      = data_out->GetDimension();
+
+    // TODO update size here
+    dr.SetSize( data_in->GetDimension(), low_dimN, high_dimN );
+
+    double *tmp;
+    tmp = new double[high_dimN];
+    for(int i = 0; i < (int) data_in->GetDimension(); i++){//loop over all dimensions = runs, simulations
+        data_in->GetDimensionData( i, _features, tmp ); // New function here GetDimensionValues instead of Element. Only get vertices in features subset.
+        dr.SetInputData( i, tmp );
+    }
+    delete [] tmp;
+
+    if(min_elem) delete [] min_elem;
+    if(max_elem) delete [] max_elem;
+    min_elem = new float[low_dimN];
+    max_elem = new float[low_dimN];
+
+    cur_method = method;
+    dr.SetMethod( method );
+    dr.Run( );
+
+    for(int d = 0; d < low_dimN; d++){
+        min_elem[d] =  FLT_MAX;
+        max_elem[d] = -FLT_MAX;
+    }
+
+    tmp = new double[low_dimN];
+    for(int i = 0; i < (int)features->size(); i++){
+        dr.GetOutputData( i, tmp );
+        for(int d = 0; d < low_dimN; d++){
+            min_elem[d] = SCI::Min( min_elem[d], (float)tmp[d] );
+            max_elem[d] = SCI::Max( max_elem[d], (float)tmp[d] );
+        }
+    }
+    delete [] tmp;
+
+    /*
+    for(int i = 0; i < 10; i++){
+        processNextElement();
+    }
+    */
 
 }
 

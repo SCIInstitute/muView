@@ -59,6 +59,7 @@ HeartDock::HeartDock(SCI::ThirdPersonCameraControls * pView, Data::Mesh::PointMe
         QRadioButton * color4 = new QRadioButton( tr("Isovalue") );
         QRadioButton * color5 = new QRadioButton( tr("PCA Painting") );
         QRadioButton * color6 = new QRadioButton( tr("Fiber Direction") );
+        QRadioButton * color9 = new QRadioButton( tr("PCA coloring") );
         color0->setChecked(true);
 
         QLabel * dimension_label = new QLabel(tr("Dimension"));
@@ -104,6 +105,11 @@ HeartDock::HeartDock(SCI::ThirdPersonCameraControls * pView, Data::Mesh::PointMe
         pca_dim1_spinner->setRange(0,100);
         pca_dim1_spinner->setValue( 1 );
 
+        QLabel * pca_color_label = new QLabel(tr("Principal Component Nr"));
+        QSpinBox * pca_color_spinner = new QSpinBox( );
+        pca_color_spinner->setRange(1,41);
+        pca_color_spinner->setValue(1);
+
         connect( color0,                    SIGNAL(clicked()),            &(render_engine), SLOT(setColorModeDimension()) );
         connect( color1,                    SIGNAL(clicked()),            &(render_engine), SLOT(setColorModeMedian()) );
         connect( color2,                    SIGNAL(clicked()),            &(render_engine), SLOT(setColorModeStDev()) );
@@ -113,10 +119,13 @@ HeartDock::HeartDock(SCI::ThirdPersonCameraControls * pView, Data::Mesh::PointMe
         connect( color6,                    SIGNAL(clicked()),            &(render_engine), SLOT(setColorModeFibers()) );
         connect( color7,                    SIGNAL(clicked()),            &(render_engine), SLOT(setColorModeMin()) );
         connect( color8,                    SIGNAL(clicked()),            &(render_engine), SLOT(setColorModeMax()) );
+        connect( color9,                    SIGNAL(clicked()),            &(render_engine), SLOT(setColorModePCAcolor()) );
 
         connect( pca_sel_color,             SIGNAL(clicked()),            &(render_engine.pca), SLOT(selectPaintColor()) );
 
         connect( dimension_spinner,         SIGNAL(valueChanged(int)),    &(render_engine), SLOT(setDimension(int)) );
+
+        connect( pca_color_spinner,         SIGNAL(valueChanged(int)),    &(render_engine), SLOT(setPrincipalComponentNumber(int)) );
 
         connect( cluster_count_spinner,     SIGNAL(valueChanged(int)),    &(render_engine), SLOT(setClusterCount(int)) );
         connect( cluster_iteration_spinner, SIGNAL(valueChanged(int)),    &(render_engine), SLOT(setClusterIterations(int)) );
@@ -132,8 +141,11 @@ HeartDock::HeartDock(SCI::ThirdPersonCameraControls * pView, Data::Mesh::PointMe
         connect( color6,                    SIGNAL(clicked()),            pr_widget, SLOT(Reset()) );
         connect( color7,                    SIGNAL(clicked()),            pr_widget, SLOT(Reset()) );
         connect( color8,                    SIGNAL(clicked()),            pr_widget, SLOT(Reset()) );
+        connect( color9,                    SIGNAL(clicked()),            pr_widget, SLOT(Reset()) );
 
         connect( dimension_spinner,         SIGNAL(valueChanged(int)),    pr_widget, SLOT(Reset()) );
+
+        connect( pca_color_spinner,         SIGNAL(valueChanged(int)),    pr_widget, SLOT(Reset()) );
 
         connect( cluster_count_spinner,     SIGNAL(valueChanged(int)),    pr_widget, SLOT(Reset()) );
         connect( cluster_iteration_spinner, SIGNAL(valueChanged(int)),    pr_widget, SLOT(Reset()) );
@@ -151,7 +163,10 @@ HeartDock::HeartDock(SCI::ThirdPersonCameraControls * pView, Data::Mesh::PointMe
         colorLayout->addWidget( color1,                     row++, 0, 1, 3 );
         colorLayout->addWidget( color7,                     row++, 0, 1, 3 );
         colorLayout->addWidget( color8,                     row++, 0, 1, 3 );
-        colorLayout->addWidget( color2,                     row++, 0, 1, 3 );
+        colorLayout->addWidget( color2,                     row++, 0, 1, 3 );        
+        colorLayout->addWidget( color9,                     row++, 0, 1, 3 );
+        colorLayout->addWidget( pca_color_label,            row,   1, 1, 1 );
+        colorLayout->addWidget( pca_color_spinner,          row++, 2, 1, 1 );
         colorLayout->addWidget( color3,                     row++, 0, 1, 3 );
         colorLayout->addWidget( cluster_histogram,          row++, 1, 1, 2 );
         colorLayout->addWidget( cluster_count_label,        row,   1, 1, 1 );

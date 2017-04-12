@@ -80,6 +80,7 @@ SOURCES       = ../../src/muView/HeartMainWindow.cpp \
 		../../../Common/src/Data/MappedData.cpp \
 		../../../Common/src/Data/ProxyData.cpp \
 		../../src/muView/PCAView.cpp \
+		../../src/muView/PCAaxis.cpp \
 		../../src/muView/ChartCloud.cpp \
 		../../src/muView/ChartRect.cpp ../../bin/build/heart_app/.rcc/qrc_arial.cpp \
 		../../bin/build/heart_app/.moc/moc_HeartMainWindow.cpp \
@@ -133,6 +134,7 @@ OBJECTS       = ../../bin/build/heart_app/.obj/HeartMainWindow.o \
 		../../bin/build/heart_app/.obj/MappedData.o \
 		../../bin/build/heart_app/.obj/ProxyData.o \
 		../../bin/build/heart_app/.obj/PCAView.o \
+		../../bin/build/heart_app/.obj/PCAaxis.o \
 		../../bin/build/heart_app/.obj/ChartCloud.o \
 		../../bin/build/heart_app/.obj/ChartRect.o \
 		../../bin/build/heart_app/.obj/qrc_arial.o \
@@ -362,6 +364,7 @@ DIST          = /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/spec_p
 		../../../Common/include/Data/MappedData.h \
 		../../../Common/include/Data/ProxyData.h \
 		../../include/muView/PCAView.h \
+		../../include/muView/PCAaxis.h \
 		../../include/muView/ChartCloud.h \
 		../../include/muView/ChartRect.h ../../src/muView/HeartMainWindow.cpp \
 		../../src/muView/HeartMain.cpp \
@@ -395,6 +398,7 @@ DIST          = /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/spec_p
 		../../../Common/src/Data/MappedData.cpp \
 		../../../Common/src/Data/ProxyData.cpp \
 		../../src/muView/PCAView.cpp \
+		../../src/muView/PCAaxis.cpp \
 		../../src/muView/ChartCloud.cpp \
 		../../src/muView/ChartRect.cpp
 QMAKE_TARGET  = heart
@@ -809,8 +813,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Common/fonts/arial.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../include/muView/HeartMainWindow.h ../../include/muView/Histogram.h ../../include/muView/VolumeRenderer.h ../../include/muView/VoxelAssociativity.h ../../include/muView/RenderEngine.h ../../include/muView/ParallelCoordinates.h ../../include/muView/HeartDock.h ../../include/muView/RenderEngine3D.h ../../include/muView/RenderEngine2D.h ../../include/MainWidget.h ../../include/DimensionalityReduction.h ../../include/Shogun_Wrapper.h ../../include/Drawable/DimRedDisplay.h ../../include/Drawable/VolumeDisplay.h ../../include/Drawable/DrawableObject.h ../../include/Drawable/Provenance.h ../../include/Drawable/MeshDisplay.h ../../include/Drawable/PointDisplay.h ../../include/Drawable/ProvenanceNode.h ../../include/Drawable/Barchart.h ../../include/Drawable/ColorLine.h ../../include/Dialog/Metadata.h ../../include/Histogram2D.h ../../include/BoundingRegion.h ../../include/RemoteDimensionalityReduction.h ../../../Common/include/SCI/Network/QExtendedTcpSocket.h ../../../Common/include/MyLib/PolylineSimplification.h ../../../Common/include/Data/BasicData.h ../../../Common/include/Data/MappedData.h ../../../Common/include/Data/ProxyData.h ../../include/muView/PCAView.h ../../include/muView/ChartCloud.h ../../include/muView/ChartRect.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../src/muView/HeartMainWindow.cpp ../../src/muView/HeartMain.cpp ../../src/muView/Histogram.cpp ../../src/muView/VolumeRenderer.cpp ../../src/muView/VoxelAssociativity.cpp ../../src/muView/RenderEngine.cpp ../../src/muView/ParallelCoordinates.cpp ../../src/muView/HeartDock.cpp ../../src/muView/RenderEngine3D.cpp ../../src/muView/RenderEngine2D.cpp ../../src/MainWidget.cpp ../../src/DimensionalityReduction.cpp ../../src/Shogun_Wrapper.cpp ../../src/Drawable/DimRedDisplay.cpp ../../src/Drawable/VolumeDisplay.cpp ../../src/Drawable/DrawableObject.cpp ../../src/Drawable/Provenance.cpp ../../src/Drawable/MeshDisplay.cpp ../../src/Drawable/PointDisplay.cpp ../../src/Drawable/ProvenanceNode.cpp ../../src/Drawable/Barchart.cpp ../../src/Drawable/ColorLine.cpp ../../src/Dialog/Metadata.cpp ../../src/Histogram2D.cpp ../../src/BoundingRegion.cpp ../../src/RemoteDimensionalityReduction.cpp ../../../Common/src/SCI/Network/QExtendedTcpSocket.cpp ../../../Common/src/MyLib/PolylineSimplification.cpp ../../../Common/src/Data/BasicData.cpp ../../../Common/src/Data/MappedData.cpp ../../../Common/src/Data/ProxyData.cpp ../../src/muView/PCAView.cpp ../../src/muView/ChartCloud.cpp ../../src/muView/ChartRect.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../include/muView/HeartMainWindow.h ../../include/muView/Histogram.h ../../include/muView/VolumeRenderer.h ../../include/muView/VoxelAssociativity.h ../../include/muView/RenderEngine.h ../../include/muView/ParallelCoordinates.h ../../include/muView/HeartDock.h ../../include/muView/RenderEngine3D.h ../../include/muView/RenderEngine2D.h ../../include/MainWidget.h ../../include/DimensionalityReduction.h ../../include/Shogun_Wrapper.h ../../include/Drawable/DimRedDisplay.h ../../include/Drawable/VolumeDisplay.h ../../include/Drawable/DrawableObject.h ../../include/Drawable/Provenance.h ../../include/Drawable/MeshDisplay.h ../../include/Drawable/PointDisplay.h ../../include/Drawable/ProvenanceNode.h ../../include/Drawable/Barchart.h ../../include/Drawable/ColorLine.h ../../include/Dialog/Metadata.h ../../include/Histogram2D.h ../../include/BoundingRegion.h ../../include/RemoteDimensionalityReduction.h ../../../Common/include/SCI/Network/QExtendedTcpSocket.h ../../../Common/include/MyLib/PolylineSimplification.h ../../../Common/include/Data/BasicData.h ../../../Common/include/Data/MappedData.h ../../../Common/include/Data/ProxyData.h ../../include/muView/PCAView.h ../../include/muView/PCAaxis.h ../../include/muView/ChartCloud.h ../../include/muView/ChartRect.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../src/muView/HeartMainWindow.cpp ../../src/muView/HeartMain.cpp ../../src/muView/Histogram.cpp ../../src/muView/VolumeRenderer.cpp ../../src/muView/VoxelAssociativity.cpp ../../src/muView/RenderEngine.cpp ../../src/muView/ParallelCoordinates.cpp ../../src/muView/HeartDock.cpp ../../src/muView/RenderEngine3D.cpp ../../src/muView/RenderEngine2D.cpp ../../src/MainWidget.cpp ../../src/DimensionalityReduction.cpp ../../src/Shogun_Wrapper.cpp ../../src/Drawable/DimRedDisplay.cpp ../../src/Drawable/VolumeDisplay.cpp ../../src/Drawable/DrawableObject.cpp ../../src/Drawable/Provenance.cpp ../../src/Drawable/MeshDisplay.cpp ../../src/Drawable/PointDisplay.cpp ../../src/Drawable/ProvenanceNode.cpp ../../src/Drawable/Barchart.cpp ../../src/Drawable/ColorLine.cpp ../../src/Dialog/Metadata.cpp ../../src/Histogram2D.cpp ../../src/BoundingRegion.cpp ../../src/RemoteDimensionalityReduction.cpp ../../../Common/src/SCI/Network/QExtendedTcpSocket.cpp ../../../Common/src/MyLib/PolylineSimplification.cpp ../../../Common/src/Data/BasicData.cpp ../../../Common/src/Data/MappedData.cpp ../../../Common/src/Data/ProxyData.cpp ../../src/muView/PCAView.cpp ../../src/muView/PCAaxis.cpp ../../src/muView/ChartCloud.cpp ../../src/muView/ChartRect.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -943,6 +947,7 @@ compiler_moc_header_clean:
 		../../include/DimensionalityReduction.h \
 		../../include/DRL_Wrapper.h \
 		../../include/Shogun_Wrapper.h \
+		../../include/muView/PCAaxis.h \
 		../../../Common/include/QT/QControlWidget.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -1087,6 +1092,7 @@ compiler_moc_header_clean:
 		../../include/DimensionalityReduction.h \
 		../../include/DRL_Wrapper.h \
 		../../include/Shogun_Wrapper.h \
+		../../include/muView/PCAaxis.h \
 		../../include/muView/RenderEngine.h \
 		../../bin/build/heart_app/.moc/moc_predefs.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/bin/moc
@@ -1201,6 +1207,7 @@ compiler_moc_header_clean:
 		../../include/DimensionalityReduction.h \
 		../../include/DRL_Wrapper.h \
 		../../include/Shogun_Wrapper.h \
+		../../include/muView/PCAaxis.h \
 		../../../Common/include/QT/QControlWidget.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -2010,6 +2017,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/DimensionalityReduction.h \
 		../../include/DRL_Wrapper.h \
 		../../include/Shogun_Wrapper.h \
+		../../include/muView/PCAaxis.h \
 		../../../Common/include/QT/QControlWidget.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -2131,6 +2139,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/DimensionalityReduction.h \
 		../../include/DRL_Wrapper.h \
 		../../include/Shogun_Wrapper.h \
+		../../include/muView/PCAaxis.h \
 		../../../Common/include/QT/QControlWidget.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -2297,6 +2306,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/DimensionalityReduction.h \
 		../../include/DRL_Wrapper.h \
 		../../include/Shogun_Wrapper.h \
+		../../include/muView/PCAaxis.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/RenderEngine.o ../../src/muView/RenderEngine.cpp
@@ -2413,6 +2423,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/DimensionalityReduction.h \
 		../../include/DRL_Wrapper.h \
 		../../include/Shogun_Wrapper.h \
+		../../include/muView/PCAaxis.h \
 		../../../Common/include/QT/QControlWidget.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -3375,6 +3386,41 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QColorDialog \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolordialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/PCAView.o ../../src/muView/PCAView.cpp
+
+../../bin/build/heart_app/.obj/PCAaxis.o: ../../src/muView/PCAaxis.cpp ../../include/muView/PCAaxis.h \
+		../../../Common/include/Data/Mesh/PointMesh.h \
+		../../../Common/include/SCI/Vex3.h \
+		../../../Common/include/SCI/Vex2.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDataStream \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatastream.h \
+		../../../Common/include/SCI/Utility.h \
+		../../../Common/include/SCI/Vex4.h \
+		../../../Common/include/SCI/BoundingBox.h \
+		../../../Common/include/SCI/VexN.h \
+		../../../Common/include/Data/Mesh/ColorMesh.h \
+		../../../Common/include/SCI/Colormap.h \
+		../../../Common/include/GL/oglFont.h \
+		../../../Common/include/Data/Mesh/TriMesh.h \
+		../../../Common/include/Data/Mesh/Primitives.h \
+		../../../Common/include/SCI/Mat4.h \
+		../../../Common/include/Data/PointData.h \
+		../../../Common/include/Data/DenseMultiDimensionalData.h \
+		../../../Common/include/Data/MultiDimensionalData.h \
+		../../../Common/include/Data/Mesh/KDTree.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QMutex \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qmutex.h \
+		../../../Common/include/Data/Mesh/EdgeMesh.h \
+		../../../Common/include/Data/Mesh/SolidMesh.h \
+		../../../Common/include/Data/MultiDimensionalDataVector.h \
+		../../include/DimensionalityReduction.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Common/include/SCI/Subset.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QThread \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../include/DRL_Wrapper.h \
+		../../include/Shogun_Wrapper.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/PCAaxis.o ../../src/muView/PCAaxis.cpp
 
 ../../bin/build/heart_app/.obj/ChartCloud.o: ../../src/muView/ChartCloud.cpp ../../../Common/include/GL/glew.h \
 		../../include/muView/ChartCloud.h \

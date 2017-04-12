@@ -154,6 +154,19 @@ void Shogun_Wrapper::GetOutputData( int elem, float  * vals ) const {
     }
 }
 
+double* Shogun_Wrapper::GetPrincipalComponent(int component){
+
+
+    SGMatrix<float64_t> transformMatrix = ((CDimensionReductionPreprocessor*)_preprocessor)->get_transformation_matrix();
+
+
+    //int test  = transformMatrix.size();
+
+    //TODO
+    return transformMatrix.get_column_vector(component);
+
+}
+
 void Shogun_Wrapper::GetMappedPoint( double * highd_in, double * lowd_out ) const {
     SGVector<double> * hd = new SGVector<double>( high_dim, false );
     //SGVector<double> hd( highd_in, high_dim, false );
@@ -162,6 +175,7 @@ void Shogun_Wrapper::GetMappedPoint( double * highd_in, double * lowd_out ) cons
 
     //SGVector<double> hd = SGVector<double>( highd_in, high_dim, false );
     SGVector<double> ld = ((CDimensionReductionPreprocessor*)_preprocessor)->apply_to_feature_vector( *hd );
+
 
     for(int j = 0; j < low_dim; j++){
         lowd_out[j] = ld.vector[j];

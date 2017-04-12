@@ -132,17 +132,17 @@ void ChartCloud::redoChartRects(){
                  for (int iComp=0; iComp< xList.size(); iComp++){
                     if(fabs(x - xList[iComp]) < (chartRatioWidth*2.0)) {
                         //onScreen  = false;
-                        std::cout << "overlap x "<< x << " - " << xList[iComp] << "diff: " << chartRatioWidth << std::endl;
+                        //std::cout << "overlap x "<< x << " - " << xList[iComp] << "diff: " << chartRatioWidth << std::endl;
                         overlapX = true;
                     }
                     if(fabs(y - yList[iComp]) < (chartRatioHeight*2.0)){
                         //onScreen  = false;
                         overlapY = true;
-                        std::cout << "overlap y " << y << " - " << yList[iComp] << "diff: " << chartRatioHeight << std::endl;
+                        //std::cout << "overlap y " << y << " - " << yList[iComp] << "diff: " << chartRatioHeight << std::endl;
                     }
                     if(overlapX && overlapY){
                         onScreen  = false;
-                        std::cout << "both overlkap" << std::endl;
+                        //std::cout << "both overlkap" << std::endl;
                     }
                  }
              }
@@ -414,19 +414,53 @@ void ChartCloud::Draw( int width, int height ){
     glLineWidth(1.0f);
 
 
-    // draw_mode = 0
-    // This draws the colored volum
-    {
-    glEnable(GL_DEPTH_TEST);
-        glPointSize(3.0f);
-        if( pdata == 0 ){
-            pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
-        }
-        else{
-            pmesh->Draw( *colormap );
-        }
-    glDisable(GL_DEPTH_TEST);
+    // draw the colored heart
+    if(draw_mode == 0){
+        glEnable(GL_DEPTH_TEST);
+            glPointSize(3.0f);
+            if( pdata == 0 ){
+                pmesh->Draw( SCI::Vex4(1.0f, 0.95f, 1.0f, 1.0f ) );
+            }
+            else{
+                pmesh->Draw( *colormap );
+            }
+            //glPointSize(4.0f);
+            //pmesh->Draw( SCI::Vex4(0,0,0,1) );
+        glDisable(GL_DEPTH_TEST);
     }
+
+    /*
+    if(draw_mode == 4){
+        glLineWidth(4.0f);
+        glDisable(GL_DEPTH_TEST);
+        glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+        glEnable( GL_BLEND );
+            edge_mesh->Draw( edge_mesh_ro, *pmesh, *colormap );
+        glDisable( GL_BLEND );
+    }
+    */
+
+
+
+
+    if( draw_mode == 2 ){
+        glDisable(GL_DEPTH_TEST);
+        glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+        glEnable( GL_BLEND );
+            iso_tris->Draw( iso_tris_ro, *iso_points, *iso_color );
+        glDisable( GL_BLEND );
+    }
+
+    if( draw_mode == 3 ){
+        glDisable(GL_DEPTH_TEST);
+        glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+        glEnable( GL_BLEND );
+            df_tris->Draw( df_tris_ro, *df_points, *df_color );
+        glDisable( GL_BLEND );
+    }
+
+
+
 
     // This draws the black contours
     glDisable(GL_DEPTH_TEST);

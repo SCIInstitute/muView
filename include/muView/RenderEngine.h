@@ -29,6 +29,7 @@
 #include <muView/ChartCloud.h>
 #include <muView/RenderEngine2D.h>
 #include <muView/PCAView.h>
+#include <muView/PCAaxis.h>
 
 class RenderEngine : public QObject {
 
@@ -59,8 +60,10 @@ public slots:
     void setColorModeIsovalue( );
     void setColorModePCA();
     void setColorModeFibers();
+    void setColorModePCAcolor();
 
     void setDimension( int );
+    void setPrincipalComponentNumber( int );
     void setClusterCount( int );
     void setClusterIterations( int );
     void setClusterRecalculate( );
@@ -101,6 +104,7 @@ protected:
     int  draw_mode;
     int  color_mode;
     int  color_dim;
+    int  pca_color_dim;
     int  clusterN;
     int  clusterI;
     bool cluster_histogram;
@@ -156,6 +160,7 @@ public:
     RenderEngine2D re2[3];
     PCAView        pca;
     ChartCloud chartCloud;
+    PCAaxis        pcaAxis;
 
     void SetParallelCoordinateView( ParallelCoordinates * pc ){ re.parallel_coordinates = pc; }
 

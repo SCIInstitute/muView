@@ -29,9 +29,12 @@ public:
 
     // Start a dimensionality reduction. Function will block until the feature points identify a map which can be used on the elements. New thread will be launched to reduce the elements.
     void Start( int method, Data::MultiDimensionalData & _data_in, SCI::Subset & _features, Data::MultiDimensionalData & _data_out, SCI::Subset & _elements );
+    void StartAxis( int method, Data::MultiDimensionalData & _data_in, SCI::Subset & _features, Data::MultiDimensionalData & _data_out, SCI::Subset & _elements );
     void Restart( SCI::Subset & _elements );
     void Stop( );
 
+
+    double* GetPrincipalComponent(int component);
     // Return the total number of feature points
     int GetFeatureCount() const ;
     // Gets the reduced location of a feature point

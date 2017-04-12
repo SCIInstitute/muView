@@ -32,6 +32,8 @@ public:
 
     void GetMappedPoint( double * highd_in, double * lowd_out ) const ;
 
+    double* GetPrincipalComponent(int component);
+
 protected:
     double *  input_matrix;
     double * output_matrix;

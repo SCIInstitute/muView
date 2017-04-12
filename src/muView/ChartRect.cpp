@@ -118,7 +118,7 @@ void ChartRect::drawChartRect(QPainter *painter, QPixmap pix)
     painter->drawPixmap(position.x(), position.y(), w, h, pix);
     QImage * img = new QImage();
     *img = QImage(w*50,h*50, QImage::Format_ARGB32);
-    QString path = "/Users/magdalenaschwarzl/Desktop/graph.png";
-    pix.save(path);
+    //QString path = "/Users/magdalenaschwarzl/Desktop/graph.png";
+    //pix.save(path);
     painter->restore();
 }

@@ -74,7 +74,8 @@ SOURCES += \
     ../../src/DimensionalityReduction.cpp \
     ../../src/muView/PCAView.cpp \
     ../../src/muView/ChartCloud.cpp \
-    ../../src/muView/ChartRect.cpp
+    ../../src/muView/ChartRect.cpp \
+    ../../src/muView/PCAaxis.cpp
 
 
 HEADERS  += \
@@ -92,7 +93,8 @@ HEADERS  += \
     ../../include/DimensionalityReduction.h \
     ../../include/muView/PCAView.h \
     ../../include/muView/ChartCloud.h \
-    ../../include/muView/ChartRect.h
+    ../../include/muView/ChartRect.h \
+    ../../include/muView/PCAaxis.h
 
 
 RESOURCES += \

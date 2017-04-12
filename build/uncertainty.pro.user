@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.2.1, 2017-03-22T21:16:12. -->
+<!-- Written by QtCreator 4.2.1, 2017-04-11T17:37:44. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -688,8 +688,8 @@
      <value type="int">14</value>
     </valuelist>
     <valuemap type="QVariantMap" key="Ios.device_type">
-     <value type="QString" key="displayName">iPhone SE, iOS 10.2</value>
-     <value type="QString" key="identifier">10C291C1-49D6-4EB6-988B-ADC8395CDAC4</value>
+     <value type="QString" key="displayName">iPhone SE, iOS 10.3</value>
+     <value type="QString" key="identifier">302920E1-94DE-4DBA-B16F-33700A11AFBC</value>
      <value type="int" key="type">1</value>
     </valuemap>
     <value type="QString" key="Ios.run_arguments"></value>
@@ -744,8 +744,8 @@
      <value type="int">14</value>
     </valuelist>
     <valuemap type="QVariantMap" key="Ios.device_type">
-     <value type="QString" key="displayName">iPhone SE, iOS 10.2</value>
-     <value type="QString" key="identifier">10C291C1-49D6-4EB6-988B-ADC8395CDAC4</value>
+     <value type="QString" key="displayName">iPhone SE, iOS 10.3</value>
+     <value type="QString" key="identifier">302920E1-94DE-4DBA-B16F-33700A11AFBC</value>
      <value type="int" key="type">1</value>
     </valuemap>
     <value type="QString" key="Ios.run_arguments"></value>
@@ -800,8 +800,8 @@
      <value type="int">14</value>
     </valuelist>
     <valuemap type="QVariantMap" key="Ios.device_type">
-     <value type="QString" key="displayName">iPhone SE, iOS 10.2</value>
-     <value type="QString" key="identifier">10C291C1-49D6-4EB6-988B-ADC8395CDAC4</value>
+     <value type="QString" key="displayName">iPhone SE, iOS 10.3</value>
+     <value type="QString" key="identifier">302920E1-94DE-4DBA-B16F-33700A11AFBC</value>
      <value type="int" key="type">1</value>
     </valuemap>
     <value type="QString" key="Ios.run_arguments"></value>

@@ -83,6 +83,7 @@ SOURCES += \
     ../../../Common/src/Data/MappedData.cpp\
     ../../../Common/src/Data/ProxyData.cpp\
     ../../src/muView/PCAView.cpp \
+    ../../src/muView/PCAaxis.cpp \
     ../../src/muView/ChartCloud.cpp \
     ../../src/muView/ChartRect.cpp
 
@@ -118,6 +119,7 @@ HEADERS  += \
     ../../../Common/include/Data/MappedData.h\
     ../../../Common/include/Data/ProxyData.h\
     ../../include/muView/PCAView.h \
+    ../../include/muView/PCAaxis.h \
     ../../include/muView/ChartCloud.h \
     ../../include/muView/ChartRect.h
 

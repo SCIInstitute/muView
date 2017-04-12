@@ -17,7 +17,7 @@ RenderEngine::RenderEngine(SCI::ThirdPersonCameraControls *_pView) {
     clusterN   = 12;
     clusterI   =  5;
     cluster_histogram = true;
-    color_dim  =  0;
+    pca_color_dim  =  1;
     isoval    =  0;
     view_dim_iso  = false;
     view_min_iso  = false;
@@ -124,8 +124,11 @@ void RenderEngine::setColorModeCluster( ){        color_mode = 3; Recalculate();
 void RenderEngine::setColorModeIsovalue( ){       color_mode = 4; Recalculate(); }
 void RenderEngine::setColorModePCA( ){            color_mode = 5; Recalculate(); }
 void RenderEngine::setColorModeFibers( ){         color_mode = 6; Recalculate(); }
+void RenderEngine::setColorModePCAcolor( ){       color_mode = 9;
+                                                  Recalculate(); }
 
 void RenderEngine::setDimension( int v ){         color_dim  = v; Recalculate(); }
+void RenderEngine::setPrincipalComponentNumber( int p ){         pca_color_dim  = p; Recalculate(); }
 
 void RenderEngine::setClusterCount( int v ){      clusterN   = v;                }
 void RenderEngine::setClusterIterations( int v ){ clusterI   = v;                }
@@ -221,6 +224,7 @@ void RenderEngine::SetData( Data::PointData * _pdata, Data::Mesh::PointMesh * _p
     re2[1].SetData( pdata, pmesh, tdata, SCI::Vex4(0,1,0,-pmesh->bb.GetCenter().y), SCI::Vex4(-90, 1, 0, 0 ) );
     re2[2].SetData( pdata, pmesh, tdata, SCI::Vex4(0,0,1,-pmesh->bb.GetCenter().z), SCI::Vex4(  0, 1, 0, 0 ) );
     pca.SetData( pdata, pmesh, tdata, &colormap );
+    pcaAxis.SetData( pdata, pmesh, tdata, &colormap );
 
     std::cout << "RenderEngine: " << "Recalculating colors" << std::endl << std::flush;
     Recalculate();
@@ -256,6 +260,45 @@ void RenderEngine::UpdateRenderEngine2DColor( RenderEngine2D * re ){
         re->colormap.SetByDataIsoRange( *(re->ptmp), seq_cmap, mincol, maxcol, isoval );
     }
 
+    if( color_mode == 9){
+
+        //TODO implement
+        //re->colormap.setByPCAcolor( *(re->ptmp), seq_cmap, pca_color_dim );
+        //re->ttmp.ExtractIsolineByDataDimension( re->iso_lines, re->iso_verts, re->vtmp, *(re->ptmp), pca_color_dim, 1 );
+
+
+        pca_color_dim = pca_color_dim % 3;
+        SCI::Vex4 color;
+        switch(pca_color_dim){
+            case 0:
+                color = SCI::Vex4(1,0,0,1);
+                break;
+            case 1:
+                color = SCI::Vex4(0,1,0,1);
+                break;
+            case 2:
+                color = SCI::Vex4(0,0,1,1);
+                break;
+        }
+
+        int subsetSize = pcaAxis.getSubsetSize();
+        double * colorAxis = new double[subsetSize];
+        colorAxis = pcaAxis.getPrincipalComponent(0);
+
+        std::vector<int> subsetIndices;
+        pcaAxis.getSubsetIndices(subsetIndices);
+
+
+
+
+        re->colormap.clear();
+        re->colormap.SetColorPerVertex();
+        for(int i = 0; i < re->ptmp->GetElementCount(); i++){
+            int cid = cluster.GetClusterID( re->ptmp->GetElement(i) );
+            re->colormap.push_back( color.UIntColor() );
+        }
+    }
+
     re->update();
 }
 
@@ -271,7 +314,6 @@ void RenderEngine::Recalculate( ){
         if( color_mode == 0 ){
             seq_cmap.LoadDefaultMapRed();
             colormap.SetByDataDimension( *pdata, seq_cmap, color_dim );
-
         }
         if( color_mode == 1 ){
             seq_cmap.LoadDefaultMapRed();
@@ -308,6 +350,37 @@ void RenderEngine::Recalculate( ){
         }
         if( color_mode == 5 ){
             pca.EnablePainting();
+        }
+        if(color_mode == 9){
+
+            pca_color_dim = pca_color_dim % 3;
+
+            // what does that do?
+            seq_cmap.LoadDefaultMapBlue();
+
+            //TODO implement
+            //re->colormap.setByPCA(pca_color_dim);
+
+            colormap.clear();
+            colormap.SetColorPerVertex();
+            SCI::Vex4 color;
+            switch(pca_color_dim){
+                case 0:
+                    color = SCI::Vex4(1,0,0,1);
+                    break;
+                case 1:
+                    color = SCI::Vex4(0,1,0,1);
+                    break;
+                case 2:
+                    color = SCI::Vex4(0,0,1,1);
+                    break;
+            }
+            for(int i = 0; i < pdata->GetElementCount(); i++){
+                colormap.push_back( color.UIntColor() );
+            }
+
+            // TODO
+            // need new Dimensionality reduction need different pca
         }
         if( color_mode == 6 ){
 
@@ -526,6 +599,7 @@ void RenderEngine::Recalculate( ){
     UpdateRenderEngine2DColor( &(re2[2]) );
 
     pca.update();
+    chartCloud.update();
 
 }
 

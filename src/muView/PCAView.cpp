@@ -209,6 +209,10 @@ void PCAView::keyReleaseEvent ( QKeyEvent * event ){
     update();
 }
 
+DimensionalityReduction* PCAView::getDMR(){
+    return &dmr;
+}
+
 
 void PCAView::SetData(Data::PointData * _pdata, Data::Mesh::PointMesh * _pmesh, Data::Mesh::SolidMesh * _tdata, Data::Mesh::ColorMesh * _colormap){
 
@@ -217,17 +221,21 @@ void PCAView::SetData(Data::PointData * _pdata, Data::Mesh::PointMesh * _pmesh, 
     tdata    = _tdata;
     colormap = _colormap;
 
-    std::cout << "PCAView: " << dmr.GetMethodCount() << " methods" << std::endl;
-    for(int i = 0; i < dmr.GetMethodCount(); i++){
-        std::cout << "PCAView: " << dmr.GetMethodName(i) << std::endl;
-    }
-
-    //pdata->GetElementCount();
-
     full_set = SCI::Subset( pdata->GetElementCount() );
     features.GetRandomSubset(full_set, 1000);
 
     pca_out.Resize( pdata->GetElementCount(), 3 );
+
+    std::cout << "PCAView: data dimensions num run " << pdata->GetDimension() << std::endl;
+    std::cout << "PCAView: data num vertices " << pdata->GetVoxelCount() << std::endl;
+
+
+    std::cout << "PCAView: data in dimension " << pdata->GetDimension() << std::endl;
+    std::cout << "PCAView: data out dimension " << pca_out.GetDimension() << std::endl;
+
+    std::cout << "PCAView: element size " << full_set.size() << std::endl;
+    std::cout << "PCAView: feature size" << features.size() << std::endl;
+
 
     std::cout << "PCAView: Starting PCA with " << features.size() << " features" << std::endl;
     dmr.Start(0, *pdata, features, pca_out, full_set );
