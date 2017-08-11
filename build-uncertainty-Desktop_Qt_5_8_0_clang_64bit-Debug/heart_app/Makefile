@@ -2764,15 +2764,21 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/usr/local/include/shogun/lib/Cache.h \
 		/usr/local/include/shogun/io/SGIO.h \
 		/usr/local/include/shogun/mathematics/Math.h \
+		/usr/local/include/shogun/base/Parallel.h \
+		/usr/local/include/shogun/mathematics/Random.h \
 		/usr/local/include/shogun/base/SGObject.h \
 		/usr/local/include/shogun/lib/DataType.h \
 		/usr/local/include/shogun/lib/ShogunException.h \
 		/usr/local/include/shogun/base/Version.h \
-		/usr/local/include/shogun/base/Parallel.h \
-		/usr/local/include/shogun/mathematics/Random.h \
+		/usr/local/include/shogun/base/unique.h \
+		/usr/local/include/shogun/lib/tag.h \
+		/usr/local/include/shogun/lib/basetag.h \
+		/usr/local/include/shogun/lib/any.h \
 		/usr/local/include/shogun/lib/Lock.h \
+		/usr/local/include/shogun/lib/cpu.h \
 		/usr/local/include/shogun/lib/SGVector.h \
 		/usr/local/include/shogun/lib/SGReferencedData.h \
+		/usr/local/include/shogun/mathematics/linalg/GPUMemoryBase.h \
 		/usr/local/include/shogun/io/File.h \
 		/usr/local/include/shogun/features/DotFeatures.h \
 		/usr/local/include/shogun/features/Features.h \
@@ -2818,7 +2824,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/usr/local/include/shogun/lib/StructuredDataTypes.h \
 		/usr/local/include/shogun/labels/LatentLabels.h \
 		/usr/local/include/shogun/lib/Data.h \
-		/usr/local/include/shogun/kernel/GaussianKernel.h
+		/usr/local/include/shogun/kernel/GaussianKernel.h \
+		/usr/local/include/shogun/kernel/ShiftInvariantKernel.h \
+		/usr/local/include/shogun/distance/CustomDistance.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/Shogun_Wrapper.o ../../src/Shogun_Wrapper.cpp
 
 ../../bin/build/heart_app/.obj/DimRedDisplay.o: ../../src/Drawable/DimRedDisplay.cpp ../../include/Drawable/DimRedDisplay.h \

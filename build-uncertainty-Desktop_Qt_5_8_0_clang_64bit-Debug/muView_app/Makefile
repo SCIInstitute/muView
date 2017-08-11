@@ -1918,7 +1918,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qsettings.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/HeartDock.o ../../src/muView/HeartDock.cpp
 
-../../bin/build/muView/.obj/RenderEngine3D.o: ../../src/muView/RenderEngine3D.cpp ../../../Common/include/GL/glew.h \
+../../bin/build/muView/.obj/RenderEngine3D.o: ../../src/muView/RenderEngine3D.cpp /usr/local/include/GL/glew.h \
 		../../include/muView/RenderEngine3D.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -1979,7 +1979,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/RenderEngine3D.o ../../src/muView/RenderEngine3D.cpp
 
-../../bin/build/muView/.obj/RenderEngine2D.o: ../../src/muView/RenderEngine2D.cpp ../../../Common/include/GL/glew.h \
+../../bin/build/muView/.obj/RenderEngine2D.o: ../../src/muView/RenderEngine2D.cpp /usr/local/include/GL/glew.h \
 		../../include/muView/RenderEngine2D.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
@@ -2023,15 +2023,21 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/usr/local/include/shogun/lib/Cache.h \
 		/usr/local/include/shogun/io/SGIO.h \
 		/usr/local/include/shogun/mathematics/Math.h \
+		/usr/local/include/shogun/base/Parallel.h \
+		/usr/local/include/shogun/mathematics/Random.h \
 		/usr/local/include/shogun/base/SGObject.h \
 		/usr/local/include/shogun/lib/DataType.h \
 		/usr/local/include/shogun/lib/ShogunException.h \
 		/usr/local/include/shogun/base/Version.h \
-		/usr/local/include/shogun/base/Parallel.h \
-		/usr/local/include/shogun/mathematics/Random.h \
+		/usr/local/include/shogun/base/unique.h \
+		/usr/local/include/shogun/lib/tag.h \
+		/usr/local/include/shogun/lib/basetag.h \
+		/usr/local/include/shogun/lib/any.h \
 		/usr/local/include/shogun/lib/Lock.h \
+		/usr/local/include/shogun/lib/cpu.h \
 		/usr/local/include/shogun/lib/SGVector.h \
 		/usr/local/include/shogun/lib/SGReferencedData.h \
+		/usr/local/include/shogun/mathematics/linalg/GPUMemoryBase.h \
 		/usr/local/include/shogun/io/File.h \
 		/usr/local/include/shogun/features/DotFeatures.h \
 		/usr/local/include/shogun/features/Features.h \
@@ -2077,7 +2083,9 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/usr/local/include/shogun/lib/StructuredDataTypes.h \
 		/usr/local/include/shogun/labels/LatentLabels.h \
 		/usr/local/include/shogun/lib/Data.h \
-		/usr/local/include/shogun/kernel/GaussianKernel.h
+		/usr/local/include/shogun/kernel/GaussianKernel.h \
+		/usr/local/include/shogun/kernel/ShiftInvariantKernel.h \
+		/usr/local/include/shogun/distance/CustomDistance.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/Shogun_Wrapper.o ../../src/Shogun_Wrapper.cpp
 
 ../../bin/build/muView/.obj/DimensionalityReductionThreaded.o: ../../src/DimensionalityReductionThreaded.cpp ../../include/DimensionalityReductionThreaded.h \
@@ -2106,7 +2114,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/Shogun_Wrapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/DimensionalityReduction.o ../../src/DimensionalityReduction.cpp
 
-../../bin/build/muView/.obj/PCAView.o: ../../src/muView/PCAView.cpp ../../../Common/include/GL/glew.h \
+../../bin/build/muView/.obj/PCAView.o: ../../src/muView/PCAView.cpp /usr/local/include/GL/glew.h \
 		../../include/muView/PCAView.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
@@ -2151,7 +2159,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolordialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/PCAView.o ../../src/muView/PCAView.cpp
 
-../../bin/build/muView/.obj/ChartCloud.o: ../../src/muView/ChartCloud.cpp ../../../Common/include/GL/glew.h \
+../../bin/build/muView/.obj/ChartCloud.o: ../../src/muView/ChartCloud.cpp /usr/local/include/GL/glew.h \
 		../../include/muView/ChartCloud.h \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
