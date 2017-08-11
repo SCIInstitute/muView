@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 .DS_Store
+=======
+*.user
+.DStore
+Makefile
+>>>>>>> 08b4182028d83c3f9178304993374cc1e2b78515
 bin/*
+build*/
 Built/*
 build-uncertainty-Desktop_Qt_5_8_0_clang_64bit-Debug/*
 build/*
