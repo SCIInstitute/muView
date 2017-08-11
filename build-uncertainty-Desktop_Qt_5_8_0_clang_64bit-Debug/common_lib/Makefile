@@ -45,8 +45,7 @@ OBJECTS_DIR   = ../../bin/build/common_lib/.obj/
 
 ####### Files
 
-SOURCES       = ../../../Common/src/GL/oglTextureRECT.cpp \
-		../../../Common/src/GL/oglTexture3D.cpp \
+SOURCES       = ../../../Common/src/GL/oglTexture3D.cpp \
 		../../../Common/src/GL/oglTexture2D.cpp \
 		../../../Common/src/GL/oglTexture1D.cpp \
 		../../../Common/src/GL/oglTexture.cpp \
@@ -79,8 +78,7 @@ SOURCES       = ../../../Common/src/GL/oglTextureRECT.cpp \
 		../../bin/build/common_lib/.moc/moc_QExtendedMainWindow.cpp \
 		../../bin/build/common_lib/.moc/moc_QExtendedVerticalSlider.cpp \
 		../../bin/build/common_lib/.moc/moc_QDoubleSlider.cpp
-OBJECTS       = ../../bin/build/common_lib/.obj/oglTextureRECT.o \
-		../../bin/build/common_lib/.obj/oglTexture3D.o \
+OBJECTS       = ../../bin/build/common_lib/.obj/oglTexture3D.o \
 		../../bin/build/common_lib/.obj/oglTexture2D.o \
 		../../bin/build/common_lib/.obj/oglTexture1D.o \
 		../../bin/build/common_lib/.obj/oglTexture.o \
@@ -324,8 +322,7 @@ DIST          = /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/spec_p
 		../../../Common/include/GL/glext.h \
 		../../../Common/include/QT/QExtendedVerticalSlider.h \
 		../../../Common/include/QT/QDoubleSlider.h \
-		../../../Common/include/SCI/SimpleHistogram.h ../../../Common/src/GL/oglTextureRECT.cpp \
-		../../../Common/src/GL/oglTexture3D.cpp \
+		../../../Common/include/SCI/SimpleHistogram.h ../../../Common/src/GL/oglTexture3D.cpp \
 		../../../Common/src/GL/oglTexture2D.cpp \
 		../../../Common/src/GL/oglTexture1D.cpp \
 		../../../Common/src/GL/oglTexture.cpp \
@@ -744,7 +741,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/magdalenaschwarzl/Qt/5.8/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Common/include/SCI/Vex4.h ../../../Common/include/SCI/Vex3.h ../../../Common/include/SCI/Vex2.h ../../../Common/include/SCI/Mat4.h ../../../Common/include/SCI/Timer.h ../../../Common/include/SCI/Network/QExtendedTcpSocket.h ../../../Common/include/SCI/Subset.h ../../../Common/include/SCI/Network/QExtendedTcpServer.h ../../../Common/include/SCI/Utility.h ../../../Common/include/SCI/Graphics/MarchingCubes.h ../../../Common/include/SCI/BoundingBox.h ../../../Common/include/GL/oglTextureRECT.h ../../../Common/include/GL/oglTexture3D.h ../../../Common/include/GL/oglTexture2D.h ../../../Common/include/GL/oglTexture1D.h ../../../Common/include/GL/oglTexture.h ../../../Common/include/GL/oglFrameBufferObject.h ../../../Common/include/GL/oglCommon.h ../../../Common/include/GL/oglShader.h ../../../Common/include/SCI/Camera/ThirdPersonCameraControls.h ../../../Common/include/SCI/Camera/Projection.h ../../../Common/include/SCI/Camera/OrthoProjection.h ../../../Common/include/SCI/Camera/LookAt.h ../../../Common/include/SCI/Camera/FrustumProjection.h ../../../Common/include/SCI/Camera/FirstPersonCameraControls.h ../../../Common/include/SCI/Camera/CameraControls.h ../../../Common/include/SCI/Colormap.h ../../../Common/include/GL/oglFont.h ../../../Common/include/SCI/VexN.h ../../../Common/include/QT/QControlWidget.h ../../../Common/include/QT/QExtendedMainWindow.h ../../../Common/include/SCI/Geometry/CompGeom.h ../../../Common/include/GL/glext.h ../../../Common/include/QT/QExtendedVerticalSlider.h ../../../Common/include/QT/QDoubleSlider.h ../../../Common/include/SCI/SimpleHistogram.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../Common/src/GL/oglTextureRECT.cpp ../../../Common/src/GL/oglTexture3D.cpp ../../../Common/src/GL/oglTexture2D.cpp ../../../Common/src/GL/oglTexture1D.cpp ../../../Common/src/GL/oglTexture.cpp ../../../Common/src/GL/oglFrameBufferObject.cpp ../../../Common/src/GL/oglCommon.cpp ../../../Common/src/GL/oglShader.cpp ../../../Common/src/SCI/Timer.cpp ../../../Common/src/SCI/Mat4.cpp ../../../Common/src/SCI/Subset.cpp ../../../Common/src/SCI/Graphics/MarchingCubes.cpp ../../../Common/src/SCI/Camera/ThirdPersonCameraControls.cpp ../../../Common/src/SCI/Camera/OrthoProjection.cpp ../../../Common/src/SCI/Camera/LookAt.cpp ../../../Common/src/SCI/Camera/FrustumProjection.cpp ../../../Common/src/SCI/Camera/FirstPersonCameraControls.cpp ../../../Common/src/SCI/Camera/CameraControls.cpp ../../../Common/src/SCI/Colormap.cpp ../../../Common/src/GL/oglFont.cpp ../../../Common/src/QT/QExtendedMainWindow.cpp ../../../Common/src/QT/QControlWidget.cpp ../../../Common/src/QT/QExtendedVerticalSlider.cpp ../../../Common/src/QT/QDoubleSlider.cpp ../../../Common/src/SCI/SimpleHistogram.cpp ../../../Common/src/GL/glew.c $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../Common/src/GL/oglTexture3D.cpp ../../../Common/src/GL/oglTexture2D.cpp ../../../Common/src/GL/oglTexture1D.cpp ../../../Common/src/GL/oglTexture.cpp ../../../Common/src/GL/oglFrameBufferObject.cpp ../../../Common/src/GL/oglCommon.cpp ../../../Common/src/GL/oglShader.cpp ../../../Common/src/SCI/Timer.cpp ../../../Common/src/SCI/Mat4.cpp ../../../Common/src/SCI/Subset.cpp ../../../Common/src/SCI/Graphics/MarchingCubes.cpp ../../../Common/src/SCI/Camera/ThirdPersonCameraControls.cpp ../../../Common/src/SCI/Camera/OrthoProjection.cpp ../../../Common/src/SCI/Camera/LookAt.cpp ../../../Common/src/SCI/Camera/FrustumProjection.cpp ../../../Common/src/SCI/Camera/FirstPersonCameraControls.cpp ../../../Common/src/SCI/Camera/CameraControls.cpp ../../../Common/src/SCI/Colormap.cpp ../../../Common/src/GL/oglFont.cpp ../../../Common/src/QT/QExtendedMainWindow.cpp ../../../Common/src/QT/QControlWidget.cpp ../../../Common/src/QT/QExtendedVerticalSlider.cpp ../../../Common/src/QT/QDoubleSlider.cpp ../../../Common/src/SCI/SimpleHistogram.cpp ../../../Common/src/GL/glew.c $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -933,13 +930,6 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
-
-../../bin/build/common_lib/.obj/oglTextureRECT.o: ../../../Common/src/GL/oglTextureRECT.cpp ../../../Common/include/GL/oglTextureRECT.h \
-		../../../Common/include/GL/oglCommon.h \
-		../../../Common/include/gl/glext.h \
-		../../../Common/include/GL/oglTexture2D.h \
-		../../../Common/include/GL/oglTexture.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/common_lib/.obj/oglTextureRECT.o ../../../Common/src/GL/oglTextureRECT.cpp
 
 ../../bin/build/common_lib/.obj/oglTexture3D.o: ../../../Common/src/GL/oglTexture3D.cpp ../../../Common/include/GL/glew.h \
 		../../../Common/include/GL/oglTexture3D.h \

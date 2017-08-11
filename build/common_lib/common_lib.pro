@@ -24,7 +24,6 @@ INCLUDEPATH += ../../../Common/include
 win32:DEFINES += _CRT_SECURE_NO_WARNINGS
 
 SOURCES += \
-    ../../../Common/src/GL/oglTextureRECT.cpp \
     ../../../Common/src/GL/oglTexture3D.cpp \
     ../../../Common/src/GL/oglTexture2D.cpp \
     ../../../Common/src/GL/oglTexture1D.cpp \
