@@ -1,3 +1,4 @@
+*.user
 .DStore
 Makefile
 bin/*

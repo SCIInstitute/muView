@@ -157,13 +157,14 @@ void Shogun_Wrapper::GetOutputData( int elem, float  * vals ) const {
 double* Shogun_Wrapper::GetPrincipalComponent(int component){
 
 
-    SGMatrix<float64_t> transformMatrix = ((CDimensionReductionPreprocessor*)_preprocessor)->get_transformation_matrix();
+    //SGMatrix<float64_t> transformMatrix = ((CDimensionReductionPreprocessor*)_preprocessor)->get_transformation_matrix();
 
 
     //int test  = transformMatrix.size();
 
     //TODO
-    return transformMatrix.get_column_vector(component);
+    //return transformMatrix.get_column_vector(component);
+    return NULL;
 
 }
 

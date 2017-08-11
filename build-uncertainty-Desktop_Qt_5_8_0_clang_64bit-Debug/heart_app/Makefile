@@ -1711,7 +1711,82 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/Shogun_Wrapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/DimensionalityReduction.o ../../src/DimensionalityReduction.cpp
 
+<<<<<<< HEAD
 ../../bin/build/heart_app/.obj/Shogun_Wrapper.o: ../../src/Shogun_Wrapper.cpp ../../include/Shogun_Wrapper.h
+=======
+../../bin/build/heart_app/.obj/Shogun_Wrapper.o: ../../src/Shogun_Wrapper.cpp ../../include/Shogun_Wrapper.h \
+		/usr/local/include/shogun/base/init.h \
+		/usr/local/include/shogun/lib/config.h \
+		/usr/local/include/shogun/features/DenseFeatures.h \
+		/usr/local/include/shogun/lib/common.h \
+		/usr/local/include/shogun/lib/memory.h \
+		/usr/local/include/shogun/lib/Cache.h \
+		/usr/local/include/shogun/io/SGIO.h \
+		/usr/local/include/shogun/mathematics/Math.h \
+		/usr/local/include/shogun/base/Parallel.h \
+		/usr/local/include/shogun/mathematics/Random.h \
+		/usr/local/include/shogun/base/SGObject.h \
+		/usr/local/include/shogun/lib/DataType.h \
+		/usr/local/include/shogun/lib/ShogunException.h \
+		/usr/local/include/shogun/base/Version.h \
+		/usr/local/include/shogun/base/unique.h \
+		/usr/local/include/shogun/lib/tag.h \
+		/usr/local/include/shogun/lib/basetag.h \
+		/usr/local/include/shogun/lib/any.h \
+		/usr/local/include/shogun/lib/Lock.h \
+		/usr/local/include/shogun/lib/cpu.h \
+		/usr/local/include/shogun/lib/SGVector.h \
+		/usr/local/include/shogun/lib/SGReferencedData.h \
+		/usr/local/include/shogun/mathematics/linalg/GPUMemoryBase.h \
+		/usr/local/include/shogun/io/File.h \
+		/usr/local/include/shogun/features/DotFeatures.h \
+		/usr/local/include/shogun/features/Features.h \
+		/usr/local/include/shogun/preprocessor/Preprocessor.h \
+		/usr/local/include/shogun/features/FeatureTypes.h \
+		/usr/local/include/shogun/features/SubsetStack.h \
+		/usr/local/include/shogun/lib/DynamicObjectArray.h \
+		/usr/local/include/shogun/base/DynArray.h \
+		/usr/local/include/shogun/base/Parameter.h \
+		/usr/local/include/shogun/features/Subset.h \
+		/usr/local/include/shogun/lib/List.h \
+		/usr/local/include/shogun/lib/DynamicArray.h \
+		/usr/local/include/shogun/lib/SGMatrix.h \
+		/usr/local/include/shogun/features/StringFeatures.h \
+		/usr/local/include/shogun/lib/Compressor.h \
+		/usr/local/include/shogun/features/Alphabet.h \
+		/usr/local/include/shogun/lib/SGString.h \
+		/usr/local/include/shogun/converter/KernelLocallyLinearEmbedding.h \
+		/usr/local/include/shogun/converter/LocallyLinearEmbedding.h \
+		/usr/local/include/shogun/converter/EmbeddingConverter.h \
+		/usr/local/include/shogun/converter/Converter.h \
+		/usr/local/include/shogun/distance/Distance.h \
+		/usr/local/include/shogun/kernel/Kernel.h \
+		/usr/local/include/shogun/lib/Signal.h \
+		/usr/local/include/shogun/kernel/normalizer/KernelNormalizer.h \
+		/usr/local/include/shogun/preprocessor/PCA.h \
+		/usr/local/include/shogun/preprocessor/DimensionReductionPreprocessor.h \
+		/usr/local/include/shogun/preprocessor/DensePreprocessor.h \
+		/usr/local/include/shogun/preprocessor/KernelPCA.h \
+		/usr/local/include/shogun/kernel/LinearKernel.h \
+		/usr/local/include/shogun/kernel/DotKernel.h \
+		/usr/local/include/shogun/machine/KernelMachine.h \
+		/usr/local/include/shogun/machine/Machine.h \
+		/usr/local/include/shogun/labels/BinaryLabels.h \
+		/usr/local/include/shogun/labels/LabelTypes.h \
+		/usr/local/include/shogun/labels/DenseLabels.h \
+		/usr/local/include/shogun/labels/Labels.h \
+		/usr/local/include/shogun/labels/LabelsFactory.h \
+		/usr/local/include/shogun/labels/RegressionLabels.h \
+		/usr/local/include/shogun/labels/MulticlassLabels.h \
+		/usr/local/include/shogun/labels/StructuredLabels.h \
+		/usr/local/include/shogun/lib/StructuredData.h \
+		/usr/local/include/shogun/lib/StructuredDataTypes.h \
+		/usr/local/include/shogun/labels/LatentLabels.h \
+		/usr/local/include/shogun/lib/Data.h \
+		/usr/local/include/shogun/kernel/GaussianKernel.h \
+		/usr/local/include/shogun/kernel/ShiftInvariantKernel.h \
+		/usr/local/include/shogun/distance/CustomDistance.h
+>>>>>>> cf2db9345cfd76f46d6f936b48c79f147814cc06
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/heart_app/.obj/Shogun_Wrapper.o ../../src/Shogun_Wrapper.cpp
 
 ../../bin/build/heart_app/.obj/DimRedDisplay.o: ../../src/Drawable/DimRedDisplay.cpp ../../include/Drawable/DimRedDisplay.h \

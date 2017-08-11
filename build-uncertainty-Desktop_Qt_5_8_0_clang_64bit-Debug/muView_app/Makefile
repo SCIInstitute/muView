@@ -1199,9 +1199,52 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Applications/5.8/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/HeartDock.o ../../src/muView/HeartDock.cpp
 
+<<<<<<< HEAD
 ../../bin/build/muView/.obj/RenderEngine3D.o: ../../src/muView/RenderEngine3D.cpp ../../include/muView/RenderEngine3D.h \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
+=======
+../../bin/build/muView/.obj/RenderEngine3D.o: ../../src/muView/RenderEngine3D.cpp /usr/local/include/GL/glew.h \
+		../../include/muView/RenderEngine3D.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		../../../Common/include/Data/VolumetricData.h \
+		../../../Common/include/Data/DenseMultiDimensionalData.h \
+		../../../Common/include/Data/MultiDimensionalData.h \
+		../../../Common/include/SCI/VexN.h \
+		../../../Common/include/SCI/Utility.h \
+		../../../Common/include/SCI/Subset.h \
+		../../../Common/include/Data/PointData.h \
+		../../../Common/include/Data/MappedData.h \
+		../../../Common/include/Data/BasicData.h \
+		../../../Common/include/Data/Mesh/TetMesh.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QThread \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Common/include/Data/MultiDimensionalDataVector.h \
+		../../../Common/include/Data/Mesh/PointMesh.h \
+		../../../Common/include/SCI/Vex3.h \
+		../../../Common/include/SCI/Vex2.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDataStream \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatastream.h \
+		../../../Common/include/SCI/Vex4.h \
+		../../../Common/include/SCI/BoundingBox.h \
+		../../../Common/include/Data/Mesh/ColorMesh.h \
+		../../../Common/include/SCI/Colormap.h \
+		../../../Common/include/GL/oglFont.h \
+		../../../Common/include/Data/Mesh/TriMesh.h \
+		../../../Common/include/Data/Mesh/Primitives.h \
+		../../../Common/include/SCI/Mat4.h \
+		../../../Common/include/Data/Mesh/KDTree.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QMutex \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qmutex.h \
+		../../../Common/include/Data/Mesh/EdgeMesh.h \
+		../../../Common/include/Data/Mesh/SolidMesh.h \
+		../../../Common/include/Data/Mesh/HexMesh.h \
+		../../../Common/include/Data/Mesh/QuadMesh.h \
+		../../../Common/include/Data/Mesh/OrientationMesh.h \
+		../../../Common/include/Data/FiberDirectionData.h \
+		../../../Common/include/Data/KMeansClustering.h \
+>>>>>>> cf2db9345cfd76f46d6f936b48c79f147814cc06
 		../../include/muView/VolumeRenderer.h \
 		../../include/muView/VoxelAssociativity.h \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/QThread \
@@ -1214,6 +1257,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Applications/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/RenderEngine3D.o ../../src/muView/RenderEngine3D.cpp
 
+<<<<<<< HEAD
 ../../bin/build/muView/.obj/RenderEngine2D.o: ../../src/muView/RenderEngine2D.cpp ../../include/muView/RenderEngine2D.h \
 		/Applications/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Applications/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
@@ -1222,6 +1266,115 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/RenderEngine2D.o ../../src/muView/RenderEngine2D.cpp
 
 ../../bin/build/muView/.obj/Shogun_Wrapper.o: ../../src/Shogun_Wrapper.cpp ../../include/Shogun_Wrapper.h
+=======
+../../bin/build/muView/.obj/RenderEngine2D.o: ../../src/muView/RenderEngine2D.cpp /usr/local/include/GL/glew.h \
+		../../include/muView/RenderEngine2D.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
+		../../../Common/include/Data/Mesh/PointMesh.h \
+		../../../Common/include/SCI/Vex3.h \
+		../../../Common/include/SCI/Vex2.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDataStream \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatastream.h \
+		../../../Common/include/SCI/Utility.h \
+		../../../Common/include/SCI/Vex4.h \
+		../../../Common/include/SCI/BoundingBox.h \
+		../../../Common/include/SCI/VexN.h \
+		../../../Common/include/Data/Mesh/ColorMesh.h \
+		../../../Common/include/SCI/Colormap.h \
+		../../../Common/include/GL/oglFont.h \
+		../../../Common/include/Data/Mesh/TriMesh.h \
+		../../../Common/include/Data/Mesh/Primitives.h \
+		../../../Common/include/SCI/Mat4.h \
+		../../../Common/include/Data/PointData.h \
+		../../../Common/include/Data/DenseMultiDimensionalData.h \
+		../../../Common/include/Data/MultiDimensionalData.h \
+		../../../Common/include/SCI/Subset.h \
+		../../../Common/include/Data/Mesh/KDTree.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QMutex \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qmutex.h \
+		../../../Common/include/Data/Mesh/EdgeMesh.h \
+		../../../Common/include/Data/Mesh/SolidMesh.h \
+		../../../Common/include/Data/MultiDimensionalDataVector.h \
+		../../../Common/include/GL/oglCommon.h \
+		../../../Common/include/gl/glext.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qevent.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/RenderEngine2D.o ../../src/muView/RenderEngine2D.cpp
+
+../../bin/build/muView/.obj/Shogun_Wrapper.o: ../../src/Shogun_Wrapper.cpp ../../include/Shogun_Wrapper.h \
+		/usr/local/include/shogun/base/init.h \
+		/usr/local/include/shogun/lib/config.h \
+		/usr/local/include/shogun/features/DenseFeatures.h \
+		/usr/local/include/shogun/lib/common.h \
+		/usr/local/include/shogun/lib/memory.h \
+		/usr/local/include/shogun/lib/Cache.h \
+		/usr/local/include/shogun/io/SGIO.h \
+		/usr/local/include/shogun/mathematics/Math.h \
+		/usr/local/include/shogun/base/Parallel.h \
+		/usr/local/include/shogun/mathematics/Random.h \
+		/usr/local/include/shogun/base/SGObject.h \
+		/usr/local/include/shogun/lib/DataType.h \
+		/usr/local/include/shogun/lib/ShogunException.h \
+		/usr/local/include/shogun/base/Version.h \
+		/usr/local/include/shogun/base/unique.h \
+		/usr/local/include/shogun/lib/tag.h \
+		/usr/local/include/shogun/lib/basetag.h \
+		/usr/local/include/shogun/lib/any.h \
+		/usr/local/include/shogun/lib/Lock.h \
+		/usr/local/include/shogun/lib/cpu.h \
+		/usr/local/include/shogun/lib/SGVector.h \
+		/usr/local/include/shogun/lib/SGReferencedData.h \
+		/usr/local/include/shogun/mathematics/linalg/GPUMemoryBase.h \
+		/usr/local/include/shogun/io/File.h \
+		/usr/local/include/shogun/features/DotFeatures.h \
+		/usr/local/include/shogun/features/Features.h \
+		/usr/local/include/shogun/preprocessor/Preprocessor.h \
+		/usr/local/include/shogun/features/FeatureTypes.h \
+		/usr/local/include/shogun/features/SubsetStack.h \
+		/usr/local/include/shogun/lib/DynamicObjectArray.h \
+		/usr/local/include/shogun/base/DynArray.h \
+		/usr/local/include/shogun/base/Parameter.h \
+		/usr/local/include/shogun/features/Subset.h \
+		/usr/local/include/shogun/lib/List.h \
+		/usr/local/include/shogun/lib/DynamicArray.h \
+		/usr/local/include/shogun/lib/SGMatrix.h \
+		/usr/local/include/shogun/features/StringFeatures.h \
+		/usr/local/include/shogun/lib/Compressor.h \
+		/usr/local/include/shogun/features/Alphabet.h \
+		/usr/local/include/shogun/lib/SGString.h \
+		/usr/local/include/shogun/converter/KernelLocallyLinearEmbedding.h \
+		/usr/local/include/shogun/converter/LocallyLinearEmbedding.h \
+		/usr/local/include/shogun/converter/EmbeddingConverter.h \
+		/usr/local/include/shogun/converter/Converter.h \
+		/usr/local/include/shogun/distance/Distance.h \
+		/usr/local/include/shogun/kernel/Kernel.h \
+		/usr/local/include/shogun/lib/Signal.h \
+		/usr/local/include/shogun/kernel/normalizer/KernelNormalizer.h \
+		/usr/local/include/shogun/preprocessor/PCA.h \
+		/usr/local/include/shogun/preprocessor/DimensionReductionPreprocessor.h \
+		/usr/local/include/shogun/preprocessor/DensePreprocessor.h \
+		/usr/local/include/shogun/preprocessor/KernelPCA.h \
+		/usr/local/include/shogun/kernel/LinearKernel.h \
+		/usr/local/include/shogun/kernel/DotKernel.h \
+		/usr/local/include/shogun/machine/KernelMachine.h \
+		/usr/local/include/shogun/machine/Machine.h \
+		/usr/local/include/shogun/labels/BinaryLabels.h \
+		/usr/local/include/shogun/labels/LabelTypes.h \
+		/usr/local/include/shogun/labels/DenseLabels.h \
+		/usr/local/include/shogun/labels/Labels.h \
+		/usr/local/include/shogun/labels/LabelsFactory.h \
+		/usr/local/include/shogun/labels/RegressionLabels.h \
+		/usr/local/include/shogun/labels/MulticlassLabels.h \
+		/usr/local/include/shogun/labels/StructuredLabels.h \
+		/usr/local/include/shogun/lib/StructuredData.h \
+		/usr/local/include/shogun/lib/StructuredDataTypes.h \
+		/usr/local/include/shogun/labels/LatentLabels.h \
+		/usr/local/include/shogun/lib/Data.h \
+		/usr/local/include/shogun/kernel/GaussianKernel.h \
+		/usr/local/include/shogun/kernel/ShiftInvariantKernel.h \
+		/usr/local/include/shogun/distance/CustomDistance.h
+>>>>>>> cf2db9345cfd76f46d6f936b48c79f147814cc06
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/Shogun_Wrapper.o ../../src/Shogun_Wrapper.cpp
 
 ../../bin/build/muView/.obj/DimensionalityReductionThreaded.o: ../../src/DimensionalityReductionThreaded.cpp ../../include/DimensionalityReductionThreaded.h \
@@ -1242,9 +1395,41 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		../../include/Shogun_Wrapper.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/DimensionalityReduction.o ../../src/DimensionalityReduction.cpp
 
+<<<<<<< HEAD
 ../../bin/build/muView/.obj/PCAView.o: ../../src/muView/PCAView.cpp ../../include/muView/PCAView.h \
 		/Applications/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
 		/Applications/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
+=======
+../../bin/build/muView/.obj/PCAView.o: ../../src/muView/PCAView.cpp /usr/local/include/GL/glew.h \
+		../../include/muView/PCAView.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtOpenGL.framework/Headers/qgl.h \
+		../../../Common/include/Data/Mesh/PointMesh.h \
+		../../../Common/include/SCI/Vex3.h \
+		../../../Common/include/SCI/Vex2.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDataStream \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatastream.h \
+		../../../Common/include/SCI/Utility.h \
+		../../../Common/include/SCI/Vex4.h \
+		../../../Common/include/SCI/BoundingBox.h \
+		../../../Common/include/SCI/VexN.h \
+		../../../Common/include/Data/Mesh/ColorMesh.h \
+		../../../Common/include/SCI/Colormap.h \
+		../../../Common/include/GL/oglFont.h \
+		../../../Common/include/Data/Mesh/TriMesh.h \
+		../../../Common/include/Data/Mesh/Primitives.h \
+		../../../Common/include/SCI/Mat4.h \
+		../../../Common/include/Data/PointData.h \
+		../../../Common/include/Data/DenseMultiDimensionalData.h \
+		../../../Common/include/Data/MultiDimensionalData.h \
+		../../../Common/include/SCI/Subset.h \
+		../../../Common/include/Data/Mesh/KDTree.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QMutex \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qmutex.h \
+		../../../Common/include/Data/Mesh/EdgeMesh.h \
+		../../../Common/include/Data/Mesh/SolidMesh.h \
+		../../../Common/include/Data/MultiDimensionalDataVector.h \
+>>>>>>> cf2db9345cfd76f46d6f936b48c79f147814cc06
 		../../include/DimensionalityReduction.h \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -1258,6 +1443,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Applications/5.8/clang_64/lib/QtWidgets.framework/Headers/qcolordialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../bin/build/muView/.obj/PCAView.o ../../src/muView/PCAView.cpp
 
+<<<<<<< HEAD
 ../../bin/build/muView/.obj/ChartCloud.o: ../../src/muView/ChartCloud.cpp ../../include/muView/ChartCloud.h \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
@@ -1265,6 +1451,52 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		/Applications/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
 		/Applications/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Applications/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+=======
+../../bin/build/muView/.obj/ChartCloud.o: ../../src/muView/ChartCloud.cpp /usr/local/include/GL/glew.h \
+		../../include/muView/ChartCloud.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qobject.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Common/include/Data/VolumetricData.h \
+		../../../Common/include/Data/DenseMultiDimensionalData.h \
+		../../../Common/include/Data/MultiDimensionalData.h \
+		../../../Common/include/SCI/VexN.h \
+		../../../Common/include/SCI/Utility.h \
+		../../../Common/include/SCI/Subset.h \
+		../../../Common/include/Data/PointData.h \
+		../../../Common/include/Data/MappedData.h \
+		../../../Common/include/Data/BasicData.h \
+		../../../Common/include/Data/Mesh/TetMesh.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QThread \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qthread.h \
+		../../../Common/include/Data/MultiDimensionalDataVector.h \
+		../../../Common/include/Data/Mesh/PointMesh.h \
+		../../../Common/include/SCI/Vex3.h \
+		../../../Common/include/SCI/Vex2.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QDataStream \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qdatastream.h \
+		../../../Common/include/SCI/Vex4.h \
+		../../../Common/include/SCI/BoundingBox.h \
+		../../../Common/include/Data/Mesh/ColorMesh.h \
+		../../../Common/include/SCI/Colormap.h \
+		../../../Common/include/GL/oglFont.h \
+		../../../Common/include/Data/Mesh/TriMesh.h \
+		../../../Common/include/Data/Mesh/Primitives.h \
+		../../../Common/include/SCI/Mat4.h \
+		../../../Common/include/Data/Mesh/KDTree.h \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/QMutex \
+		/Users/magdalenaschwarzl/Qt/5.8/clang_64/lib/QtCore.framework/Headers/qmutex.h \
+		../../../Common/include/Data/Mesh/EdgeMesh.h \
+		../../../Common/include/Data/Mesh/SolidMesh.h \
+		../../../Common/include/Data/Mesh/HexMesh.h \
+		../../../Common/include/Data/Mesh/QuadMesh.h \
+		../../../Common/include/Data/Mesh/OrientationMesh.h \
+		../../../Common/include/Data/FiberDirectionData.h \
+		../../../Common/include/Data/KMeansClustering.h \
+>>>>>>> cf2db9345cfd76f46d6f936b48c79f147814cc06
 		../../include/muView/VolumeRenderer.h \
 		../../include/muView/VoxelAssociativity.h \
 		/Applications/5.8/clang_64/lib/QtCore.framework/Headers/QThread \
